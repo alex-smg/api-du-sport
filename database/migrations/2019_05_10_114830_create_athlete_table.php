@@ -41,5 +41,6 @@ class CreateAthleteTable extends Migration
     public function down()
     {
         Schema::dropIfExists('athletes');
+        Schema::dropIfExists('equipes');
     }
 }
