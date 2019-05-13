@@ -13,22 +13,24 @@ class CreateAthleteTable extends Migration
      */
     public function up()
     {
-        Schema::create('athletes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->longText('description');
-            $table->integer('equipe');
-            $table->timestamps();
-        });
         Schema::create('equipes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('nationalite');
             $table->longText('description');
-            $table->integer('athletes');
             $table->integer('competition');
             $table->timestamps();
         });
+
+        Schema::create('athletes', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->longText('description');
+            $table->unsignedBigInteger('equipe_id');
+            $table->foreign('equipe_id')->references('id')->on('equipes');
+            $table->timestamps();
+        });
+
     }
 
     /**
@@ -39,5 +41,6 @@ class CreateAthleteTable extends Migration
     public function down()
     {
         Schema::dropIfExists('athletes');
+        Schema::dropIfExists('equipes');
     }
 }
