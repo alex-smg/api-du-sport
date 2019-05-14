@@ -16,3 +16,12 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('allathletes', 'AthletesController@index');
+
+Route::get('allathletes/{id}', 'AthletesController@findAthlete');
+
+Route::post('add/athlete', 'AthletesController@store');
+
+Route::delete('athletes/{id}', 'AthletesController@destroy');

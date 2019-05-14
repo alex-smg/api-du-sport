@@ -20,7 +20,7 @@ $factory->define(Athlete::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'description' => $faker->realText(180),
-        'equipe_id' => $faker->randomElement(['1', '2'])
+        'equipe_id' => $faker->randomElement(['1', '150'])
 
     ];
 });
