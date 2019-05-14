@@ -1777,6 +1777,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1811,6 +1812,19 @@ __webpack_require__.r(__webpack_exports__);
     fetchPaginationAthletes: function fetchPaginationAthletes(url) {
       this.url = url;
       this.fetchAthletes();
+    },
+    deleteArticle: function deleteArticle(id) {
+      var _this2 = this;
+
+      if (confirm('Are You Sure?')) {
+        axios["delete"]("api/athletes/".concat(id)).then(function (data) {
+          alert('athletes Removed');
+
+          _this2.fetchAthletes();
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      }
     }
   }
 });
@@ -37156,7 +37170,19 @@ var render = function() {
       _vm._v(" "),
       _vm._l(_vm.allathletes, function(athletes) {
         return _c("ul", { key: athletes.id }, [
-          _c("li", [_vm._v(_vm._s(athletes.name))])
+          _c("li", [_vm._v(_vm._s(athletes.name) + " " + _vm._s(athletes.id))]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              on: {
+                click: function($event) {
+                  return _vm.deleteArticle(athletes.id)
+                }
+              }
+            },
+            [_vm._v("Delete")]
+          )
         ])
       }),
       _vm._v(" "),

@@ -2,7 +2,8 @@
     <div>
         <h2>Tous les athletes</h2>
         <ul v-for="athletes in allathletes" :key="athletes.id">
-            <li>{{ athletes.name}}</li>
+            <li>{{ athletes.name}} {{ athletes.id}}</li>
+            <button @click="deleteArticle(athletes.id)">Delete</button>
         </ul>
         <div class="pagination">
             <button v-on:click="fetchPaginationAthletes(pagination.prev_page_url)">Précédent</button>
@@ -48,7 +49,17 @@
             fetchPaginationAthletes(url){
                 this.url = url
                 this.fetchAthletes()
-            }
+            },
+            deleteArticle(id) {
+                if (confirm('Are You Sure?')) {
+                    axios.delete(`api/athletes/${id}`)
+                        .then(data => {
+                            alert('athletes Removed');
+                            this.fetchAthletes();
+                        })
+                        .catch(err => console.log(err));
+                }
+            },
         }
     }
 
