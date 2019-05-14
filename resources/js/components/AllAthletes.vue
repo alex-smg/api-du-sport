@@ -1,16 +1,17 @@
 <template>
     <div>
         <h2>Tous les athletes</h2>
-        <ul v-for="athletes in allathletes" :key="athletes.id">
-            <li>{{ athletes.name}} {{ athletes.id}}</li>
-            <button @click="deleteArticle(athletes.id)">Delete</button>
+        <ul class="list-data" v-for="athletes in allathletes" :key="athletes.id">
+            <li><p>{{ athletes.name}} </p><button @click="deleteArticle(athletes.id)">Delete</button></li>
+
         </ul>
         <div class="pagination">
-            <button v-on:click="fetchPaginationAthletes(pagination.prev_page_url)">Précédent</button>
+            <button class="pagination-btn" v-on:click="fetchPaginationAthletes(pagination.prev_page_url)">Précédent</button>
             <span>Page {{pagination.current_page}} of {{pagination.last_page}}</span>
-            <button v-on:click="fetchPaginationAthletes(pagination.next_page_url)">Suivant</button>
+            <button class="pagination-btn" v-on:click="fetchPaginationAthletes(pagination.next_page_url)">Suivant</button>
         </div>
         <form method="POST" action="add/athlete" @submit.prevent="addAthlete()">
+            <h2>Ajouter un athlète</h2>
             <label>Nom</label>
             <input type="text" name="name" v-model="name"/>
             <label>Description</label>
@@ -21,7 +22,7 @@
                 <option value="2">2</option>
                 <option value="3">3</option>
             </select>
-            <button type="submit">Enregistrer</button>
+            <button class="pagination-btn" type="submit">Enregistrer</button>
         </form>
     </div>
 </template>
@@ -94,3 +95,49 @@
     }
 
 </script>
+
+<style scoped>
+
+    h2{
+        margin-bottom: 5vh;
+    }
+    .list-data{
+        width: 80%;
+    }
+    .list-data li{
+        display: flex;
+        width: 100%;
+        padding: 1vh 0 1vh 0;
+    }
+    .list-data p{
+        width: 50%;
+    }
+    .list-data li button{
+        background-color: transparent;
+        border: 1px solid red;
+        padding: 1%;
+        font-size: 1vw;
+        color: red;
+        transition: 0.5s;
+        cursor:pointer;
+        border-radius: 0.25rem;
+        width: 12%;
+    }
+    .list-data li button:hover{
+        background-color: red;
+        color: #FFFFFF;
+    }
+
+    .pagination-btn{
+        background-color: #FF4B2B;
+        padding: 1% 2% 1% 2%;
+        font-size: 0.8vw;
+        border: none;
+        color: #FFFFFF;
+        transition: 0.5s;
+        cursor:pointer;
+        border-radius: 0.25rem;
+    }
+
+
+</style>
