@@ -10,7 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('athletes', 'AthletesController@index');
+
+
+Route::get('athletes', function (){
+    return view('athlete.allathlete');
+});
 
 Route::get('/', function () {
     return view('welcome');
