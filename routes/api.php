@@ -22,6 +22,6 @@ Route::get('allathletes', 'AthletesController@index');
 
 Route::get('allathletes/{id}', 'AthletesController@findAthlete');
 
-Route::get('athletes', 'AthletesController@index');
+Route::post('add/athlete', 'AthletesController@store');
 
 Route::delete('athletes/{id}', 'AthletesController@destroy');

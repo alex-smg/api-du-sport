@@ -1778,12 +1778,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       allathletes: [],
       url: 'api/allathletes',
-      pagination: []
+      pagination: [],
+      name: null,
+      description: null,
+      equipe_id: null
     };
   },
   created: function created() {
@@ -1812,6 +1828,17 @@ __webpack_require__.r(__webpack_exports__);
     fetchPaginationAthletes: function fetchPaginationAthletes(url) {
       this.url = url;
       this.fetchAthletes();
+    },
+    addAthlete: function addAthlete() {
+      axios.post('api/add/athlete', {
+        name: this.name,
+        description: this.description,
+        equipe_id: this.equipe_id
+      }).then(function (response) {
+        console.log(response);
+      })["catch"](function (error) {
+        console.log(error);
+      });
     },
     deleteArticle: function deleteArticle(id) {
       var _this2 = this;
@@ -37219,7 +37246,108 @@ var render = function() {
           },
           [_vm._v("Suivant")]
         )
-      ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          attrs: { method: "POST", action: "add/athlete" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.addAthlete()
+            }
+          }
+        },
+        [
+          _c("label", [_vm._v("Nom")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.name,
+                expression: "name"
+              }
+            ],
+            attrs: { type: "text", name: "name" },
+            domProps: { value: _vm.name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.name = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("label", [_vm._v("Description")]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.description,
+                expression: "description"
+              }
+            ],
+            attrs: { name: "description" },
+            domProps: { value: _vm.description },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.description = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("label", [_vm._v("Equipe")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.equipe_id,
+                  expression: "equipe_id"
+                }
+              ],
+              attrs: { name: "equipe_id" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.equipe_id = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "3" } }, [_vm._v("3")])
+            ]
+          ),
+          _vm._v(" "),
+          _c("button", { attrs: { type: "submit" } }, [_vm._v("Enregistrer")])
+        ]
+      )
     ],
     2
   )

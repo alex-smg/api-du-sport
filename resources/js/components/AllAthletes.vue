@@ -10,6 +10,19 @@
             <span>Page {{pagination.current_page}} of {{pagination.last_page}}</span>
             <button v-on:click="fetchPaginationAthletes(pagination.next_page_url)">Suivant</button>
         </div>
+        <form method="POST" action="add/athlete" @submit.prevent="addAthlete()">
+            <label>Nom</label>
+            <input type="text" name="name" v-model="name"/>
+            <label>Description</label>
+            <textarea name="description" v-model="description"></textarea>
+            <label>Equipe</label>
+            <select name="equipe_id" v-model="equipe_id">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <button type="submit">Enregistrer</button>
+        </form>
     </div>
 </template>
 
@@ -20,6 +33,9 @@
                  allathletes: [],
                 url: 'api/allathletes',
                 pagination: [],
+                name: null,
+                description : null,
+                equipe_id:null
             }
         },
         created(){
@@ -49,6 +65,20 @@
             fetchPaginationAthletes(url){
                 this.url = url
                 this.fetchAthletes()
+            },
+            addAthlete(){
+                axios.post('api/add/athlete', {
+                    name: this.name,
+                    description: this.description,
+                    equipe_id: this.equipe_id
+                })
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+
             },
             deleteArticle(id) {
                 if (confirm('Are You Sure?')) {
