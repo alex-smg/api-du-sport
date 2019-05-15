@@ -6,18 +6,17 @@ import{routes} from './routes'
 import MainApp from './components/MainApp.vue'
 import Navbar from "./components/navbar/navbar.vue";
 
-Vue.use(VueRouter)
-Vue.use(Vuex)
+Vue.use(VueRouter);
+Vue.use(Vuex);
 
 const router = new VueRouter({
     routes,
-    mode:"history"
 });
 
 const app = new Vue({
     el: '#app',
     router,
-    components:{
+    components: {
         MainApp
     }
 });

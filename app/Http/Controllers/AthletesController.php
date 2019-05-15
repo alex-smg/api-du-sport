@@ -15,8 +15,8 @@ class AthletesController extends Controller
         return AthleteResource::collection($allAthletes);
     }
     public function findAthlete($id){
-        $athlete = Athlete::findOrFail($id);
-        return new AthleteResource($athlete);
+        $athlete = Athlete::with('equipe')->findOrFail($id);
+        return $athlete;
     }
     public function store(Request $request)
     {

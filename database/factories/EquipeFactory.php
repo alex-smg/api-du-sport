@@ -21,7 +21,7 @@
             'name' => $faker->name,
             'description' => $faker->realText(180),
             'competition' => $faker->randomElement(['1', '10']),
-            'nationalite_id' => $faker->randomElement(['1', '10']),
+            'nationalite_id' => $faker->randomElement(['1', '5']),
 
         ];
     });

@@ -2,9 +2,10 @@
     <div id="main">
         <navbar/>
         <div class="container">
-            <router-view></router-view>
+            <transition name="fade" mode="out-in">
+                <router-view/>
+            </transition>
         </div>
-
     </div>
 
 </template>
@@ -18,3 +19,18 @@
         }
     }
 </script>
+
+<style>
+
+    #main{
+        display: flex;
+    }
+    .page{
+        position: fixed;
+        width: inherit;
+    }
+
+
+
+
+</style>
