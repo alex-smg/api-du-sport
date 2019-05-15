@@ -1,5 +1,4 @@
 <div id="allathletes">
-        <div>
             <h2>Tous les athletes</h2>
             <ul class="list-data" v-for="athletes in allathletes" :key="athletes.id">
                 <li><p>{{ athletes.name}} </p><button @click="deleteArticle(athletes.id)">Delete</button></li>
@@ -24,5 +23,4 @@
                 </select>
                 <button class="pagination-btn" type="submit">Enregistrer</button>
             </form>
-        </div>
 </div>
