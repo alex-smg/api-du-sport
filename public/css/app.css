@@ -24,7 +24,7 @@ nav ul {
 }
 
 nav ul li {
-  padding: 2vh 0 2vh 0;
+  padding: 3vh 0 3vh 0;
   margin-top: 0.5vh;
   margin-bottom: 0.5vh;
 }
@@ -39,7 +39,7 @@ nav ul li {
 
 .container {
   width: 85vw;
-  margin: auto 0 auto 20vw;
+  margin: auto 0 auto 0;
 }
 
 /*

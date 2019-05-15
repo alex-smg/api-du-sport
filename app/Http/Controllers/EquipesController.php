@@ -31,7 +31,7 @@
 
         }
         public function destroy($id){
-            $equipe = Athlete::findOrFail($id);
+            $equipe = Equipe::findOrFail($id);
             if($equipe->delete()) {
                 return new EquipeResource($equipe);
             }

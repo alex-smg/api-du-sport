@@ -1,14 +1,15 @@
 <template>
     <div>
-        <h2>Toutes les equipes</h2>
-        <ul class="list-data" v-for="equipes in allequipes" :key="equipes.id">
-            <li><p>{{ equipes.name}} </p><button @click="deleteEquipe(equipes.id)">Delete</button></li>
-
-        </ul>
-        <div class="pagination">
-            <button class="pagination-btn" v-on:click="fetchPaginationEquipe(pagination.prev_page_url)">Précédent</button>
-            <span>Page {{pagination.current_page}} of {{pagination.last_page}}</span>
-            <button class="pagination-btn" v-on:click="fetchPaginationEquipe(pagination.next_page_url)">Suivant</button>
+        <div class="cont-list">
+            <h2>Toutes les equipes</h2>
+            <ul class="list-data" v-for="equipes in allequipes" :key="equipes.id">
+                <li><p>{{ equipes.name}} </p><button @click="deleteEquipe(equipes.id)">Delete</button></li>
+            </ul>
+            <div class="pagination">
+                <button class="pagination-btn" v-on:click="fetchPaginationEquipe(pagination.prev_page_url)">Précédent</button>
+                <span>Page {{pagination.current_page}} of {{pagination.last_page}}</span>
+                <button class="pagination-btn" v-on:click="fetchPaginationEquipe(pagination.next_page_url)">Suivant</button>
+            </div>
         </div>
     </div>
 </template>
@@ -66,7 +67,11 @@
 </script>
 
 <style scoped>
-
+    .cont-list{
+        display: block;
+        margin: auto;
+        width: 60%;
+    }
     h2{
         margin-bottom: 5vh;
     }
@@ -76,6 +81,7 @@
     .list-data li{
         display: flex;
         width: 100%;
+        margin: auto;
         padding: 1vh 0 1vh 0;
     }
     .list-data p{

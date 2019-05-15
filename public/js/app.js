@@ -1778,6 +1778,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1855,6 +1857,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1908,6 +1911,48 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Athlete.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Athlete.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      arrayathlete: []
+    };
+  },
+  created: function created() {
+    this.fetchAthlete();
+  },
+  methods: {
+    fetchAthlete: function fetchAthlete() {
+      var _this = this;
+
+      var $this = this;
+      var id = this.$route.params.id;
+      axios.get("http://127.0.0.1:8000/api/athlete/".concat(id)).then(function (response) {
+        console.log(response.data);
+        _this.arrayathlete = response.data;
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FormAddAthlete.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FormAddAthlete.vue?vue&type=script&lang=js& ***!
@@ -1936,14 +1981,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'FormAddAthlete',
   data: function data() {
     return {
       name: null,
       description: null,
-      equipe_id: null
+      equipe_id: null,
+      allequipes: []
     };
+  },
+  created: function created() {
+    this.fetchEquipes();
   },
   methods: {
     addAthlete: function addAthlete() {
@@ -1955,6 +2009,15 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response);
       })["catch"](function (error) {
         console.log(error);
+      });
+    },
+    fetchEquipes: function fetchEquipes() {
+      var _this = this;
+
+      var $this = this;
+      axios.get('api/all_equipes').then(function (response) {
+        console.log(response.data);
+        _this.allequipes = response.data.data;
       });
     }
   }
@@ -1992,6 +2055,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Navbar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Navbar.vue */ "./resources/js/components/Navbar.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -6470,7 +6537,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nh2[data-v-85f3388c]{\n    margin-bottom: 5vh;\n}\n.list-data[data-v-85f3388c]{\n    width: 80%;\n}\n.list-data li[data-v-85f3388c]{\n    display: flex;\n    width: 100%;\n    padding: 1vh 0 1vh 0;\n}\n.list-data p[data-v-85f3388c]{\n    width: 50%;\n}\n.list-data li button[data-v-85f3388c]{\n    background-color: transparent;\n    border: 1px solid red;\n    padding: 1%;\n    font-size: 1vw;\n    color: red;\n    transition: 0.5s;\n    cursor:pointer;\n    border-radius: 0.25rem;\n    width: 12%;\n}\n.list-data li button[data-v-85f3388c]:hover{\n    background-color: red;\n    color: #FFFFFF;\n}\n.pagination-btn[data-v-85f3388c]{\n    background-color: #FF4B2B;\n    padding: 1% 2% 1% 2%;\n    font-size: 0.8vw;\n    border: none;\n    color: #FFFFFF;\n    transition: 0.5s;\n    cursor:pointer;\n    border-radius: 0.25rem;\n}\n\n\n", ""]);
+exports.push([module.i, "\n.cont-list[data-v-85f3388c]{\n    display: block;\n    margin: auto;\n    width: 60%;\n}\na[data-v-85f3388c]{\n    text-decoration: none;\n    color: #3d4852;\n    transition: 0.5s;\n}\na[data-v-85f3388c]:hover{\n    text-decoration: none;\n    color:#FF4B2B\n}\nh2[data-v-85f3388c]{\n    margin-bottom: 5vh;\n}\n.list-data[data-v-85f3388c]{\n    width: 80%;\n}\n.list-data li[data-v-85f3388c]{\n    display: flex;\n    width: 100%;\n    padding: 1vh 0 1vh 0;\n}\n.list-data p[data-v-85f3388c]{\n    width: 50%;\n}\n.list-data li button[data-v-85f3388c]{\n    background-color: transparent;\n    border: 1px solid red;\n    padding: 1%;\n    font-size: 1vw;\n    color: red;\n    transition: 0.5s;\n    cursor:pointer;\n    border-radius: 0.25rem;\n    width: 12%;\n}\n.list-data li button[data-v-85f3388c]:hover{\n    background-color: red;\n    color: #FFFFFF;\n}\n.pagination-btn[data-v-85f3388c]{\n    background-color: #FF4B2B;\n    padding: 1% 2% 1% 2%;\n    font-size: 0.8vw;\n    border: none;\n    color: #FFFFFF;\n    transition: 0.5s;\n    cursor:pointer;\n    border-radius: 0.25rem;\n}\n\n\n", ""]);
 
 // exports
 
@@ -6489,7 +6556,26 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nh2[data-v-2b24c628]{\n    margin-bottom: 5vh;\n}\n.list-data[data-v-2b24c628]{\n    width: 80%;\n}\n.list-data li[data-v-2b24c628]{\n    display: flex;\n    width: 100%;\n    padding: 1vh 0 1vh 0;\n}\n.list-data p[data-v-2b24c628]{\n    width: 50%;\n}\n.list-data li button[data-v-2b24c628]{\n    background-color: transparent;\n    border: 1px solid red;\n    padding: 1%;\n    font-size: 1vw;\n    color: red;\n    transition: 0.5s;\n    cursor:pointer;\n    border-radius: 0.25rem;\n    width: 12%;\n}\n.list-data li button[data-v-2b24c628]:hover{\n    background-color: red;\n    color: #FFFFFF;\n}\n.pagination-btn[data-v-2b24c628]{\n    background-color: #FF4B2B;\n    padding: 1% 2% 1% 2%;\n    font-size: 0.8vw;\n    border: none;\n    color: #FFFFFF;\n    transition: 0.5s;\n    cursor:pointer;\n    border-radius: 0.25rem;\n}\n\n\n", ""]);
+exports.push([module.i, "\n.cont-list[data-v-2b24c628]{\n    display: block;\n    margin: auto;\n    width: 60%;\n}\nh2[data-v-2b24c628]{\n    margin-bottom: 5vh;\n}\n.list-data[data-v-2b24c628]{\n    width: 80%;\n}\n.list-data li[data-v-2b24c628]{\n    display: flex;\n    width: 100%;\n    margin: auto;\n    padding: 1vh 0 1vh 0;\n}\n.list-data p[data-v-2b24c628]{\n    width: 50%;\n}\n.list-data li button[data-v-2b24c628]{\n    background-color: transparent;\n    border: 1px solid red;\n    padding: 1%;\n    font-size: 1vw;\n    color: red;\n    transition: 0.5s;\n    cursor:pointer;\n    border-radius: 0.25rem;\n    width: 12%;\n}\n.list-data li button[data-v-2b24c628]:hover{\n    background-color: red;\n    color: #FFFFFF;\n}\n.pagination-btn[data-v-2b24c628]{\n    background-color: #FF4B2B;\n    padding: 1% 2% 1% 2%;\n    font-size: 0.8vw;\n    border: none;\n    color: #FFFFFF;\n    transition: 0.5s;\n    cursor:pointer;\n    border-radius: 0.25rem;\n}\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FormAddAthlete.vue?vue&type=style&index=0&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FormAddAthlete.vue?vue&type=style&index=0&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n#add-data{\n    display: block;\n    width:40%;\n    margin: auto;\n}\n.cont-input{\n    margin: 4vh 0 4vh 0;\n}\n.cont-input label{\n    margin: 1vh 0 1vh 0;\n}\n#add-data label, #add-data input, #add-data button{\n    display: block;\n}\n#add-data input, #add-data textarea, #add-data select {\n    border: 1px solid lightgrey;\n    border-radius: 0.25rem;\n    padding: 1% 3% 1% 3%;\n    width: 70%;\n    resize: none;\n}\n#add-data textarea{\n    height: 15vh;\n}\n#add-data button{\n    border: 1px solid #FF4B2B;\n    padding: 1vh 1vh 1vh 1vh;\n    background-color: transparent;\n    border-radius: 0.25rem;\n    font-weight: 700;\n    color: #FF4B2B;\n    font-size: 1vw;\n    transition: 0.5s;\n    cursor: pointer\n}\n#add-data button:hover{\n    background-color: #FF4B2B;\n    color: #FFFFFF;\n}\n\n", ""]);
 
 // exports
 
@@ -6527,7 +6613,26 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#main{\n    display: flex;\n}\n", ""]);
+exports.push([module.i, "\n#main{\n    display: flex;\n}\n.page{\n    position: fixed;\n    width: inherit;\n}\nfade-enter-active,\n.fade-leave-active {\n    transition-duration: 0.5s;\n    transition-property: opacity;\n    transition-timing-function: ease;\n}\n.fade-enter,\n.fade-leave-active {\n    opacity: 0\n}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Navbar.vue?vue&type=style&index=0&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Navbar.vue?vue&type=style&index=0&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.link-navbar{\n    height: 0;\n    opacity: 0;\n    transition: 0.5s;\n    text-decoration: none;\n    color: #4F4D4D\n}\n.link-navbar:hover{\n    color: #000;\n    opacity: 1;\n}\n.cont-link-navbar{\n    padding: 2vh 0 2vh 0;\n    margin-left: 1vw;\n    width: 100%;\n}\nnav ul li:hover .link-navbar{\n    height: auto;\n    opacity: 0.9;\n}\nnav ul li p{\n    font-weight: 700;\n    transition: 0.5s;\n    cursor: pointer\n}\nnav ul li:hover p{\n    color: #FF4B2B;\n}\nnav ul li{\n    height: 0;\n    transition: 0.5s;\n}\nnav ul li:hover {\n    height: 10vh;\n}\n\n", ""]);
 
 // exports
 
@@ -37445,6 +37550,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FormAddAthlete.vue?vue&type=style&index=0&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FormAddAthlete.vue?vue&type=style&index=0&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./FormAddAthlete.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FormAddAthlete.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Home.vue?vue&type=style&index=0&lang=css&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Home.vue?vue&type=style&index=0&lang=css& ***!
@@ -37484,6 +37619,36 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./MainApp.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MainApp.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Navbar.vue?vue&type=style&index=0&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Navbar.vue?vue&type=style&index=0&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Navbar.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Navbar.vue?vue&type=style&index=0&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -38104,69 +38269,86 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("h2", [_vm._v("Tous les athletes")]),
-      _vm._v(" "),
-      _vm._l(_vm.allathletes, function(athletes) {
-        return _c("ul", { key: athletes.id, staticClass: "list-data" }, [
-          _c("li", [
-            _c("p", [_vm._v(_vm._s(athletes.name) + " ")]),
-            _c(
-              "button",
-              {
-                on: {
-                  click: function($event) {
-                    return _vm.deleteAthlete(athletes.id)
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "cont-list" },
+      [
+        _c("h2", [_vm._v("Tous les athletes")]),
+        _vm._v(" "),
+        _vm._l(_vm.allathletes, function(athletes) {
+          return _c("ul", { key: athletes.id, staticClass: "list-data" }, [
+            _c("li", [
+              _c(
+                "p",
+                [
+                  _c(
+                    "router-link",
+                    { attrs: { to: "/athlete/" + athletes.id } },
+                    [_vm._v(_vm._s(athletes.name))]
+                  )
+                ],
+                1
+              ),
+              _c(
+                "button",
+                {
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteAthlete(athletes.id)
+                    }
                   }
-                }
-              },
-              [_vm._v("Delete")]
-            )
+                },
+                [_vm._v("Delete")]
+              )
+            ])
           ])
-        ])
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "pagination" }, [
-        _c(
-          "button",
-          {
-            staticClass: "pagination-btn",
-            on: {
-              click: function($event) {
-                return _vm.fetchPaginationAthletes(_vm.pagination.prev_page_url)
-              }
-            }
-          },
-          [_vm._v("Précédent")]
-        ),
+        }),
         _vm._v(" "),
-        _c("span", [
-          _vm._v(
-            "Page " +
-              _vm._s(_vm.pagination.current_page) +
-              " of " +
-              _vm._s(_vm.pagination.last_page)
+        _c("div", { staticClass: "pagination" }, [
+          _c(
+            "button",
+            {
+              staticClass: "pagination-btn",
+              on: {
+                click: function($event) {
+                  return _vm.fetchPaginationAthletes(
+                    _vm.pagination.prev_page_url
+                  )
+                }
+              }
+            },
+            [_vm._v("Précédent")]
+          ),
+          _vm._v(" "),
+          _c("span", [
+            _vm._v(
+              "Page " +
+                _vm._s(_vm.pagination.current_page) +
+                " of " +
+                _vm._s(_vm.pagination.last_page)
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "pagination-btn",
+              on: {
+                click: function($event) {
+                  return _vm.fetchPaginationAthletes(
+                    _vm.pagination.next_page_url
+                  )
+                }
+              }
+            },
+            [_vm._v("Suivant")]
           )
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "pagination-btn",
-            on: {
-              click: function($event) {
-                return _vm.fetchPaginationAthletes(_vm.pagination.next_page_url)
-              }
-            }
-          },
-          [_vm._v("Suivant")]
-        )
-      ])
-    ],
-    2
-  )
+        ])
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -38190,69 +38372,102 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("h2", [_vm._v("Toutes les equipes")]),
-      _vm._v(" "),
-      _vm._l(_vm.allequipes, function(equipes) {
-        return _c("ul", { key: equipes.id, staticClass: "list-data" }, [
-          _c("li", [
-            _c("p", [_vm._v(_vm._s(equipes.name) + " ")]),
-            _c(
-              "button",
-              {
-                on: {
-                  click: function($event) {
-                    return _vm.deleteEquipe(equipes.id)
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "cont-list" },
+      [
+        _c("h2", [_vm._v("Toutes les equipes")]),
+        _vm._v(" "),
+        _vm._l(_vm.allequipes, function(equipes) {
+          return _c("ul", { key: equipes.id, staticClass: "list-data" }, [
+            _c("li", [
+              _c("p", [_vm._v(_vm._s(equipes.name) + " ")]),
+              _c(
+                "button",
+                {
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteEquipe(equipes.id)
+                    }
                   }
-                }
-              },
-              [_vm._v("Delete")]
-            )
+                },
+                [_vm._v("Delete")]
+              )
+            ])
           ])
-        ])
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "pagination" }, [
-        _c(
-          "button",
-          {
-            staticClass: "pagination-btn",
-            on: {
-              click: function($event) {
-                return _vm.fetchPaginationEquipe(_vm.pagination.prev_page_url)
-              }
-            }
-          },
-          [_vm._v("Précédent")]
-        ),
+        }),
         _vm._v(" "),
-        _c("span", [
-          _vm._v(
-            "Page " +
-              _vm._s(_vm.pagination.current_page) +
-              " of " +
-              _vm._s(_vm.pagination.last_page)
+        _c("div", { staticClass: "pagination" }, [
+          _c(
+            "button",
+            {
+              staticClass: "pagination-btn",
+              on: {
+                click: function($event) {
+                  return _vm.fetchPaginationEquipe(_vm.pagination.prev_page_url)
+                }
+              }
+            },
+            [_vm._v("Précédent")]
+          ),
+          _vm._v(" "),
+          _c("span", [
+            _vm._v(
+              "Page " +
+                _vm._s(_vm.pagination.current_page) +
+                " of " +
+                _vm._s(_vm.pagination.last_page)
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "pagination-btn",
+              on: {
+                click: function($event) {
+                  return _vm.fetchPaginationEquipe(_vm.pagination.next_page_url)
+                }
+              }
+            },
+            [_vm._v("Suivant")]
           )
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "pagination-btn",
-            on: {
-              click: function($event) {
-                return _vm.fetchPaginationEquipe(_vm.pagination.next_page_url)
-              }
-            }
-          },
-          [_vm._v("Suivant")]
-        )
-      ])
-    ],
-    2
-  )
+        ])
+      ],
+      2
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Athlete.vue?vue&type=template&id=a69208b8&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Athlete.vue?vue&type=template&id=a69208b8& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("h2", [_vm._v(_vm._s(_vm.arrayathlete.name))]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.arrayathlete.description))]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.arrayathlete.equipe.name))])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -38280,7 +38495,7 @@ var render = function() {
     _c(
       "form",
       {
-        attrs: { method: "POST", action: "add/athlete" },
+        attrs: { id: "add-data", method: "POST", action: "add/athlete" },
         on: {
           submit: function($event) {
             $event.preventDefault()
@@ -38291,90 +38506,97 @@ var render = function() {
       [
         _c("h2", [_vm._v("Ajouter un athlète")]),
         _vm._v(" "),
-        _c("label", [_vm._v("Nom")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.name,
-              expression: "name"
-            }
-          ],
-          attrs: { type: "text", name: "name" },
-          domProps: { value: _vm.name },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.name = $event.target.value
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("label", [_vm._v("Description")]),
-        _vm._v(" "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.description,
-              expression: "description"
-            }
-          ],
-          attrs: { name: "description" },
-          domProps: { value: _vm.description },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.description = $event.target.value
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("label", [_vm._v("Equipe")]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
+        _c("div", { staticClass: "cont-input" }, [
+          _c("label", [_vm._v("Nom")]),
+          _vm._v(" "),
+          _c("input", {
             directives: [
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.equipe_id,
-                expression: "equipe_id"
+                value: _vm.name,
+                expression: "name"
               }
             ],
-            attrs: { name: "equipe_id" },
+            attrs: { type: "text", name: "name" },
+            domProps: { value: _vm.name },
             on: {
-              change: function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.equipe_id = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.name = $event.target.value
               }
             }
-          },
-          [
-            _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "3" } }, [_vm._v("3")])
-          ]
-        ),
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "cont-input" }, [
+          _c("label", [_vm._v("Equipe")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.equipe_id,
+                  expression: "equipe_id"
+                }
+              ],
+              attrs: { name: "equipe_id" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.equipe_id = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            _vm._l(_vm.allequipes, function(equipe) {
+              return _c(
+                "option",
+                { key: equipe.id, domProps: { value: equipe.id } },
+                [_vm._v(_vm._s(equipe.name))]
+              )
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "cont-input" }, [
+          _c("label", [_vm._v("Description")]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.description,
+                expression: "description"
+              }
+            ],
+            attrs: { name: "description" },
+            domProps: { value: _vm.description },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.description = $event.target.value
+              }
+            }
+          })
+        ]),
         _vm._v(" "),
         _c(
           "button",
@@ -38446,7 +38668,19 @@ var render = function() {
     [
       _c("navbar"),
       _vm._v(" "),
-      _c("div", { staticClass: "container" }, [_c("router-view")], 1)
+      _c(
+        "div",
+        { staticClass: "container" },
+        [
+          _c(
+            "transition",
+            { attrs: { name: "fade", mode: "out-in" } },
+            [_c("router-view")],
+            1
+          )
+        ],
+        1
+      )
     ],
     1
   )
@@ -38487,35 +38721,104 @@ var render = function() {
       _vm._v(" "),
       _c("nav", [
         _c("ul", [
-          _c(
-            "li",
-            [
-              _c("router-link", { attrs: { to: "/all-athletes" } }, [
-                _vm._v("Athletes")
-              ])
-            ],
-            1
-          ),
+          _c("li", [
+            _c("p", { staticClass: "hover-nav" }, [_vm._v("Athlètes")]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "cont-link-navbar" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "link-navbar",
+                    attrs: { to: "/all-athletes" }
+                  },
+                  [_vm._v("Liste des athlètes")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "cont-link-navbar" },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "link-navbar", attrs: { to: "/add-athlete" } },
+                  [_vm._v("Ajouter un athlète")]
+                )
+              ],
+              1
+            )
+          ]),
           _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c("router-link", { attrs: { to: "/all-equipes" } }, [
-                _vm._v("Equipes")
-              ])
-            ],
-            1
-          ),
+          _c("li", [
+            _c("p", { staticClass: "hover-nav" }, [_vm._v("Equipes")]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "cont-link-navbar" },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "link-navbar", attrs: { to: "/all-equipes" } },
+                  [_vm._v("Liste des equipes")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "cont-link-navbar" },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "link-navbar", attrs: { to: "/add-equipe" } },
+                  [_vm._v("Ajouter un equipe")]
+                )
+              ],
+              1
+            )
+          ]),
           _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c("router-link", { attrs: { to: "/all-competitions" } }, [
-                _vm._v("Competitions")
-              ])
-            ],
-            1
-          )
+          _c("li", [
+            _c("p", { staticClass: "hover-nav" }, [_vm._v("Competitions")]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "cont-link-navbar" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "link-navbar",
+                    attrs: { to: "/all-competitions" }
+                  },
+                  [_vm._v("Liste des competitions")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "cont-link-navbar" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "link-navbar",
+                    attrs: { to: "/add-competition" }
+                  },
+                  [_vm._v("Ajouter un competition")]
+                )
+              ],
+              1
+            )
+          ])
         ])
       ])
     ])
@@ -54404,8 +54707,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  routes: _routes__WEBPACK_IMPORTED_MODULE_3__["routes"],
-  mode: 'history'
+  routes: _routes__WEBPACK_IMPORTED_MODULE_3__["routes"]
 });
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
@@ -54649,6 +54951,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Athlete.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/components/Athlete.vue ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Athlete_vue_vue_type_template_id_a69208b8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Athlete.vue?vue&type=template&id=a69208b8& */ "./resources/js/components/Athlete.vue?vue&type=template&id=a69208b8&");
+/* harmony import */ var _Athlete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Athlete.vue?vue&type=script&lang=js& */ "./resources/js/components/Athlete.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Athlete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Athlete_vue_vue_type_template_id_a69208b8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Athlete_vue_vue_type_template_id_a69208b8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Athlete.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Athlete.vue?vue&type=script&lang=js&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/Athlete.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Athlete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Athlete.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Athlete.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Athlete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Athlete.vue?vue&type=template&id=a69208b8&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/Athlete.vue?vue&type=template&id=a69208b8& ***!
+  \****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Athlete_vue_vue_type_template_id_a69208b8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Athlete.vue?vue&type=template&id=a69208b8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Athlete.vue?vue&type=template&id=a69208b8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Athlete_vue_vue_type_template_id_a69208b8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Athlete_vue_vue_type_template_id_a69208b8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/FormAddAthlete.vue":
 /*!****************************************************!*\
   !*** ./resources/js/components/FormAddAthlete.vue ***!
@@ -54660,7 +55031,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _FormAddAthlete_vue_vue_type_template_id_3360c026___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FormAddAthlete.vue?vue&type=template&id=3360c026& */ "./resources/js/components/FormAddAthlete.vue?vue&type=template&id=3360c026&");
 /* harmony import */ var _FormAddAthlete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FormAddAthlete.vue?vue&type=script&lang=js& */ "./resources/js/components/FormAddAthlete.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _FormAddAthlete_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FormAddAthlete.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/FormAddAthlete.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -54668,7 +55041,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _FormAddAthlete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _FormAddAthlete_vue_vue_type_template_id_3360c026___WEBPACK_IMPORTED_MODULE_0__["render"],
   _FormAddAthlete_vue_vue_type_template_id_3360c026___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -54697,6 +55070,22 @@ component.options.__file = "resources/js/components/FormAddAthlete.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FormAddAthlete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./FormAddAthlete.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FormAddAthlete.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FormAddAthlete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/FormAddAthlete.vue?vue&type=style&index=0&lang=css&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/FormAddAthlete.vue?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FormAddAthlete_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./FormAddAthlete.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FormAddAthlete.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FormAddAthlete_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FormAddAthlete_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FormAddAthlete_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FormAddAthlete_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FormAddAthlete_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -54902,14 +55291,16 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Navbar_vue_vue_type_template_id_6dde423b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Navbar.vue?vue&type=template&id=6dde423b& */ "./resources/js/components/Navbar.vue?vue&type=template&id=6dde423b&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Navbar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Navbar.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/Navbar.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 var script = {}
 
 
+
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   script,
   _Navbar_vue_vue_type_template_id_6dde423b___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Navbar_vue_vue_type_template_id_6dde423b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -54924,6 +55315,22 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/components/Navbar.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Navbar.vue?vue&type=style&index=0&lang=css&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/Navbar.vue?vue&type=style&index=0&lang=css& ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Navbar.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Navbar.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -54959,6 +55366,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_AllAthletes_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/AllAthletes.vue */ "./resources/js/components/AllAthletes.vue");
 /* harmony import */ var _components_AllEquipes_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/AllEquipes.vue */ "./resources/js/components/AllEquipes.vue");
 /* harmony import */ var _components_Home_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Home.vue */ "./resources/js/components/Home.vue");
+/* harmony import */ var _components_Athlete_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Athlete.vue */ "./resources/js/components/Athlete.vue");
+
 
 
 
@@ -54975,6 +55384,9 @@ var routes = [{
 }, {
   path: '/all-equipes',
   component: _components_AllEquipes_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+}, {
+  path: '/athlete/:id',
+  component: _components_Athlete_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
 }];
 
 /***/ }),
@@ -54997,8 +55409,8 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/api-du-sport/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/api-du-sport/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

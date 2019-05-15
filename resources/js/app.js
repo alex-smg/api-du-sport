@@ -10,7 +10,6 @@ Vue.use(Vuex);
 
 const router = new VueRouter({
     routes,
-    mode: 'history'
 });
 
 const app = new Vue({

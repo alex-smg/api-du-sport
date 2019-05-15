@@ -1,14 +1,16 @@
 <template>
     <div>
-        <h2>Tous les athletes</h2>
-        <ul class="list-data" v-for="athletes in allathletes" :key="athletes.id">
-            <li><p>{{ athletes.name}} </p><button @click="deleteAthlete(athletes.id)">Delete</button></li>
+        <div class="cont-list">
+            <h2>Tous les athletes</h2>
+            <ul class="list-data" v-for="athletes in allathletes" :key="athletes.id">
+                <li><p><router-link :to="`/athlete/${athletes.id}`">{{ athletes.name}}</router-link> </p><button @click="deleteAthlete(athletes.id)">Delete</button></li>
 
-        </ul>
-        <div class="pagination">
-            <button class="pagination-btn" v-on:click="fetchPaginationAthletes(pagination.prev_page_url)">Précédent</button>
-            <span>Page {{pagination.current_page}} of {{pagination.last_page}}</span>
-            <button class="pagination-btn" v-on:click="fetchPaginationAthletes(pagination.next_page_url)">Suivant</button>
+            </ul>
+            <div class="pagination">
+                <button class="pagination-btn" v-on:click="fetchPaginationAthletes(pagination.prev_page_url)">Précédent</button>
+                <span>Page {{pagination.current_page}} of {{pagination.last_page}}</span>
+                <button class="pagination-btn" v-on:click="fetchPaginationAthletes(pagination.next_page_url)">Suivant</button>
+            </div>
         </div>
     </div>
 </template>
@@ -67,6 +69,20 @@
 
 <style scoped>
 
+    .cont-list{
+        display: block;
+        margin: auto;
+        width: 60%;
+    }
+    a{
+        text-decoration: none;
+        color: #3d4852;
+        transition: 0.5s;
+    }
+    a:hover{
+        text-decoration: none;
+        color:#FF4B2B
+    }
     h2{
         margin-bottom: 5vh;
     }

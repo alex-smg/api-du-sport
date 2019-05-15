@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('allathletes', 'AthletesController@index');
 
-Route::get('allathletes/{id}', 'AthletesController@findAthlete');
+Route::get('athlete/{id}', 'AthletesController@findAthlete');
 
 Route::post('add/athlete', 'AthletesController@store');
 
