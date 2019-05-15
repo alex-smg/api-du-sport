@@ -1,50 +1,47 @@
 <template>
     <div>
-        <form id="app" @submit="checkForm" action="https://vuejs.org/" method="post" novalidate="true">
-
-
-            <p>
-                <label for="name">Name</label>
-                <input id="name" v-model="name" type="text" name="name">
-            </p>
-
-            <p>
-                <label for="description">Description</label>
-                <textarea id="description" v-model="description" name="description"></textarea>
-            </p>
-
-            <p>
-                <label for="movie">Favorite Movie</label>
-                <select id="movie" v-model="movie" name="movie">
-                    <option>Star Wars</option>
-                    <option>Vanilla Sky</option>
-                    <option>Atomic Blonde</option>
-                </select>
-            </p>
-
-            <p>
-                <input type="submit" value="Submit">
-            </p>
-
+        <form method="POST" action="add/athlete" @submit.prevent="addAthlete()">
+            <h2>Ajouter un athlète</h2>
+            <label>Nom</label>
+            <input type="text" name="name" v-model="name"/>
+            <label>Description</label>
+            <textarea name="description" v-model="description"></textarea>
+            <label>Equipe</label>
+            <select name="equipe_id" v-model="equipe_id">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <button class="pagination-btn" type="submit">Enregistrer</button>
         </form>
     </div>
 </template>
 
 <script>
     export default {
-
-        created(){
-
-            this.fetchAthletes()
+        name:'FormAddAthlete',
+        data(){
+            return{
+                name: null,
+                description : null,
+                equipe_id:null
+            }
         },
         methods:{
-            fetchAthletes(){
-                axios.get(this.url).then(response => {
-                    console.log(response.data)
-                    this.allathletes = response.data.data
+            addAthlete(){
+                axios.post('api/add/athlete', {
+                    name: this.name,
+                    description: this.description,
+                    equipe_id: this.equipe_id
                 })
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
 
-            }
+            },
         }
     }
 </script>

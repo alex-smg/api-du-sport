@@ -18,3 +18,9 @@
         }
     }
 </script>
+
+<style>
+    #main{
+        display: flex;
+    }
+</style>

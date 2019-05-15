@@ -1,14 +1,14 @@
 <template>
     <div>
-        <h2>Tous les athletes</h2>
-        <ul class="list-data" v-for="athletes in allathletes" :key="athletes.id">
-            <li><p>{{ athletes.name}} </p><button @click="deleteAthlete(athletes.id)">Delete</button></li>
+        <h2>Toutes les equipes</h2>
+        <ul class="list-data" v-for="equipes in allequipes" :key="equipes.id">
+            <li><p>{{ equipes.name}} </p><button @click="deleteEquipe(equipes.id)">Delete</button></li>
 
         </ul>
         <div class="pagination">
-            <button class="pagination-btn" v-on:click="fetchPaginationAthletes(pagination.prev_page_url)">Précédent</button>
+            <button class="pagination-btn" v-on:click="fetchPaginationEquipe(pagination.prev_page_url)">Précédent</button>
             <span>Page {{pagination.current_page}} of {{pagination.last_page}}</span>
-            <button class="pagination-btn" v-on:click="fetchPaginationAthletes(pagination.next_page_url)">Suivant</button>
+            <button class="pagination-btn" v-on:click="fetchPaginationEquipe(pagination.next_page_url)">Suivant</button>
         </div>
     </div>
 </template>
@@ -17,20 +17,20 @@
     export default {
         data(){
             return{
-                 allathletes: [],
-                url: 'api/allathletes',
+                allequipes: [],
+                url: 'api/all_equipes',
                 pagination: [],
             }
         },
         created(){
-            this.fetchAthletes();
+            this.fetchEquipes();
         },
         methods:{
-            fetchAthletes(){
+            fetchEquipes(){
                 let $this = this
                 axios.get(this.url).then(response => {
                     console.log(response.data)
-                    this.allathletes = response.data.data
+                    this.allequipes = response.data.data
                     $this.makePagination(response.data)
                 })
 
@@ -46,16 +46,16 @@
                 this.pagination = pagination
 
             },
-            fetchPaginationAthletes(url){
+            fetchPaginationEquipe(url){
                 this.url = url
-                this.fetchAthletes()
+                this.fetchEquipes()
             },
-            deleteAthlete(id) {
+            deleteEquipe(id) {
                 if (confirm('Are You Sure?')) {
-                    axios.delete(`api/athletes/${id}`)
+                    axios.delete(`api/equipe/${id}`)
                         .then(data => {
-                            alert('athletes Removed');
-                            this.fetchAthletes();
+                            alert('equipe Removed');
+                            this.fetchEquipes();
                         })
                         .catch(err => console.log(err));
                 }

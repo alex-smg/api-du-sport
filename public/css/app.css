@@ -37,13 +37,9 @@ nav ul li {
   outline: none;
 }
 
-main {
+.container {
   width: 85vw;
   margin: auto 0 auto 20vw;
-}
-
-#app {
-  display: flex;
 }
 
 /*
