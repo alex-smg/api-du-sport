@@ -2067,9 +2067,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'main-app',
@@ -6613,7 +6610,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#main{\n    display: flex;\n}\n.page{\n    position: fixed;\n    width: inherit;\n}\nfade-enter-active,\n.fade-leave-active {\n    transition-duration: 0.5s;\n    transition-property: opacity;\n    transition-timing-function: ease;\n}\n.fade-enter,\n.fade-leave-active {\n    opacity: 0\n}\n\n", ""]);
+exports.push([module.i, "\n#main{\n    display: flex;\n}\n.page{\n    position: fixed;\n    width: inherit;\n}\n\n\n\n\n", ""]);
 
 // exports
 
