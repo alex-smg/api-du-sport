@@ -1,0 +1,28 @@
+<div id="allathletes">
+        <div>
+            <h2>Tous les athletes</h2>
+            <ul class="list-data" v-for="athletes in allathletes" :key="athletes.id">
+                <li><p>{{ athletes.name}} </p><button @click="deleteArticle(athletes.id)">Delete</button></li>
+    
+            </ul>
+            <div class="pagination">
+                <button class="pagination-btn" v-on:click="fetchPaginationAthletes(pagination.prev_page_url)">Précédent</button>
+                <span>Page {{pagination.current_page}} of {{pagination.last_page}}</span>
+                <button class="pagination-btn" v-on:click="fetchPaginationAthletes(pagination.next_page_url)">Suivant</button>
+            </div>
+            <form method="POST" action="add/athlete" @submit.prevent="addAthlete()">
+                <h2>Ajouter un athlète</h2>
+                <label>Nom</label>
+                <input type="text" name="name" v-model="name"/>
+                <label>Description</label>
+                <textarea name="description" v-model="description"></textarea>
+                <label>Equipe</label>
+                <select name="equipe_id" v-model="equipe_id">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <button class="pagination-btn" type="submit">Enregistrer</button>
+            </form>
+        </div>
+</div>

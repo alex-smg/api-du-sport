@@ -11,7 +11,7 @@ class AthletesController extends Controller
 {
     public function index()
     {
-        $allAthletes = Athlete::orderBy('name', 'DESC')->paginate(5);
+        $allAthletes = Athlete::orderBy('name', 'DESC')->paginate(10);
         return AthleteResource::collection($allAthletes);
     }
     public function findAthlete($id){
