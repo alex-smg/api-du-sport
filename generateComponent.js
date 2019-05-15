@@ -4,20 +4,22 @@ const path = require("path");
 const colors = require("colors/safe");
 
 const name = process.env.npm_config_component || "MyNewComponent";
-const customPath = process.env.npm_config_path || "./resources/js/componentsGenerated";
-const customPathVue = process.env.npm_config_path || "./resources/js/components";
+const customPath = process.env.npm_config_path || "./resources/js/components";
+const customPathJS = process.env.npm_config_path || "./resources/js/sass";
 
 const dirComponents = path.resolve(__dirname, "./" + customPath);
-const dirComponentsVue = path.resolve(__dirname, "./" + customPathVue);
+const dirComponentsJS = path.resolve(__dirname, "./" + customPath);
 
 const creatingComponent = (name) => {
     console.log(colors.yellow("Creating " + name + " folder ..."));
     fs.mkdirSync(dirComponents + "/" + name);
     console.log(colors.green("Ok ..."));
     console.log(colors.yellow("Creating " + name + ".vue ..."));
-    fs.appendFile(dirComponentsVue + "/" + name + ".vue", `<template lang="html" src="../componentsGenerated/${name}.html" ></template>
-<script lang="text/javascript" src="../componentsGenerated/${name}.js"></script>
-<style lang="scss" src="../componentsGenerated/${name}.scss" ></style>`, function (err) {
+    fs.appendFile(dirComponents + "/" + name + "/" + name + ".vue", `<template lang="html" src="./${name}.html" ></template>
+
+<script lang="text/javascript" src="./${name}.js"></script>
+
+<style lang="scss" src="./${name}.scss" ></style>`, function (err) {
         if (err) console.log(colors.red(err))
         console.log(colors.green("Ok ..."))
         console.log(colors.yellow("Creating " + name + ".js ..."))
@@ -38,8 +40,8 @@ const creatingComponent = (name) => {
                 if (err) console.log(colors.red(err))
                 console.log(colors.green("Ok ..."))
                 console.log(colors.yellow("Creating " + name + ".scss ..."))
-                fs.appendFile(dirComponents + "/" + name + "/" + name + ".scss", `@import "@/scss/_vars.scss";
-#` + name + ` {
+                fs.appendFile(dirComponentsJS + "/" + name + ".scss", `#` + name + ` {
+
 }
 `, function (err) {
                     if (err) console.log(colors.red(err))

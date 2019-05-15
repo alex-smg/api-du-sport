@@ -1,0 +1,12 @@
+// @import "@/sass/app.scss";
+
+#navbar {
+    height: $navHeight;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

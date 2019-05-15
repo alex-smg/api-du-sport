@@ -5,10 +5,13 @@
   font-family: 'Overpass', sans-serif;
   outline: none;
 }
-main{
-  width: 85vw;
-  margin: auto 0 auto 20vw
+#main{
+  width: 100vw;
+  margin: 0;
 }
 #app{
   display: flex;
+}
+.container{
+  margin-top: 60px;
 }

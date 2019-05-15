@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import Navbar from './Navbar.vue'
+    import Navbar from './navbar/navbar.vue'
     export default {
         name: 'main-app',
         components:{
