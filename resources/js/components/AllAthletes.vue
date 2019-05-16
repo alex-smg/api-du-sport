@@ -3,7 +3,25 @@
         <div class="cont-list">
             <h2>Tous les athletes</h2>
             <ul class="list-data" v-for="athletes in allathletes" :key="athletes.id">
-                <li><p><router-link :to="`/athlete/${athletes.id}`">{{ athletes.name}}</router-link> </p><button @click="deleteAthlete(athletes.id)">Delete</button></li>
+                <li><p><router-link :to="`/athlete/${athletes.id}`">{{ athletes.name}}</router-link> </p><button class="btn-edit">Edit</button><button @click="deleteAthlete(athletes.id)">Delete</button></li>
+                <form @submit.prevent="UpdateAthlete(athletes.id)">
+                    <div class="cont-input">
+                        <label>Nom</label>
+                        <input type="text" name="name" :placeholder="athletes.name"/>
+                    </div>
+                    <div class="cont-input">
+                        <label>Equipe</label>
+                        <select   name="equipe_id">
+                            <option v-for="equipe in allequipes" :key="equipe.id" :value="equipe.id">{{ equipe.name }}</option>
+                        </select>
+                    </div>
+                    <div class="cont-input">
+                        <label>Description</label>
+                        <textarea name="description" :placeholder="athletes.descrption"></textarea>
+                    </div>
+
+                    <button class="pagination-btn" type="submit">Enregistrer</button>
+                </form>
 
             </ul>
             <div class="pagination">
@@ -22,10 +40,12 @@
                  allathletes: [],
                 url: 'api/allathletes',
                 pagination: [],
+                allequipes:[],
             }
         },
         created(){
             this.fetchAthletes();
+            this.fetchEquipes();
         },
         methods:{
             fetchAthletes(){
@@ -34,6 +54,15 @@
                     console.log(response.data)
                     this.allathletes = response.data.data
                     $this.makePagination(response.data)
+                })
+
+            },
+            fetchEquipes(){
+                let $this = this
+                axios.get('api/all_equipes').then(response => {
+                    console.log(response.data)
+                    this.allequipes = response.data.data
+
                 })
 
             },
@@ -56,12 +85,28 @@
                 if (confirm('Are You Sure?')) {
                     axios.delete(`api/athletes/${id}`)
                         .then(data => {
-                            alert('athletes Removed');
+                            alert('athlete Removed');
                             this.fetchAthletes();
                         })
                         .catch(err => console.log(err));
                 }
             },
+            UpdateAthlete(id){
+                axios.patch(`api/update/athlete/${id}`, {
+                    id: id,
+                name: this.name,
+                description: this.description,
+                equipe_id: this.equipe_id
+            })
+                .then(function (response) {
+                    console.log(response);
+                    alert('athlete update');
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+
+    }
         }
     }
 
@@ -122,6 +167,9 @@
         transition: 0.5s;
         cursor:pointer;
         border-radius: 0.25rem;
+    }
+    .btn-edit{
+        border: 1px solid dodgerblue;
     }
 
 

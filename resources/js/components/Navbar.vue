@@ -49,6 +49,7 @@
     .link-navbar:hover{
         color: #000;
         opacity: 1;
+        height: auto;
 
     }
     .cont-link-navbar{
@@ -59,6 +60,7 @@
     nav ul li:hover .link-navbar{
         height: auto;
         opacity: 0.9;
+        transition: 0.5s;
     }
     nav ul li p{
         font-weight: 700;
@@ -73,7 +75,7 @@
         transition: 0.5s;
     }
     nav ul li:hover {
-        height: 10vh;
+        height: auto;
     }
 
 </style>
