@@ -6,6 +6,12 @@
                 url: 'api/allathletes',
                 pagination: [],
                 allequipes:[],
+                name: '',
+                description: '',
+                equipe_id: '',
+                edit:false,
+                edit_id : '',
+
             }
         },
         created(){
@@ -13,6 +19,13 @@
             this.fetchEquipes();
         },
         methods:{
+
+            switchEdit(id){
+                this.edit=true
+                this.edit_id = id
+                console.log(this.edit)
+                console.log(this.edit_id)
+            },
             fetchAthletes(){
                 let $this = this
                 axios.get(this.url).then(response => {
@@ -27,9 +40,7 @@
                 axios.get('api/all_equipes').then(response => {
                     console.log(response.data)
                     this.allequipes = response.data.data
-
                 })
-
             },
             makePagination(data){
                 let pagination = {
@@ -56,17 +67,20 @@
                         .catch(err => console.log(err));
                 }
             },
-            UpdateAthlete(id){
-                axios.patch(`api/update/athlete/${id}`, {
-                    id: id,
-                name: this.name,
-                description: this.description,
-                equipe_id: this.equipe_id
+            UpdateAthlete(){
+                axios.post(`api/update/athlete/${this.edit_id}`, {
+                    name: this.name,
+                    description: this.description,
+                    equipe_id: this.equipe_id,
+                    _method: 'patch'
             })
                 .then(function (response) {
                     console.log(response);
                     alert('athlete update');
                 })
+                    .then(data => {
+                        this.fetchAthletes();
+                    })
                 .catch(function (error) {
                     console.log(error);
                 });

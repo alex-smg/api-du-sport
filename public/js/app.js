@@ -1819,7 +1819,12 @@ __webpack_require__.r(__webpack_exports__);
       allathletes: [],
       url: 'api/allathletes',
       pagination: [],
-      allequipes: []
+      allequipes: [],
+      name: '',
+      description: '',
+      equipe_id: '',
+      edit: false,
+      edit_id: ''
     };
   },
   created: function created() {
@@ -1827,6 +1832,12 @@ __webpack_require__.r(__webpack_exports__);
     this.fetchEquipes();
   },
   methods: {
+    switchEdit: function switchEdit(id) {
+      this.edit = true;
+      this.edit_id = id;
+      console.log(this.edit);
+      console.log(this.edit_id);
+    },
     fetchAthletes: function fetchAthletes() {
       var _this = this;
 
@@ -1872,15 +1883,19 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
-    UpdateAthlete: function UpdateAthlete(id) {
-      axios.patch("api/update/athlete/".concat(id), {
-        id: id,
+    UpdateAthlete: function UpdateAthlete() {
+      var _this4 = this;
+
+      axios.post("api/update/athlete/".concat(this.edit_id), {
         name: this.name,
         description: this.description,
-        equipe_id: this.equipe_id
+        equipe_id: this.equipe_id,
+        _method: 'patch'
       }).then(function (response) {
         console.log(response);
         alert('athlete update');
+      }).then(function (data) {
+        _this4.fetchAthletes();
       })["catch"](function (error) {
         console.log(error);
       });
@@ -38113,6 +38128,7 @@ var render = function() {
             _c("li", [
               _c(
                 "p",
+                { staticClass: "cont-list-name" },
                 [
                   _c(
                     "router-link",
@@ -38122,27 +38138,45 @@ var render = function() {
                 ],
                 1
               ),
-              _c("button", { staticClass: "btn-edit" }, [_vm._v("Edit")]),
-              _c(
-                "button",
-                {
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteAthlete(athletes.id)
+              _vm._v(" "),
+              _c("div", { staticClass: "cont-list-btn" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn-edit",
+                    on: {
+                      click: function($event) {
+                        return _vm.switchEdit(athletes.id)
+                      }
                     }
-                  }
-                },
-                [_vm._v("Delete")]
-              )
-            ]),
-            _vm._v(" "),
-            _c(
+                  },
+                  [_vm._v("Edit")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteAthlete(athletes.id)
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ])
+            ])
+          ])
+        }),
+        _vm._v(" "),
+        _vm.edit
+          ? _c(
               "form",
               {
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
-                    return _vm.UpdateAthlete(athletes.id)
+                    return _vm.UpdateAthlete($event)
                   }
                 }
               },
@@ -38151,10 +38185,23 @@ var render = function() {
                   _c("label", [_vm._v("Nom")]),
                   _vm._v(" "),
                   _c("input", {
-                    attrs: {
-                      type: "text",
-                      name: "name",
-                      placeholder: athletes.name
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.name,
+                        expression: "name"
+                      }
+                    ],
+                    attrs: { type: "text", name: "name" },
+                    domProps: { value: _vm.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.name = $event.target.value
+                      }
                     }
                   })
                 ]),
@@ -38164,7 +38211,32 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "select",
-                    { attrs: { name: "equipe_id" } },
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.equipe_id,
+                          expression: "equipe_id"
+                        }
+                      ],
+                      attrs: { name: "equipe_id" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.equipe_id = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
                     _vm._l(_vm.allequipes, function(equipe) {
                       return _c(
                         "option",
@@ -38180,9 +38252,23 @@ var render = function() {
                   _c("label", [_vm._v("Description")]),
                   _vm._v(" "),
                   _c("textarea", {
-                    attrs: {
-                      name: "description",
-                      placeholder: athletes.descrption
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.description,
+                        expression: "description"
+                      }
+                    ],
+                    attrs: { name: "description" },
+                    domProps: { value: _vm.description },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.description = $event.target.value
+                      }
                     }
                   })
                 ]),
@@ -38194,8 +38280,7 @@ var render = function() {
                 )
               ]
             )
-          ])
-        }),
+          : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "pagination" }, [
           _c(

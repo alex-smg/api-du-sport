@@ -94,10 +94,6 @@ fade-enter-active,
   padding: 1vh 0 1vh 0;
 }
 
-#allathletes .list-data p {
-  width: 50%;
-}
-
 #allathletes .list-data li button {
   background-color: transparent;
   border: 1px solid red;
@@ -107,7 +103,6 @@ fade-enter-active,
   transition: 0.5s;
   cursor: pointer;
   border-radius: 0.25rem;
-  width: 12%;
 }
 
 #allathletes .list-data li button:hover {
@@ -126,8 +121,29 @@ fade-enter-active,
   border-radius: 0.25rem;
 }
 
+#allathletes .pagination {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3vh;
+}
+
 #allathletes .btn-edit {
   border: 1px solid dodgerblue;
+}
+
+#allathletes .cont-list-name {
+  width: 70%;
+}
+
+#allathletes .cont-list-btn {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#allathletes .cont-list-btn button {
+  width: 40%;
 }
 
 #formaddathlete #add-data {
@@ -196,7 +212,6 @@ fade-enter-active,
 #navbar .link-navbar:hover {
   color: #000;
   opacity: 1;
-  height: auto;
 }
 
 #navbar .cont-link-navbar {
@@ -224,10 +239,11 @@ fade-enter-active,
 #navbar nav ul li {
   height: 0;
   transition: 0.5s;
+  margin-bottom: 5vh;
 }
 
 #navbar nav ul li:hover {
-  height: auto;
+  height: 30vh;
 }
 
 #allequipe .cont-list {

@@ -30,17 +30,22 @@ class AthletesController extends Controller
         }
 
     }
+    public function edit($id)
+    {
+        $upAthlete = Athlete::find($id);
+        return $upAthlete;
+    }
     public function update(Request $request, $id)
     {
-       $upAthlete = Athlete::find($id);
-       if($upAthlete->count()){
-           $upAthlete->update($request->all());
-           return response()->json('update');
-       }else{
-           return response()->json('pas update');
-       }
+        $athlete = Athlete::find($id);
+        $athlete->name = $request->get('name');
+        $athlete->description = $request->get('description');
+        $athlete->equipe_id = $request->get('equipe_id');
+        $athlete->save();
 
+        return $athlete;
     }
+
     public function destroy($id){
         $athlete = Athlete::findOrFail($id);
         if($athlete->delete()) {
