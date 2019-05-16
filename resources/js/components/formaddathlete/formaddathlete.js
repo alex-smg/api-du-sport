@@ -6,6 +6,7 @@
                 name: null,
                 description : null,
                 equipe_id:null,
+                edit: false,
                 allequipes:[]
             }
         },
@@ -14,18 +15,17 @@
         },
         methods:{
             addAthlete(){
-                axios.post('api/add/athlete', {
-                    name: this.name,
-                    description: this.description,
-                    equipe_id: this.equipe_id
-                })
-                    .then(function (response) {
-                        console.log(response);
+                    axios.post('api/add/athlete', {
+                        name: this.name,
+                        description: this.description,
+                        equipe_id: this.equipe_id
                     })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-
+                        .then(function (response) {
+                            console.log(response);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
             },
             fetchEquipes(){
                 let $this = this
