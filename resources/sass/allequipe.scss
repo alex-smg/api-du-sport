@@ -1,19 +1,8 @@
-// @import "@/sass/app.scss";
-
-#allathletes {
+#allequipe {
     .cont-list{
         display: block;
         margin: auto;
         width: 60%;
-    }
-    a{
-        text-decoration: none;
-        color: #3d4852;
-        transition: 0.5s;
-    }
-    a:hover{
-        text-decoration: none;
-        color:#FF4B2B
     }
     h2{
         margin-bottom: 5vh;
@@ -24,6 +13,7 @@
     .list-data li{
         display: flex;
         width: 100%;
+        margin: auto;
         padding: 1vh 0 1vh 0;
     }
     .list-data p{
@@ -55,6 +45,5 @@
         cursor:pointer;
         border-radius: 0.25rem;
     }
+
 }
-
-

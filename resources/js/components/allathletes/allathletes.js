@@ -1,13 +1,9 @@
 export default {
-    name: "allathletes",
     data(){
         return{
-             allathletes: [],
+            allathletes: [],
             url: 'api/allathletes',
             pagination: [],
-            name: null,
-            description : null,
-            equipe_id:null
         }
     },
     created(){
@@ -28,31 +24,15 @@ export default {
                 current_page: data.meta.current_page,
                 last_page: data.meta.last_page,
                 next_page_url: data.links.next,
-                prev_page_url: data.links.prev
-
+                prev_page_url: data.links.prev_page_url
             }
             this.pagination = pagination
-
         },
         fetchPaginationAthletes(url){
             this.url = url
             this.fetchAthletes()
         },
-        addAthlete(){
-            axios.post('api/add/athlete', {
-                name: this.name,
-                description: this.description,
-                equipe_id: this.equipe_id
-            })
-                .then(function (response) {
-                    console.log(response);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-
-        },
-        deleteArticle(id) {
+        deleteAthlete(id) {
             if (confirm('Are You Sure?')) {
                 axios.delete(`api/athletes/${id}`)
                     .then(data => {
@@ -61,6 +41,6 @@ export default {
                     })
                     .catch(err => console.log(err));
             }
-        },
+    },
     }
 }

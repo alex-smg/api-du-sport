@@ -5,10 +5,10 @@ const colors = require("colors/safe");
 
 const name = process.env.npm_config_component || "MyNewComponent";
 const customPath = process.env.npm_config_path || "./resources/js/components";
-const customPathJS = process.env.npm_config_path || "./resources/js/sass";
+const customPathJS = process.env.npm_config_path || "./resources/js/components/sass";
 
 const dirComponents = path.resolve(__dirname, "./" + customPath);
-const dirComponentsJS = path.resolve(__dirname, "./" + customPath);
+const dirComponentsJS = path.resolve(__dirname, "./" + customPathJS);
 
 const creatingComponent = (name) => {
     console.log(colors.yellow("Creating " + name + " folder ..."));

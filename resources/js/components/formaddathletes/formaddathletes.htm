@@ -1,31 +1,21 @@
 <div id="formaddathletes">
-        <div>
-            <form id="app" @submit="checkForm" action="https://vuejs.org/" method="post" novalidate="true">
-    
-    
-                <p>
-                    <label for="name">Name</label>
-                    <input id="name" v-model="name" type="text" name="name">
-                </p>
-    
-                <p>
-                    <label for="description">Description</label>
-                    <textarea id="description" v-model="description" name="description"></textarea>
-                </p>
-    
-                <p>
-                    <label for="movie">Favorite Movie</label>
-                    <select id="movie" v-model="movie" name="movie">
-                        <option>Star Wars</option>
-                        <option>Vanilla Sky</option>
-                        <option>Atomic Blonde</option>
-                    </select>
-                </p>
-    
-                <p>
-                    <input type="submit" value="Submit">
-                </p>
-    
-            </form>
-        </div>
+        <form id="add-data" method="POST" action="add/athlete" @submit.prevent="addAthlete()">
+            <h2>Ajouter un athlète</h2>
+            <div class="cont-input">
+                <label>Nom</label>
+                <input type="text" name="name" v-model="name"/>
+            </div>
+            <div class="cont-input">
+                <label>Equipe</label>
+                <select   name="equipe_id" v-model="equipe_id">
+                    <option v-for="equipe in allequipes" :key="equipe.id" :value="equipe.id">{{ equipe.name }}</option>
+                </select>
+            </div>
+            <div class="cont-input">
+                <label>Description</label>
+                <textarea name="description" v-model="description"></textarea>
+            </div>
+
+            <button class="pagination-btn" type="submit">Enregistrer</button>
+        </form>
 </div>

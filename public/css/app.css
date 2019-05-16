@@ -37,9 +37,17 @@ nav ul li {
   outline: none;
 }
 
+#main {
+  width: 100vw;
+  margin: 0;
+}
+
+#app {
+  display: flex;
+}
+
 .container {
-  width: 85vw;
-  margin: auto 0 auto 0;
+  margin-top: 60px;
 }
 
 .fade-enter,
@@ -52,6 +60,174 @@ fade-enter-active,
   transition-duration: 0.5s;
   transition-property: opacity;
   transition-timing-function: ease;
+}
+
+#allathletes .cont-list {
+  display: block;
+  margin: auto;
+  width: 60%;
+}
+
+#allathletes a {
+  text-decoration: none;
+  color: #3d4852;
+  transition: 0.5s;
+}
+
+#allathletes a:hover {
+  text-decoration: none;
+  color: #FF4B2B;
+}
+
+#allathletes h2 {
+  margin-bottom: 5vh;
+}
+
+#allathletes .list-data {
+  width: 80%;
+}
+
+#allathletes .list-data li {
+  display: flex;
+  width: 100%;
+  padding: 1vh 0 1vh 0;
+}
+
+#allathletes .list-data p {
+  width: 50%;
+}
+
+#allathletes .list-data li button {
+  background-color: transparent;
+  border: 1px solid red;
+  padding: 1%;
+  font-size: 1vw;
+  color: red;
+  transition: 0.5s;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  width: 12%;
+}
+
+#allathletes .list-data li button:hover {
+  background-color: red;
+  color: #FFFFFF;
+}
+
+#allathletes .pagination-btn {
+  background-color: #FF4B2B;
+  padding: 1% 2% 1% 2%;
+  font-size: 0.8vw;
+  border: none;
+  color: #FFFFFF;
+  transition: 0.5s;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+#home h1 {
+  text-align: center;
+}
+
+#navbar {
+  z-index: 10;
+  background-color: white;
+}
+
+#navbar .link-navbar {
+  height: 0;
+  opacity: 0;
+  transition: 0.5s;
+  text-decoration: none;
+  color: #4F4D4D;
+}
+
+#navbar .link-navbar:hover {
+  color: #000;
+  opacity: 1;
+}
+
+#navbar .cont-link-navbar {
+  padding: 2vh 0 2vh 0;
+  margin-left: 1vw;
+  width: 100%;
+}
+
+#navbar nav ul li:hover .link-navbar {
+  height: auto;
+  opacity: 0.9;
+}
+
+#navbar nav ul li p {
+  font-weight: 700;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#navbar nav ul li:hover p {
+  color: #FF4B2B;
+}
+
+#navbar nav ul li {
+  height: 0;
+  transition: 0.5s;
+}
+
+#navbar nav ul li:hover {
+  height: 10vh;
+}
+
+#allequipe .cont-list {
+  display: block;
+  margin: auto;
+  width: 60%;
+}
+
+#allequipe h2 {
+  margin-bottom: 5vh;
+}
+
+#allequipe .list-data {
+  width: 80%;
+}
+
+#allequipe .list-data li {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  padding: 1vh 0 1vh 0;
+}
+
+#allequipe .list-data p {
+  width: 50%;
+}
+
+#allequipe .list-data li button {
+  background-color: transparent;
+  border: 1px solid red;
+  padding: 1%;
+  font-size: 1vw;
+  color: red;
+  transition: 0.5s;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  width: 12%;
+}
+
+#allequipe .list-data li button:hover {
+  background-color: red;
+  color: #FFFFFF;
+}
+
+#allequipe .pagination-btn {
+  background-color: #FF4B2B;
+  padding: 1% 2% 1% 2%;
+  font-size: 0.8vw;
+  border: none;
+  color: #FFFFFF;
+  transition: 0.5s;
+  cursor: pointer;
+  border-radius: 0.25rem;
 }
 
 /*

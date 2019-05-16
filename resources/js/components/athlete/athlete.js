@@ -1,12 +1,4 @@
-<template>
-    <div>
-        <h2>{{ arrayathlete.name }}</h2>
-        <p>{{ arrayathlete.description }}</p>
-        <p>{{ arrayathlete.equipe.name }}</p>
 
-    </div>
-</template>
-<script>
     export default {
         data(){
             return{
@@ -29,8 +21,3 @@
         }
 
     }
-</script>
-<style>
-
-
-</style>
