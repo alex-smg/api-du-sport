@@ -23,6 +23,10 @@ Route::get('athlete/{id}', 'AthletesController@findAthlete');
 
 Route::post('add/athlete', 'AthletesController@store');
 
+Route::patch('update/athlete/{id}', 'AthletesController@update');
+
+Route::get('update/athlete/{id}', 'AthletesController@findAthlete');
+
 Route::delete('athletes/{id}', 'AthletesController@destroy');
 
 Route::get('all_equipes', 'EquipesController@index');

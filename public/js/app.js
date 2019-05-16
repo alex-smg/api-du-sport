@@ -1780,16 +1780,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       allathletes: [],
       url: 'api/allathletes',
-      pagination: []
+      pagination: [],
+      allequipes: []
     };
   },
   created: function created() {
     this.fetchAthletes();
+    this.fetchEquipes();
   },
   methods: {
     fetchAthletes: function fetchAthletes() {
@@ -1800,6 +1820,15 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response.data);
         _this.allathletes = response.data.data;
         $this.makePagination(response.data);
+      });
+    },
+    fetchEquipes: function fetchEquipes() {
+      var _this2 = this;
+
+      var $this = this;
+      axios.get('api/all_equipes').then(function (response) {
+        console.log(response.data);
+        _this2.allequipes = response.data.data;
       });
     },
     makePagination: function makePagination(data) {
@@ -1816,17 +1845,30 @@ __webpack_require__.r(__webpack_exports__);
       this.fetchAthletes();
     },
     deleteAthlete: function deleteAthlete(id) {
-      var _this2 = this;
+      var _this3 = this;
 
       if (confirm('Are You Sure?')) {
         axios["delete"]("api/athletes/".concat(id)).then(function (data) {
-          alert('athletes Removed');
+          alert('athlete Removed');
 
-          _this2.fetchAthletes();
+          _this3.fetchAthletes();
         })["catch"](function (err) {
           return console.log(err);
         });
       }
+    },
+    UpdateAthlete: function UpdateAthlete(id) {
+      axios.patch("api/update/athlete/".concat(id), {
+        id: id,
+        name: this.name,
+        description: this.description,
+        equipe_id: this.equipe_id
+      }).then(function (response) {
+        console.log(response);
+        alert('athlete update');
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   }
 });
@@ -1993,6 +2035,7 @@ __webpack_require__.r(__webpack_exports__);
       name: null,
       description: null,
       equipe_id: null,
+      edit: false,
       allequipes: []
     };
   },
@@ -6534,7 +6577,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.cont-list[data-v-85f3388c]{\n    display: block;\n    margin: auto;\n    width: 60%;\n}\na[data-v-85f3388c]{\n    text-decoration: none;\n    color: #3d4852;\n    transition: 0.5s;\n}\na[data-v-85f3388c]:hover{\n    text-decoration: none;\n    color:#FF4B2B\n}\nh2[data-v-85f3388c]{\n    margin-bottom: 5vh;\n}\n.list-data[data-v-85f3388c]{\n    width: 80%;\n}\n.list-data li[data-v-85f3388c]{\n    display: flex;\n    width: 100%;\n    padding: 1vh 0 1vh 0;\n}\n.list-data p[data-v-85f3388c]{\n    width: 50%;\n}\n.list-data li button[data-v-85f3388c]{\n    background-color: transparent;\n    border: 1px solid red;\n    padding: 1%;\n    font-size: 1vw;\n    color: red;\n    transition: 0.5s;\n    cursor:pointer;\n    border-radius: 0.25rem;\n    width: 12%;\n}\n.list-data li button[data-v-85f3388c]:hover{\n    background-color: red;\n    color: #FFFFFF;\n}\n.pagination-btn[data-v-85f3388c]{\n    background-color: #FF4B2B;\n    padding: 1% 2% 1% 2%;\n    font-size: 0.8vw;\n    border: none;\n    color: #FFFFFF;\n    transition: 0.5s;\n    cursor:pointer;\n    border-radius: 0.25rem;\n}\n\n\n", ""]);
+exports.push([module.i, "\n.cont-list[data-v-85f3388c]{\n    display: block;\n    margin: auto;\n    width: 60%;\n}\na[data-v-85f3388c]{\n    text-decoration: none;\n    color: #3d4852;\n    transition: 0.5s;\n}\na[data-v-85f3388c]:hover{\n    text-decoration: none;\n    color:#FF4B2B\n}\nh2[data-v-85f3388c]{\n    margin-bottom: 5vh;\n}\n.list-data[data-v-85f3388c]{\n    width: 80%;\n}\n.list-data li[data-v-85f3388c]{\n    display: flex;\n    width: 100%;\n    padding: 1vh 0 1vh 0;\n}\n.list-data p[data-v-85f3388c]{\n    width: 50%;\n}\n.list-data li button[data-v-85f3388c]{\n    background-color: transparent;\n    border: 1px solid red;\n    padding: 1%;\n    font-size: 1vw;\n    color: red;\n    transition: 0.5s;\n    cursor:pointer;\n    border-radius: 0.25rem;\n    width: 12%;\n}\n.list-data li button[data-v-85f3388c]:hover{\n    background-color: red;\n    color: #FFFFFF;\n}\n.pagination-btn[data-v-85f3388c]{\n    background-color: #FF4B2B;\n    padding: 1% 2% 1% 2%;\n    font-size: 0.8vw;\n    border: none;\n    color: #FFFFFF;\n    transition: 0.5s;\n    cursor:pointer;\n    border-radius: 0.25rem;\n}\n.btn-edit[data-v-85f3388c]{\n    border: 1px solid dodgerblue;\n}\n\n\n", ""]);
 
 // exports
 
@@ -6629,7 +6672,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.link-navbar{\n    height: 0;\n    opacity: 0;\n    transition: 0.5s;\n    text-decoration: none;\n    color: #4F4D4D\n}\n.link-navbar:hover{\n    color: #000;\n    opacity: 1;\n}\n.cont-link-navbar{\n    padding: 2vh 0 2vh 0;\n    margin-left: 1vw;\n    width: 100%;\n}\nnav ul li:hover .link-navbar{\n    height: auto;\n    opacity: 0.9;\n}\nnav ul li p{\n    font-weight: 700;\n    transition: 0.5s;\n    cursor: pointer\n}\nnav ul li:hover p{\n    color: #FF4B2B;\n}\nnav ul li{\n    height: 0;\n    transition: 0.5s;\n}\nnav ul li:hover {\n    height: 10vh;\n}\n\n", ""]);
+exports.push([module.i, "\n.link-navbar{\n    height: 0;\n    opacity: 0;\n    transition: 0.5s;\n    text-decoration: none;\n    color: #4F4D4D\n}\n.link-navbar:hover{\n    color: #000;\n    opacity: 1;\n    height: auto;\n}\n.cont-link-navbar{\n    padding: 2vh 0 2vh 0;\n    margin-left: 1vw;\n    width: 100%;\n}\nnav ul li:hover .link-navbar{\n    height: auto;\n    opacity: 0.9;\n    transition: 0.5s;\n}\nnav ul li p{\n    font-weight: 700;\n    transition: 0.5s;\n    cursor: pointer\n}\nnav ul li:hover p{\n    color: #FF4B2B;\n}\nnav ul li{\n    height: 0;\n    transition: 0.5s;\n}\nnav ul li:hover {\n    height: auto;\n}\n\n", ""]);
 
 // exports
 
@@ -38287,6 +38330,7 @@ var render = function() {
                 ],
                 1
               ),
+              _c("button", { staticClass: "btn-edit" }, [_vm._v("Edit")]),
               _c(
                 "button",
                 {
@@ -38298,7 +38342,66 @@ var render = function() {
                 },
                 [_vm._v("Delete")]
               )
-            ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.UpdateAthlete(athletes.id)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "cont-input" }, [
+                  _c("label", [_vm._v("Nom")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    attrs: {
+                      type: "text",
+                      name: "name",
+                      placeholder: athletes.name
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "cont-input" }, [
+                  _c("label", [_vm._v("Equipe")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    { attrs: { name: "equipe_id" } },
+                    _vm._l(_vm.allequipes, function(equipe) {
+                      return _c(
+                        "option",
+                        { key: equipe.id, domProps: { value: equipe.id } },
+                        [_vm._v(_vm._s(equipe.name))]
+                      )
+                    }),
+                    0
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "cont-input" }, [
+                  _c("label", [_vm._v("Description")]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    attrs: {
+                      name: "description",
+                      placeholder: athletes.descrption
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "pagination-btn", attrs: { type: "submit" } },
+                  [_vm._v("Enregistrer")]
+                )
+              ]
+            )
           ])
         }),
         _vm._v(" "),
@@ -55406,8 +55509,8 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/api-du-sport/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/api-du-sport/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
