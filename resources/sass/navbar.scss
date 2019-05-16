@@ -1,0 +1,43 @@
+// @import "@/sass/app.scss";
+
+#navbar {
+    .link-navbar{
+        height: 0;
+        opacity: 0;
+        transition: 0.5s;
+        text-decoration: none;
+        color: #4F4D4D
+
+    }
+    .link-navbar:hover{
+        color: #000;
+        opacity: 1;
+        height: auto;
+
+    }
+    .cont-link-navbar{
+        padding: 2vh 0 2vh 0;
+        margin-left: 1vw;
+        width: 100%;
+    }
+    nav ul li:hover .link-navbar{
+        height: auto;
+        opacity: 0.9;
+        transition: 0.5s;
+    }
+    nav ul li p{
+        font-weight: 700;
+        transition: 0.5s;
+        cursor: pointer
+    }
+    nav ul li:hover p{
+        color: #FF4B2B;;
+    }
+    nav ul li{
+        height: 0;
+        transition: 0.5s;
+    }
+    nav ul li:hover {
+        height: auto;
+    }
+}
