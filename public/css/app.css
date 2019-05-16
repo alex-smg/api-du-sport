@@ -48,6 +48,7 @@ nav ul li {
 
 .container {
   margin-top: 60px;
+  width: 100%;
 }
 
 .fade-enter,
@@ -125,13 +126,63 @@ fade-enter-active,
   border-radius: 0.25rem;
 }
 
-#home h1 {
-  text-align: center;
+#allathletes .btn-edit {
+  border: 1px solid dodgerblue;
 }
 
-#navbar {
-  z-index: 10;
-  background-color: white;
+#formaddathlete #add-data {
+  display: block;
+  width: 40%;
+  margin: auto;
+}
+
+#formaddathlete .cont-input {
+  margin: 4vh 0 4vh 0;
+}
+
+#formaddathlete .cont-input label {
+  margin: 1vh 0 1vh 0;
+}
+
+#formaddathlete #add-data label,
+#formaddathlete #add-data input,
+#formaddathlete #add-data button {
+  display: block;
+}
+
+#formaddathlete #add-data input,
+#formaddathlete #add-data textarea,
+#formaddathlete #add-data select {
+  border: 1px solid lightgrey;
+  border-radius: 0.25rem;
+  padding: 1% 3% 1% 3%;
+  width: 70%;
+  resize: none;
+}
+
+#formaddathlete #add-data textarea {
+  height: 15vh;
+}
+
+#formaddathlete #add-data button {
+  border: 1px solid #FF4B2B;
+  padding: 1vh 1vh 1vh 1vh;
+  background-color: transparent;
+  border-radius: 0.25rem;
+  font-weight: 700;
+  color: #FF4B2B;
+  font-size: 1vw;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#formaddathlete #add-data button:hover {
+  background-color: #FF4B2B;
+  color: #FFFFFF;
+}
+
+#home h1 {
+  text-align: center;
 }
 
 #navbar .link-navbar {
@@ -145,6 +196,7 @@ fade-enter-active,
 #navbar .link-navbar:hover {
   color: #000;
   opacity: 1;
+  height: auto;
 }
 
 #navbar .cont-link-navbar {
@@ -156,6 +208,7 @@ fade-enter-active,
 #navbar nav ul li:hover .link-navbar {
   height: auto;
   opacity: 0.9;
+  transition: 0.5s;
 }
 
 #navbar nav ul li p {
@@ -174,7 +227,7 @@ fade-enter-active,
 }
 
 #navbar nav ul li:hover {
-  height: 10vh;
+  height: auto;
 }
 
 #allequipe .cont-list {
