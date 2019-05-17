@@ -6,6 +6,7 @@
                 url: 'api/allathletes',
                 pagination: [],
                 allequipes:[],
+                selectEquipe:[],
                 name: '',
                 description: '',
                 equipe_id: '',
@@ -23,8 +24,13 @@
             switchEdit(id){
                 this.edit=true
                 this.edit_id = id
-                console.log(this.edit)
                 console.log(this.edit_id)
+                this.allathletes.forEach(function(el){
+                    if (el.id === this.edit_id){
+                        this.selectEquipe = el
+                        console.log(this.selectEquipe)
+                    }
+                })
             },
             fetchAthletes(){
                 let $this = this

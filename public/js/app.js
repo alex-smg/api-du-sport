@@ -1824,6 +1824,7 @@ __webpack_require__.r(__webpack_exports__);
       url: 'api/allathletes',
       pagination: [],
       allequipes: [],
+      selectEquipe: [],
       name: '',
       description: '',
       equipe_id: '',
@@ -1839,8 +1840,13 @@ __webpack_require__.r(__webpack_exports__);
     switchEdit: function switchEdit(id) {
       this.edit = true;
       this.edit_id = id;
-      console.log(this.edit);
       console.log(this.edit_id);
+      this.allathletes.forEach(function (el) {
+        if (el.id === this.edit_id) {
+          this.selectEquipe = el;
+          console.log(this.selectEquipe);
+        }
+      });
     },
     fetchAthletes: function fetchAthletes() {
       var _this = this;
@@ -38162,7 +38168,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n            About us: We are a beautiful team, that's right Mutherfuckaaaaaaa !\n        "
+            "\r\n            About us: We are a beautiful team, that's right Mutherfuckaaaaaaa !\r\n        "
           )
         ])
       ])
@@ -38195,58 +38201,11 @@ var render = function() {
       "div",
       { staticClass: "cont-list" },
       [
-        _c("h2", [_vm._v("Tous les athletes")]),
-        _vm._v(" "),
-        _vm._l(_vm.allathletes, function(athletes) {
-          return _c("ul", { key: athletes.id, staticClass: "list-data" }, [
-            _c("li", [
-              _c(
-                "p",
-                { staticClass: "cont-list-name" },
-                [
-                  _c(
-                    "router-link",
-                    { attrs: { to: "/athlete/" + athletes.id } },
-                    [_vm._v(_vm._s(athletes.name))]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "cont-list-btn" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn-edit",
-                    on: {
-                      click: function($event) {
-                        return _vm.switchEdit(athletes.id)
-                      }
-                    }
-                  },
-                  [_vm._v("Edit")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    on: {
-                      click: function($event) {
-                        return _vm.deleteAthlete(athletes.id)
-                      }
-                    }
-                  },
-                  [_vm._v("Delete")]
-                )
-              ])
-            ])
-          ])
-        }),
-        _vm._v(" "),
         _vm.edit
           ? _c(
               "form",
               {
+                attrs: { id: "add-data" },
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
@@ -38267,7 +38226,11 @@ var render = function() {
                         expression: "name"
                       }
                     ],
-                    attrs: { type: "text", name: "name" },
+                    attrs: {
+                      type: "text",
+                      name: "name",
+                      placeholder: _vm.selectEquipe.name
+                    },
                     domProps: { value: _vm.name },
                     on: {
                       input: function($event) {
@@ -38355,6 +38318,54 @@ var render = function() {
               ]
             )
           : _vm._e(),
+        _vm._v(" "),
+        _c("h2", [_vm._v("Tous les athletes")]),
+        _vm._v(" "),
+        _vm._l(_vm.allathletes, function(athletes) {
+          return _c("ul", { key: athletes.id, staticClass: "list-data" }, [
+            _c("li", [
+              _c(
+                "p",
+                { staticClass: "cont-list-name" },
+                [
+                  _c(
+                    "router-link",
+                    { attrs: { to: "/athlete/" + athletes.id } },
+                    [_vm._v(_vm._s(athletes.name))]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "cont-list-btn" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn-edit",
+                    on: {
+                      click: function($event) {
+                        return _vm.switchEdit(athletes.id)
+                      }
+                    }
+                  },
+                  [_vm._v("Edit")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteAthlete(athletes.id)
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ])
+            ])
+          ])
+        }),
         _vm._v(" "),
         _c("div", { staticClass: "pagination" }, [
           _c(
@@ -55551,8 +55562,13 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! /Applications/MAMP/htdocs/Laravel/api-du-sport/resources/js/app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/Laravel/api-du-sport/resources/sass/app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> alex
 
 
 /***/ })

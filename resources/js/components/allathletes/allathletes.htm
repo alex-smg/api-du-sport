@@ -1,22 +1,9 @@
 <div id="allathletes">
         <div class="cont-list">
-            <h2>Tous les athletes</h2>
-            <ul class="list-data" v-for="athletes in allathletes" :key="athletes.id">
-                <li>
-                    <p class="cont-list-name">
-                        <router-link :to="`/athlete/${athletes.id}`">{{ athletes.name}}</router-link>
-                    </p>
-                    <div class="cont-list-btn">
-                        <button class="btn-edit" @click="switchEdit(athletes.id)">Edit</button>
-                        <button @click="deleteAthlete(athletes.id)">Delete</button>
-                    </div>
-                </li>
-
-            </ul>
-            <form v-if="edit" @submit.prevent="UpdateAthlete">
+            <form v-if="edit" id="add-data" @submit.prevent="UpdateAthlete">
                 <div class="cont-input">
                     <label>Nom</label>
-                    <input type="text" name="name" v-model="name"/>
+                    <input type="text" name="name" v-model="name" :placeholder="selectEquipe.name"/>
                 </div>
                 <div class="cont-input">
                     <label>Equipe</label>
@@ -31,6 +18,19 @@
 
                 <button class="pagination-btn" type="submit">Enregistrer</button>
             </form>
+            <h2>Tous les athletes</h2>
+            <ul class="list-data" v-for="athletes in allathletes" :key="athletes.id">
+                <li>
+                    <p class="cont-list-name">
+                        <router-link :to="`/athlete/${athletes.id}`">{{ athletes.name}}</router-link>
+                    </p>
+                    <div class="cont-list-btn">
+                        <button class="btn-edit" @click="switchEdit(athletes.id)">Edit</button>
+                        <button @click="deleteAthlete(athletes.id)">Delete</button>
+                    </div>
+                </li>
+
+            </ul>
             <div class="pagination">
                 <button class="pagination-btn" v-on:click="fetchPaginationAthletes(pagination.prev_page_url)">Précédent</button>
                 <span>Page {{pagination.current_page}} of {{pagination.last_page}}</span>
