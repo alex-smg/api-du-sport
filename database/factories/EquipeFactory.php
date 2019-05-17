@@ -20,8 +20,6 @@
         return [
             'name' => $faker->name,
             'description' => $faker->realText(180),
-            'competition' => $faker->randomElement(['1', '10']),
-            'competition_id' => $faker->numberBetween(1, 1),
             'nationalite_id' => $faker->randomElement(['1', '10']),
 
         ];

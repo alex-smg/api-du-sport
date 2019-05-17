@@ -13,7 +13,7 @@ class RelationsEquipeCompet extends Migration
      */
     public function up()
     {
-        Schema::create('equipe_competition', function (Blueprint $table) {
+        Schema::create('equipe_competitions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('equipe_id')->index();
             $table->foreign('equipe_id')->references('id')->on('equipes')->onDelete('cascade');
@@ -22,14 +22,6 @@ class RelationsEquipeCompet extends Migration
             $table->timestamps();
         });
 
-       /* Schema::table('competitions', function (Blueprint $table) {
-        $table->unsignedBigInteger('equipe_id')->index()->nullable();
-        $table->foreign('equipe_id')->references('equipe_id')->on('equipe_competition')->onDelete('cascade');
-    });
-        Schema::table('equipes', function (Blueprint $table) {
-            $table->unsignedBigInteger('competition_id')->index()->nullable();
-            $table->foreign('competition_id')->references('competition_id')->on('equipe_competition')->onDelete('cascade');
-        });*/
     }
 
     /**
