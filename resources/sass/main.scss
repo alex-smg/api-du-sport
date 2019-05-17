@@ -14,4 +14,15 @@
 }
 .container{
   margin-top: 60px;
+  width: 100%;
+}
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
+fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.5s;
+  transition-property: opacity;
+  transition-timing-function: ease;
 }

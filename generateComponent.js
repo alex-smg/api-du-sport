@@ -5,21 +5,19 @@ const colors = require("colors/safe");
 
 const name = process.env.npm_config_component || "MyNewComponent";
 const customPath = process.env.npm_config_path || "./resources/js/components";
-const customPathJS = process.env.npm_config_path || "./resources/js/sass";
+const customPathJS = process.env.npm_config_path || "./resources/sass";
 
 const dirComponents = path.resolve(__dirname, "./" + customPath);
-const dirComponentsJS = path.resolve(__dirname, "./" + customPath);
+const dirComponentsJS = path.resolve(__dirname, "./" + customPathJS);
 
 const creatingComponent = (name) => {
     console.log(colors.yellow("Creating " + name + " folder ..."));
     fs.mkdirSync(dirComponents + "/" + name);
     console.log(colors.green("Ok ..."));
     console.log(colors.yellow("Creating " + name + ".vue ..."));
-    fs.appendFile(dirComponents + "/" + name + "/" + name + ".vue", `<template lang="html" src="./${name}.html" ></template>
+    fs.appendFile(dirComponents + "/" + name + "/" + name + ".vue", `<template src="./${name}.htm" ></template>
 
-<script lang="text/javascript" src="./${name}.js"></script>
-
-<style lang="scss" src="./${name}.scss" ></style>`, function (err) {
+<script lang="text/javascript" src="./${name}.js"></script>`, function (err) {
         if (err) console.log(colors.red(err))
         console.log(colors.green("Ok ..."))
         console.log(colors.yellow("Creating " + name + ".js ..."))
@@ -31,11 +29,8 @@ const creatingComponent = (name) => {
 }`, function (err) {
             if (err) console.log(colors.red(err))
             console.log(colors.green("Ok ..."))
-            console.log(colors.yellow("Creating " + name + ".html ..."))
-            fs.appendFile(dirComponents + "/" + name + "/" + name + ".html", `<div id="` + name + `">
-    <div class="main-container">
-        
-    </div>
+            console.log(colors.yellow("Creating " + name + ".htm ..."))
+            fs.appendFile(dirComponents + "/" + name + "/" + name + ".htm", `<div id="` + name + `">
 </div>`, function (err) {
                 if (err) console.log(colors.red(err))
                 console.log(colors.green("Ok ..."))

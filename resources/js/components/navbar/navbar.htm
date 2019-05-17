@@ -1,9 +1,37 @@
 <div id="navbar">
-    <div>
-        <img class="logo" src="img/logo.svg">
-    </div>
-    <router-link to="/home">Home</router-link>
-    <router-link to="/allathletes">Athletes</router-link>
-    <router-link to="/equipes">Equipes</router-link>
-    <router-link to="/about">Competition</router-link>
+        <header>
+            <div>
+                <router-link to="/"><img  class="logo" src="img/logo.svg"></router-link>
+            </div>
+            <nav>
+                <ul>
+                    <li><p class="hover-nav">Athlètes</p>
+                        <div class="cont-link-navbar">
+                            <router-link class="link-navbar" to="/all-athletes">Liste des athlètes</router-link>
+                        </div>
+                        <div class="cont-link-navbar">
+                            <router-link class="link-navbar" to="/add-athlete">Ajouter un athlète</router-link>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="hover-nav">Equipes</p>
+                        <div class="cont-link-navbar">
+                            <router-link class="link-navbar" to="/all-equipes">Liste des equipes</router-link>
+                        </div>
+                        <div class="cont-link-navbar">
+                            <router-link class="link-navbar" to="/add-equipe">Ajouter un equipe</router-link>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="hover-nav">Competitions</p>
+                        <div class="cont-link-navbar">
+                            <router-link class="link-navbar" to="/all-competitions">Liste des competitions</router-link>
+                        </div>
+                        <div class="cont-link-navbar">
+                            <router-link class="link-navbar" to="/add-competition">Ajouter un competition</router-link>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 </div>

@@ -1,6 +1,8 @@
 import Home from "./components/home/home.vue";
 import AllAthletes from './components/allathletes/allathletes.vue';
-import FormAddAthletes from "./components/formaddathletes/formaddathletes.vue";
+import FormAddAthlete from "./components/formaddathlete/formaddathlete.vue";
+import Athlete from "./components/athlete/athlete.vue";
+import AllEquipes from "./components/allequipes/allequipes.vue";
 import About from "./components/about/about.vue";
 
 export const routes = [
@@ -15,14 +17,24 @@ export const routes = [
         component: Home
     },
     {
-        path: '/allathletes',
-        name: "allathletes",
+        path: '/all-athletes',
+        name: "all-athletes",
         component: AllAthletes
     },
     {
-        path: '/formaddathletes',
-        name: "formaddathletes",
-        component: FormAddAthletes
+        path: '/add-athlete',
+        name: "add-athlete",
+        component: FormAddAthlete
+    },
+    {
+        path: '/all-equipes',
+        name: "all-equipes",
+        component: AllEquipes
+    },
+    {
+        path: '/athlete/:id',
+        name: "/athlete/:id",
+        component: Athlete
     },
     {
         path: "/about",
@@ -36,3 +48,18 @@ export const routes = [
         // import( "./components/about/about.vue")
     }
 ]
+
+/////  ALEX
+// import FormAddAthlete from './components/FormAddAthlete.vue';
+// import AllAthletes from './components/AllAthletes.vue';
+// import AllEquipes from './components/AllEquipes.vue';
+// import Home from './components/Home.vue';
+// import Athlete from './components/Athlete.vue';
+
+// export const routes = [
+//     { path: '/', component: Home},
+//     // { path: '/add-athlete', component: FormAddAthlete },
+//     // { path: '/all-athletes', component: AllAthletes },
+//     // { path: '/all-equipes', component: AllEquipes },
+//     { path: '/athlete/:id', component: Athlete },
+//]

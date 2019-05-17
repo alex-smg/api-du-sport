@@ -15,8 +15,8 @@ class AthletesController extends Controller
         return AthleteResource::collection($allAthletes);
     }
     public function findAthlete($id){
-        $athlete = Athlete::findOrFail($id);
-        return new AthleteResource($athlete);
+        $athlete = Athlete::with('equipe')->findOrFail($id);
+        return $athlete;
     }
     public function store(Request $request)
     {
@@ -30,6 +30,22 @@ class AthletesController extends Controller
         }
 
     }
+    public function edit($id)
+    {
+        $upAthlete = Athlete::find($id);
+        return $upAthlete;
+    }
+    public function update(Request $request, $id)
+    {
+        $athlete = Athlete::find($id);
+        $athlete->name = $request->get('name');
+        $athlete->description = $request->get('description');
+        $athlete->equipe_id = $request->get('equipe_id');
+        $athlete->save();
+
+        return $athlete;
+    }
+
     public function destroy($id){
         $athlete = Athlete::findOrFail($id);
         if($athlete->delete()) {
