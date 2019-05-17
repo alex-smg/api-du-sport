@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 import{routes} from './routes'
 import MainApp from './components/MainApp.vue'
 import Navbar from "./components/navbar/navbar.vue";
+import Footerbar from "./components/footerbar/footerbar.vue";
 
 Vue.use(VueRouter);
 Vue.use(Vuex);
@@ -24,6 +25,7 @@ const app = new Vue({
 export default {
     // @ is an alias to /src
     components: {
-        Navbar
+        Navbar,
+        Footerbar
     }
 };

@@ -6,22 +6,24 @@
                 <router-view/>
             </transition>
         </div>
+        <footerbar/>
     </div>
 
 </template>
 
 <script>
-    import Navbar from './navbar/navbar.vue'
+    import Navbar from './navbar/navbar.vue';
+    import Footerbar from "./footerbar/footerbar.vue";
     export default {
         name: 'main-app',
         components:{
-            Navbar
+            Navbar,
+            Footerbar
         }
     }
 </script>
 
 <style>
-
     #main{
         display: flex;
     }
@@ -29,8 +31,4 @@
         position: fixed;
         width: inherit;
     }
-
-
-
-
 </style>

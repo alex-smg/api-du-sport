@@ -299,6 +299,15 @@ fade-enter-active,
   border-radius: 0.25rem;
 }
 
+#footerbar {
+  position: fixed;
+  bottom: 0;
+  background-color: #FF4B2B;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
 /*
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';*/
