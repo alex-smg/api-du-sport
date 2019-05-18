@@ -2025,7 +2025,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       quotesoftheday: {},
-      url2: '/',
+      url2: 'api/quotesoftheday',
       url: 'https://api.chucknorris.io/jokes/random',
       status: 'pending',
       quotes: null,
@@ -2033,13 +2033,13 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    fetchEquipes: function fetchEquipes() {
+    fetchQuotes: function fetchQuotes() {
       var _this = this;
 
       var $this = this;
       axios.get(this.url2).then(function (response) {
-        console.log(response.data);
-        _this.quotesoftheday = response.data.data;
+        // console.log(response.data)
+        _this.quotesoftheday = response.data.value;
       });
     },
     xhr: function xhr() {
@@ -2069,11 +2069,12 @@ __webpack_require__.r(__webpack_exports__);
 
       setInterval(function () {
         _this3.xhr();
-      }, 2000);
+      }, 5000);
     }
   },
   mounted: function mounted() {
     this.repeat();
+    this.fetchQuotes();
   }
 });
 
@@ -38168,7 +38169,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\r\n            About us: We are a beautiful team, that's right Mutherfuckaaaaaaa !\r\n        "
+            "\n            About us: We are a beautiful team, that's right Mutherfuckaaaaaaa !\n        "
           )
         ])
       ])
@@ -38554,9 +38555,17 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "footerbar" } }, [
-    _c("p", [_vm._v("Citation du jour: " + _vm._s(_vm.quotesoftheday))]),
+    _c("p", [
+      _vm._v("Citation du jour: "),
+      _c("br"),
+      _vm._v(_vm._s(_vm.quotesoftheday))
+    ]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.quotes))])
+    _c("p", [
+      _vm._v("Citation en boucle: "),
+      _c("br"),
+      _vm._v(_vm._s(_vm.quotes))
+    ])
   ])
 }
 var staticRenderFns = []
@@ -55562,13 +55571,8 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 __webpack_require__(/*! /Applications/MAMP/htdocs/Laravel/api-du-sport/resources/js/app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/Laravel/api-du-sport/resources/sass/app.scss */"./resources/sass/app.scss");
-=======
-__webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> alex
 
 
 /***/ })
