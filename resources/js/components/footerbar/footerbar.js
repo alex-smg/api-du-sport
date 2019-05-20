@@ -3,7 +3,7 @@ export default {
     data: () => {
         return{
             quotesoftheday: {},
-            url2: '/',
+            url2: 'api/quotesoftheday',
             url: 'https://api.chucknorris.io/jokes/random',
             status:'pending',
             quotes: null,
@@ -11,13 +11,12 @@ export default {
         }
     },
     methods: {
-      fetchEquipes(){
+      fetchQuotes(){
           let $this = this
           axios.get(this.url2).then(response => {
-              console.log(response.data)
-              this.quotesoftheday = response.data.data
+              // console.log(response.data)
+              this.quotesoftheday = response.data.value
           })
-
       },
       xhr: function() {
         const req = new XMLHttpRequest(); req.onerror = (event) => {
@@ -36,11 +35,12 @@ export default {
       repeat: function() {
           setInterval(()=>{
               this.xhr();
-          }, 2000)
+          }, 5000)
       }
     },
     mounted() {
         this.repeat();
+        this.fetchQuotes();
     }
     
 }
