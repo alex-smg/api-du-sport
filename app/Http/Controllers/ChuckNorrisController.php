@@ -9,7 +9,7 @@ use GuzzleHttp\Client;
 class ChuckNorrisController extends Controller
 {
     var $quotesoftheday;
-    var $chuckNorrisJson;
+    var $chuckJson;
     var $statuscode;
     //
     public function index()
@@ -19,10 +19,11 @@ class ChuckNorrisController extends Controller
         $statuscode = $res->getStatusCode();
         if($statuscode == "200")
         {
-            $chuckNorrisJson = $res->getBody();
+            $chuckJson = $res->getBody();
         } else {
-            $chuckNorrisJson = ['value'=>"Pas de citation aujourd'hui"];
+            $chuckJson = ['value'=>"Pas de citation aujourd'hui"];
         }
-        return $chuckNorrisJson;
+        return $chuckJson;
     }
+
 }
