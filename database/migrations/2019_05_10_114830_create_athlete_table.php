@@ -17,7 +17,6 @@ class CreateAthleteTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->longText('description');
-            $table->integer('competition');
            $table->timestamps();
         });
 

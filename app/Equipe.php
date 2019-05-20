@@ -10,4 +10,8 @@ class Equipe extends Model
     {
         return $this->hasMany('App\Athlete');
     }
+    public function competitions()
+    {
+        return $this->belongsToMany('App\Competition');
+    }
 }
