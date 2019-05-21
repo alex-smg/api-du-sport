@@ -1930,13 +1930,35 @@ __webpack_require__.r(__webpack_exports__);
     return {
       allequipes: [],
       url: 'api/all_equipes',
-      pagination: []
+      pagination: [],
+      selectEquipe: [],
+      name: '',
+      description: '',
+      equipe_id: '',
+      edit: false,
+      edit_id: ''
     };
   },
   created: function created() {
     this.fetchEquipes();
   },
   methods: {
+    switchEdit: function switchEdit(id) {
+      this.edit = true;
+      this.edit_id = id;
+      console.log(this.edit_id);
+      this.dataForm(this.edit_id);
+    },
+    dataForm: function dataForm(id) {
+      var array;
+      this.allequipes.forEach(function (el) {
+        if (el.id === id) {
+          array = el;
+        }
+      });
+      this.selectEquipe = array;
+      console.log(this.selectEquipe);
+    },
     fetchEquipes: function fetchEquipes() {
       var _this = this;
 
@@ -1972,6 +1994,23 @@ __webpack_require__.r(__webpack_exports__);
           return console.log(err);
         });
       }
+    },
+    UpdateEquipe: function UpdateEquipe() {
+      var _this3 = this;
+
+      axios.post("api/update/equipe/".concat(this.edit_id), {
+        name: this.name,
+        description: this.description,
+        nationalite_id: this.nationalite_id,
+        _method: 'patch'
+      }).then(function (response) {
+        console.log(response);
+        alert('Equipe update');
+      }).then(function (data) {
+        _this3.fetchEquipes();
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   }
 });
@@ -38099,7 +38138,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n            About us: We are a beautiful team, that's right Mutherfuckaaaaaaa !\n        "
+            "\r\n            About us: We are a beautiful team, that's right Mutherfuckaaaaaaa !\r\n        "
           )
         ])
       ])
@@ -38160,7 +38199,7 @@ var render = function() {
                     attrs: {
                       type: "text",
                       name: "name",
-                      placeholder: _vm.selectEquipe.name
+                      value: "selectEquipe.name"
                     },
                     domProps: { value: _vm.name },
                     on: {
@@ -55393,8 +55432,8 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/api-du-sport/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/api-du-sport/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

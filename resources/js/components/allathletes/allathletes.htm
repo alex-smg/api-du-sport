@@ -3,7 +3,7 @@
             <form v-if="edit" id="add-data" @submit.prevent="UpdateAthlete">
                 <div class="cont-input">
                     <label>Nom</label>
-                    <input type="text" name="name" v-model="name" :placeholder="selectEquipe.name"/>
+                    <input type="text" name="name" v-model="name" value="selectEquipe.name"/>
                 </div>
                 <div class="cont-input">
                     <label>Equipe</label>
