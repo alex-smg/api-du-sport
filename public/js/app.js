@@ -1837,12 +1837,17 @@ __webpack_require__.r(__webpack_exports__);
       this.edit = true;
       this.edit_id = id;
       console.log(this.edit_id);
+      this.dataForm(this.edit_id);
+    },
+    dataForm: function dataForm(id) {
+      var array;
       this.allathletes.forEach(function (el) {
-        if (el.id === this.edit_id) {
-          this.selectEquipe = el;
-          console.log(this.selectEquipe);
+        if (el.id === id) {
+          array = el;
         }
       });
+      this.selectEquipe = array;
+      console.log(this.selectEquipe);
     },
     fetchAthletes: function fetchAthletes() {
       var _this = this;
@@ -38094,7 +38099,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\r\n            About us: We are a beautiful team, that's right Mutherfuckaaaaaaa !\r\n        "
+            "\n            About us: We are a beautiful team, that's right Mutherfuckaaaaaaa !\n        "
           )
         ])
       ])
@@ -55388,8 +55393,8 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/api-du-sport/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/api-du-sport/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
