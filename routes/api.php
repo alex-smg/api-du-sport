@@ -25,6 +25,8 @@ Route::get('all_equipes', 'EquipesController@index');
 
 Route::get('athlete/{id}', 'AthletesController@findAthlete');
 
+Route::get('add/athlete/addimage', 'AthletesController@callApi');
+
 Route::post('add/athlete', 'AthletesController@store');
 
 Route::patch('update/athlete/{id}', 'AthletesController@store');

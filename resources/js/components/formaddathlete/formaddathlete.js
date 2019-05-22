@@ -6,12 +6,14 @@
                 name: null,
                 description : null,
                 equipe_id:null,
+                image:null,
                 edit: false,
                 allequipes:[]
             }
         },
         created(){
           this.fetchEquipes()
+            this.getImage()
         },
         methods:{
             addAthlete(){
@@ -32,9 +34,14 @@
                 axios.get('api/all_equipes').then(response => {
                     console.log(response.data)
                     this.allequipes = response.data.data
-
                 })
-
+            },
+            getImage(){
+                axios.get('api/add/athlete/addimage').then(response => {
+                    console.log(response.data)
+                    this.image = response.data.data
+                    console.log(this.image)
+                })
             }
         }
     }

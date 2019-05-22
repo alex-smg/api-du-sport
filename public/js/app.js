@@ -2078,12 +2078,14 @@ __webpack_require__.r(__webpack_exports__);
       name: null,
       description: null,
       equipe_id: null,
+      image: null,
       edit: false,
       allequipes: []
     };
   },
   created: function created() {
     this.fetchEquipes();
+    this.getImage();
   },
   methods: {
     addAthlete: function addAthlete() {
@@ -2104,6 +2106,15 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('api/all_equipes').then(function (response) {
         console.log(response.data);
         _this.allequipes = response.data.data;
+      });
+    },
+    getImage: function getImage() {
+      var _this2 = this;
+
+      axios.get('api/add/athlete/addimage').then(function (response) {
+        console.log(response.data);
+        _this2.image = response.data.data;
+        console.log(_this2.image);
       });
     }
   }
@@ -38149,7 +38160,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n            About us: We are a beautiful team, that's right Mutherfuckaaaaaaa !\n        "
+            "\r\n            About us: We are a beautiful team, that's right Mutherfuckaaaaaaa !\r\n        "
           )
         ])
       ])
@@ -55548,26 +55559,8 @@ var routes = [{
 }, {
   path: "/about",
   name: "about",
-  component: _components_about_about_vue__WEBPACK_IMPORTED_MODULE_5__["default"] // route level code-splitting
-  // this generates a separate chunk (about.[hash].js) for this route
-  // which is lazy-loaded when the route is visited.
-  // If not dynamic, could go here
-  // component: () =>
-  // import( "./components/about/about.vue")
-
-}]; /////  ALEX
-// import FormAddAthlete from './components/FormAddAthlete.vue';
-// import AllAthletes from './components/AllAthletes.vue';
-// import AllEquipes from './components/AllEquipes.vue';
-// import Home from './components/Home.vue';
-// import Athlete from './components/Athlete.vue';
-// export const routes = [
-//     { path: '/', component: Home},
-//     // { path: '/add-athlete', component: FormAddAthlete },
-//     // { path: '/all-athletes', component: AllAthletes },
-//     // { path: '/all-equipes', component: AllEquipes },
-//     { path: '/athlete/:id', component: Athlete },
-//]
+  component: _components_about_about_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+}];
 
 /***/ }),
 
@@ -55589,8 +55582,8 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/api-du-sport/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/api-du-sport/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

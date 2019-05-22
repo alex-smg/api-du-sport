@@ -21,6 +21,7 @@ class Athlete extends JsonResource
             'equipe_id' => $this->equipe_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'image' => $this->image,
         ];
     }
 }

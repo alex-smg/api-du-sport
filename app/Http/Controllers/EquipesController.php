@@ -23,6 +23,7 @@
             $equipe = $request->isMethod('put') ? Equipe::findOrFail($request->id) : new Equipe;
             $equipe->id = $request->input('id');
             $equipe->name = $request->input('name');
+            $equipe->image = $request->input('image');
             $equipe->description = $request->input('description');
             $equipe->nationalite_id = $request->input('nationalite_id');
             if($equipe->save()) {
