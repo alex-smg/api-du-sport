@@ -1932,9 +1932,10 @@ __webpack_require__.r(__webpack_exports__);
       url: 'api/all_equipes',
       pagination: [],
       selectEquipe: [],
+      allnationalites: [],
       name: '',
       description: '',
-      equipe_id: '',
+      nationalite_id: '',
       edit: false,
       edit_id: ''
     };
@@ -1957,6 +1958,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
       this.selectEquipe = array;
+      this.fetchNAtionalites();
       console.log(this.selectEquipe);
     },
     fetchEquipes: function fetchEquipes() {
@@ -1967,6 +1969,15 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response.data);
         _this.allequipes = response.data.data;
         $this.makePagination(response.data);
+      });
+    },
+    fetchNAtionalites: function fetchNAtionalites() {
+      var _this2 = this;
+
+      axios.get('api/all_nationalite').then(function (response) {
+        console.log(response.data);
+        _this2.allnationalites = response.data.data;
+        console.log(_this2.allnationalites);
       });
     },
     makePagination: function makePagination(data) {
@@ -1983,20 +1994,20 @@ __webpack_require__.r(__webpack_exports__);
       this.fetchEquipes();
     },
     deleteEquipe: function deleteEquipe(id) {
-      var _this2 = this;
+      var _this3 = this;
 
       if (confirm('Are You Sure?')) {
         axios["delete"]("api/equipe/".concat(id)).then(function (data) {
           alert('equipe Removed');
 
-          _this2.fetchEquipes();
+          _this3.fetchEquipes();
         })["catch"](function (err) {
           return console.log(err);
         });
       }
     },
     UpdateEquipe: function UpdateEquipe() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.post("api/update/equipe/".concat(this.edit_id), {
         name: this.name,
@@ -2005,9 +2016,9 @@ __webpack_require__.r(__webpack_exports__);
         _method: 'patch'
       }).then(function (response) {
         console.log(response);
-        alert('Equipe update');
+        alert('equipe update');
       }).then(function (data) {
-        _this3.fetchEquipes();
+        _this4.fetchEquipes();
       })["catch"](function (error) {
         console.log(error);
       });
@@ -38138,7 +38149,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\r\n            About us: We are a beautiful team, that's right Mutherfuckaaaaaaa !\r\n        "
+            "\n            About us: We are a beautiful team, that's right Mutherfuckaaaaaaa !\n        "
           )
         ])
       ])
@@ -38404,28 +38415,174 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "allequipes" } }, [
+  return _c("div", { attrs: { id: "allathletes" } }, [
     _c(
       "div",
       { staticClass: "cont-list" },
       [
-        _c("h2", [_vm._v("Toutes les equipes")]),
+        _vm.edit
+          ? _c(
+              "form",
+              {
+                attrs: { id: "add-data" },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.UpdateEquipe($event)
+                  }
+                }
+              },
+              [
+                _c("h2", [_vm._v("Modifier une équipe")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "cont-input" }, [
+                  _c("label", [_vm._v("Nom")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.name,
+                        expression: "name"
+                      }
+                    ],
+                    attrs: { type: "text", name: "name", id: "input-name" },
+                    domProps: { value: _vm.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.name = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "cont-input" }, [
+                  _c("label", [_vm._v("Nationalite")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.nationalite_id,
+                          expression: "nationalite_id"
+                        }
+                      ],
+                      attrs: { name: "equipe_id" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.nationalite_id = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    _vm._l(_vm.allnationalites, function(nationalites) {
+                      return _c(
+                        "option",
+                        {
+                          key: nationalites.id,
+                          domProps: { value: nationalites.id }
+                        },
+                        [_vm._v(_vm._s(nationalites.name))]
+                      )
+                    }),
+                    0
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "cont-input" }, [
+                  _c("label", [_vm._v("Description")]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.description,
+                        expression: "description"
+                      }
+                    ],
+                    attrs: { name: "description", id: "input-description" },
+                    domProps: { value: _vm.description },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.description = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "pagination-btn", attrs: { type: "submit" } },
+                  [_vm._v("Enregistrer")]
+                )
+              ]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c("h2", [_vm._v("Tous les equipes")]),
         _vm._v(" "),
         _vm._l(_vm.allequipes, function(equipes) {
           return _c("ul", { key: equipes.id, staticClass: "list-data" }, [
             _c("li", [
-              _c("p", [_vm._v(_vm._s(equipes.name) + " ")]),
               _c(
-                "button",
-                {
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteEquipe(equipes.id)
+                "p",
+                { staticClass: "cont-list-name" },
+                [
+                  _c(
+                    "router-link",
+                    { attrs: { to: "/equipe/" + equipes.id } },
+                    [_vm._v(_vm._s(equipes.name))]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "cont-list-btn" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn-edit",
+                    on: {
+                      click: function($event) {
+                        return _vm.switchEdit(equipes.id)
+                      }
                     }
-                  }
-                },
-                [_vm._v("Delete")]
-              )
+                  },
+                  [_vm._v("Edit")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteEquipe(equipes.id)
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ])
             ])
           ])
         }),
@@ -55432,8 +55589,8 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/api-du-sport/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/api-du-sport/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

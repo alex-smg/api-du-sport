@@ -6,9 +6,10 @@ export default {
             url: 'api/all_equipes',
             pagination: [],
             selectEquipe:[],
+            allnationalites:[],
             name: '',
             description: '',
-            equipe_id: '',
+            nationalite_id: '',
             edit:false,
             edit_id : '',
         }
@@ -31,6 +32,7 @@ export default {
                 }
             })
             this.selectEquipe = array
+            this.fetchNAtionalites()
             console.log(this.selectEquipe)
         },
         fetchEquipes(){
@@ -41,6 +43,13 @@ export default {
                 $this.makePagination(response.data)
             })
 
+        },
+        fetchNAtionalites(){
+            axios.get('api/all_nationalite').then(response => {
+                console.log(response.data)
+                this.allnationalites = response.data.data
+                console.log(this.allnationalites)
+            })
         },
         makePagination(data){
             let pagination = {
@@ -76,7 +85,7 @@ export default {
             })
                 .then(function (response) {
                     console.log(response);
-                    alert('Equipe update');
+                    alert('equipe update');
                 })
                 .then(data => {
                     this.fetchEquipes();

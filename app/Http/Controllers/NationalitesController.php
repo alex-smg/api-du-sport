@@ -2,21 +2,21 @@
 
     namespace App\Http\Controllers;
 
-    use App\Equipe;
+    use App\Nationalite;
     use Illuminate\Http\Request;
-    use App\Http\Resources\Equipe as EquipeResource;
+    use App\Http\Resources\Nationalite as NationaliteResource;
 
 
-    class EquipesController extends Controller
+    class NationalitesController extends Controller
     {
         public function index()
         {
-            $allequipes = Equipe::orderBy('name', 'DESC')->paginate(10);
-            return EquipeResource::collection($allequipes);
+            $allnationalite = Nationalite::orderBy('name', 'DESC')->paginate(10);
+            return NationaliteResource::collection($allnationalite);
         }
         public function findEquipe($id){
-            $equipe = Equipe::findOrFail($id);
-            return new EquipeResource($equipe);
+            $nationalite = Nationalite::findOrFail($id);
+            return new NationaliteResource($nationalite);
         }
         public function store(Request $request)
         {

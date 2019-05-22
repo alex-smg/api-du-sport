@@ -19,17 +19,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('allathletes', 'AthletesController@index');
 
+Route::get('all_nationalite', 'NationalitesController@index');
+
+Route::get('all_equipes', 'EquipesController@index');
+
 Route::get('athlete/{id}', 'AthletesController@findAthlete');
 
 Route::post('add/athlete', 'AthletesController@store');
 
-Route::patch('update/athlete/{id}', 'AthletesController@update');
+Route::patch('update/athlete/{id}', 'AthletesController@store');
 
-Route::get('update/athlete/{id}', 'AthletesController@findAthlete');
+Route::patch('update/equipe/{id}', 'EquipesController@store');
 
 Route::delete('athletes/{id}', 'AthletesController@destroy');
-
-Route::get('all_equipes', 'EquipesController@index');
 
 Route::get('equipe/{id}', 'EquipesController@findEquipe');
 

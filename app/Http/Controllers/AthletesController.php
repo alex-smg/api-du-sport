@@ -20,7 +20,7 @@ class AthletesController extends Controller
     }
     public function store(Request $request)
     {
-        $athlete = $request->isMethod('put') ? Article::findOrFail($request->id) : new Athlete;
+        $athlete = $request->isMethod('put') ? Athlete::findOrFail($request->id) : new Athlete;
         $athlete->id = $request->input('id');
         $athlete->name = $request->input('name');
         $athlete->description = $request->input('description');
@@ -30,7 +30,7 @@ class AthletesController extends Controller
         }
 
     }
-    public function edit($id)
+    /*public function edit($id)
     {
         $upAthlete = Athlete::find($id);
         return $upAthlete;
@@ -44,7 +44,7 @@ class AthletesController extends Controller
         $athlete->save();
 
         return $athlete;
-    }
+    }*/
 
     public function destroy($id){
         $athlete = Athlete::findOrFail($id);

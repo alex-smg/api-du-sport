@@ -150,6 +150,14 @@ fade-enter-active,
   display: block;
   width: 40%;
   margin: auto auto 5vh auto;
+  padding: 4vh 6vh 4vh 4vh;
+  background-color: white;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: absolute;
+  top: 10vh;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 #allathletes .cont-input {
@@ -171,8 +179,8 @@ fade-enter-active,
 #allathletes #add-data select {
   border: 1px solid lightgrey;
   border-radius: 0.25rem;
-  padding: 1% 3% 1% 3%;
-  width: 70%;
+  padding: 1% 0 1% 1%;
+  width: 100%;
   resize: none;
 }
 
