@@ -31,6 +31,6 @@ class RelationsEquipeCompet extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('equipe_competitions');
     }
 }

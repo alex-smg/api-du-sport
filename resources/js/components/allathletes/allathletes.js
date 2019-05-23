@@ -18,6 +18,7 @@
         created(){
             this.fetchAthletes();
             this.fetchEquipes();
+
         },
         methods:{
 
@@ -25,12 +26,20 @@
                 this.edit=true
                 this.edit_id = id
                 console.log(this.edit_id)
+                this.dataForm(this.edit_id);
+            },
+            switchfalseEdit(){
+                this.edit=false
+            },
+            dataForm(id){
+                let array
                 this.allathletes.forEach(function(el){
-                    if (el.id === this.edit_id){
-                        this.selectEquipe = el
-                        console.log(this.selectEquipe)
+                    if (el.id === id){
+                         array = el
                     }
                 })
+                this.selectEquipe = array
+                console.log(this.selectEquipe)
             },
             fetchAthletes(){
                 let $this = this

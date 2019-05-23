@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Athlete extends JsonResource
+class Nationalite extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,10 +18,8 @@ class Athlete extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'equipe_id' => $this->equipe_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'image' => $this->image,
         ];
     }
 }

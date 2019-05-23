@@ -1841,12 +1841,20 @@ __webpack_require__.r(__webpack_exports__);
       this.edit = true;
       this.edit_id = id;
       console.log(this.edit_id);
+      this.dataForm(this.edit_id);
+    },
+    switchfalseEdit: function switchfalseEdit() {
+      this.edit = false;
+    },
+    dataForm: function dataForm(id) {
+      var array;
       this.allathletes.forEach(function (el) {
-        if (el.id === this.edit_id) {
-          this.selectEquipe = el;
-          console.log(this.selectEquipe);
+        if (el.id === id) {
+          array = el;
         }
       });
+      this.selectEquipe = array;
+      console.log(this.selectEquipe);
     },
     fetchAthletes: function fetchAthletes() {
       var _this = this;
@@ -1929,13 +1937,37 @@ __webpack_require__.r(__webpack_exports__);
     return {
       allequipes: [],
       url: 'api/all_equipes',
-      pagination: []
+      pagination: [],
+      selectEquipe: [],
+      allnationalites: [],
+      name: '',
+      description: '',
+      nationalite_id: '',
+      edit: false,
+      edit_id: ''
     };
   },
   created: function created() {
     this.fetchEquipes();
   },
   methods: {
+    switchEdit: function switchEdit(id) {
+      this.edit = true;
+      this.edit_id = id;
+      console.log(this.edit_id);
+      this.dataForm(this.edit_id);
+    },
+    dataForm: function dataForm(id) {
+      var array;
+      this.allequipes.forEach(function (el) {
+        if (el.id === id) {
+          array = el;
+        }
+      });
+      this.selectEquipe = array;
+      this.fetchNAtionalites();
+      console.log(this.selectEquipe);
+    },
     fetchEquipes: function fetchEquipes() {
       var _this = this;
 
@@ -1944,6 +1976,15 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response.data);
         _this.allequipes = response.data.data;
         $this.makePagination(response.data);
+      });
+    },
+    fetchNAtionalites: function fetchNAtionalites() {
+      var _this2 = this;
+
+      axios.get('api/all_nationalite').then(function (response) {
+        console.log(response.data);
+        _this2.allnationalites = response.data.data;
+        console.log(_this2.allnationalites);
       });
     },
     makePagination: function makePagination(data) {
@@ -1960,17 +2001,34 @@ __webpack_require__.r(__webpack_exports__);
       this.fetchEquipes();
     },
     deleteEquipe: function deleteEquipe(id) {
-      var _this2 = this;
+      var _this3 = this;
 
       if (confirm('Are You Sure?')) {
         axios["delete"]("api/equipe/".concat(id)).then(function (data) {
           alert('equipe Removed');
 
-          _this2.fetchEquipes();
+          _this3.fetchEquipes();
         })["catch"](function (err) {
           return console.log(err);
         });
       }
+    },
+    UpdateEquipe: function UpdateEquipe() {
+      var _this4 = this;
+
+      axios.post("api/update/equipe/".concat(this.edit_id), {
+        name: this.name,
+        description: this.description,
+        nationalite_id: this.nationalite_id,
+        _method: 'patch'
+      }).then(function (response) {
+        console.log(response);
+        alert('equipe update');
+      }).then(function (data) {
+        _this4.fetchEquipes();
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   }
 });
@@ -2096,6 +2154,7 @@ __webpack_require__.r(__webpack_exports__);
       name: null,
       description: null,
       equipe_id: null,
+      image: '',
       edit: false,
       allequipes: []
     };
@@ -2104,11 +2163,21 @@ __webpack_require__.r(__webpack_exports__);
     this.fetchEquipes();
   },
   methods: {
+    getImage: function getImage() {
+      var _this = this;
+
+      axios.get('api/add/athlete/image').then(function (response) {
+        _this.image = response.data;
+        console.log(_this.image);
+      });
+    },
     addAthlete: function addAthlete() {
+      this.getImage();
       axios.post('api/add/athlete', {
         name: this.name,
         description: this.description,
-        equipe_id: this.equipe_id
+        equipe_id: this.equipe_id,
+        image: this.image
       }).then(function (response) {
         console.log(response);
       })["catch"](function (error) {
@@ -2116,12 +2185,12 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     fetchEquipes: function fetchEquipes() {
-      var _this = this;
+      var _this2 = this;
 
       var $this = this;
       axios.get('api/all_equipes').then(function (response) {
         console.log(response.data);
-        _this.allequipes = response.data.data;
+        _this2.allequipes = response.data.data;
       });
     }
   }
@@ -38215,6 +38284,14 @@ var render = function() {
                 }
               },
               [
+                _c(
+                  "button",
+                  { staticClass: "close", on: { click: _vm.switchfalseEdit } },
+                  [_vm._v("X")]
+                ),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Modifier un athlete")]),
+                _vm._v(" "),
                 _c("div", { staticClass: "cont-input" }, [
                   _c("label", [_vm._v("Nom")]),
                   _vm._v(" "),
@@ -38230,7 +38307,7 @@ var render = function() {
                     attrs: {
                       type: "text",
                       name: "name",
-                      placeholder: _vm.selectEquipe.name
+                      value: "selectEquipe.name"
                     },
                     domProps: { value: _vm.name },
                     on: {
@@ -38435,28 +38512,174 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "allequipes" } }, [
+  return _c("div", { attrs: { id: "allathletes" } }, [
     _c(
       "div",
       { staticClass: "cont-list" },
       [
-        _c("h2", [_vm._v("Toutes les equipes")]),
+        _vm.edit
+          ? _c(
+              "form",
+              {
+                attrs: { id: "add-data" },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.UpdateEquipe($event)
+                  }
+                }
+              },
+              [
+                _c("h2", [_vm._v("Modifier une équipe")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "cont-input" }, [
+                  _c("label", [_vm._v("Nom")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.name,
+                        expression: "name"
+                      }
+                    ],
+                    attrs: { type: "text", name: "name", id: "input-name" },
+                    domProps: { value: _vm.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.name = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "cont-input" }, [
+                  _c("label", [_vm._v("Nationalite")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.nationalite_id,
+                          expression: "nationalite_id"
+                        }
+                      ],
+                      attrs: { name: "equipe_id" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.nationalite_id = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    _vm._l(_vm.allnationalites, function(nationalites) {
+                      return _c(
+                        "option",
+                        {
+                          key: nationalites.id,
+                          domProps: { value: nationalites.id }
+                        },
+                        [_vm._v(_vm._s(nationalites.name))]
+                      )
+                    }),
+                    0
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "cont-input" }, [
+                  _c("label", [_vm._v("Description")]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.description,
+                        expression: "description"
+                      }
+                    ],
+                    attrs: { name: "description", id: "input-description" },
+                    domProps: { value: _vm.description },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.description = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "pagination-btn", attrs: { type: "submit" } },
+                  [_vm._v("Enregistrer")]
+                )
+              ]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c("h2", [_vm._v("Tous les equipes")]),
         _vm._v(" "),
         _vm._l(_vm.allequipes, function(equipes) {
           return _c("ul", { key: equipes.id, staticClass: "list-data" }, [
             _c("li", [
-              _c("p", [_vm._v(_vm._s(equipes.name) + " ")]),
               _c(
-                "button",
-                {
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteEquipe(equipes.id)
+                "p",
+                { staticClass: "cont-list-name" },
+                [
+                  _c(
+                    "router-link",
+                    { attrs: { to: "/equipe/" + equipes.id } },
+                    [_vm._v(_vm._s(equipes.name))]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "cont-list-btn" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn-edit",
+                    on: {
+                      click: function($event) {
+                        return _vm.switchEdit(equipes.id)
+                      }
                     }
-                  }
-                },
-                [_vm._v("Delete")]
-              )
+                  },
+                  [_vm._v("Edit")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteEquipe(equipes.id)
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ])
             ])
           ])
         }),
@@ -38525,6 +38748,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "athlete" } }, [
+    _c("img", { attrs: { src: _vm.arrayathlete.image } }),
+    _vm._v(" "),
     _c("h2", [_vm._v(_vm._s(_vm.arrayathlete.name))]),
     _vm._v(" "),
     _c("p", [_vm._v(_vm._s(_vm.arrayathlete.description))]),
@@ -55530,26 +55755,8 @@ var routes = [{
 }, {
   path: "/about",
   name: "about",
-  component: _components_about_about_vue__WEBPACK_IMPORTED_MODULE_5__["default"] // route level code-splitting
-  // this generates a separate chunk (about.[hash].js) for this route
-  // which is lazy-loaded when the route is visited.
-  // If not dynamic, could go here
-  // component: () =>
-  // import( "./components/about/about.vue")
-
-}]; /////  ALEX
-// import FormAddAthlete from './components/FormAddAthlete.vue';
-// import AllAthletes from './components/AllAthletes.vue';
-// import AllEquipes from './components/AllEquipes.vue';
-// import Home from './components/Home.vue';
-// import Athlete from './components/Athlete.vue';
-// export const routes = [
-//     { path: '/', component: Home},
-//     // { path: '/add-athlete', component: FormAddAthlete },
-//     // { path: '/all-athletes', component: AllAthletes },
-//     // { path: '/all-equipes', component: AllEquipes },
-//     { path: '/athlete/:id', component: Athlete },
-//]
+  component: _components_about_about_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+}];
 
 /***/ }),
 
@@ -55572,6 +55779,7 @@ var routes = [{
 /***/ (function(module, exports, __webpack_require__) {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 __webpack_require__(/*! /Applications/MAMP/htdocs/Laravel/api-du-sport/resources/js/app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/Laravel/api-du-sport/resources/sass/app.scss */"./resources/sass/app.scss");
 =======
@@ -55583,6 +55791,10 @@ __webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\js\app.js */"./reso
 module.exports = __webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\sass\app.scss */"./resources/sass/app.scss");
 >>>>>>> alex
 >>>>>>> vic
+=======
+__webpack_require__(/*! /Applications/MAMP/htdocs/api-du-sport/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/api-du-sport/resources/sass/app.scss */"./resources/sass/app.scss");
+>>>>>>> alex
 
 
 /***/ })
