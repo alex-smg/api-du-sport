@@ -38672,14 +38672,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "athlete" } }, [
-    _c("img", { attrs: { src: _vm.arrayathlete.image } }),
-    _vm._v(" "),
-    _c("h2", [_vm._v(_vm._s(_vm.arrayathlete.name))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.arrayathlete.description))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.arrayathlete.equipe.name))])
+  return _c("div", { attrs: { id: "content-athlete" } }, [
+    _c("div", { attrs: { id: "athlete" } }, [
+      _c("div", { staticClass: "athlete-content-img" }, [
+        _c("img", { attrs: { src: _vm.arrayathlete.image } })
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("h2", [_vm._v(_vm._s(_vm.arrayathlete.name))]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.arrayathlete.description))]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.arrayathlete.equipe.name))])
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
