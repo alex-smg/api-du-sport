@@ -25,7 +25,7 @@ Route::get('all_equipes', 'EquipesController@index');
 
 Route::get('athlete/{id}', 'AthletesController@findAthlete');
 
-Route::get('add/athlete/addimage', 'AthletesController@callApi');
+Route::get('add/athlete/image', 'AthletesController@callApi');
 
 Route::post('add/athlete', 'AthletesController@store');
 

@@ -28,6 +28,9 @@
                 console.log(this.edit_id)
                 this.dataForm(this.edit_id);
             },
+            switchfalseEdit(){
+                this.edit=false
+            },
             dataForm(id){
                 let array
                 this.allathletes.forEach(function(el){

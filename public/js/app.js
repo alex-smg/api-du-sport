@@ -1839,6 +1839,9 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.edit_id);
       this.dataForm(this.edit_id);
     },
+    switchfalseEdit: function switchfalseEdit() {
+      this.edit = false;
+    },
     dataForm: function dataForm(id) {
       var array;
       this.allathletes.forEach(function (el) {
@@ -2078,21 +2081,30 @@ __webpack_require__.r(__webpack_exports__);
       name: null,
       description: null,
       equipe_id: null,
-      image: null,
+      image: '',
       edit: false,
       allequipes: []
     };
   },
   created: function created() {
     this.fetchEquipes();
-    this.getImage();
   },
   methods: {
+    getImage: function getImage() {
+      var _this = this;
+
+      axios.get('api/add/athlete/image').then(function (response) {
+        _this.image = response.data;
+        console.log(_this.image);
+      });
+    },
     addAthlete: function addAthlete() {
+      this.getImage();
       axios.post('api/add/athlete', {
         name: this.name,
         description: this.description,
-        equipe_id: this.equipe_id
+        equipe_id: this.equipe_id,
+        image: this.image
       }).then(function (response) {
         console.log(response);
       })["catch"](function (error) {
@@ -2100,21 +2112,12 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     fetchEquipes: function fetchEquipes() {
-      var _this = this;
+      var _this2 = this;
 
       var $this = this;
       axios.get('api/all_equipes').then(function (response) {
         console.log(response.data);
-        _this.allequipes = response.data.data;
-      });
-    },
-    getImage: function getImage() {
-      var _this2 = this;
-
-      axios.get('api/add/athlete/addimage').then(function (response) {
-        console.log(response.data);
-        _this2.image = response.data.data;
-        console.log(_this2.image);
+        _this2.allequipes = response.data.data;
       });
     }
   }
@@ -38160,7 +38163,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\r\n            About us: We are a beautiful team, that's right Mutherfuckaaaaaaa !\r\n        "
+            "\n            About us: We are a beautiful team, that's right Mutherfuckaaaaaaa !\n        "
           )
         ])
       ])
@@ -38206,6 +38209,14 @@ var render = function() {
                 }
               },
               [
+                _c(
+                  "button",
+                  { staticClass: "close", on: { click: _vm.switchfalseEdit } },
+                  [_vm._v("X")]
+                ),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Modifier un athlete")]),
+                _vm._v(" "),
                 _c("div", { staticClass: "cont-input" }, [
                   _c("label", [_vm._v("Nom")]),
                   _vm._v(" "),
@@ -38662,6 +38673,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "athlete" } }, [
+    _c("img", { attrs: { src: _vm.arrayathlete.image } }),
+    _vm._v(" "),
     _c("h2", [_vm._v(_vm._s(_vm.arrayathlete.name))]),
     _vm._v(" "),
     _c("p", [_vm._v(_vm._s(_vm.arrayathlete.description))]),
@@ -55582,8 +55595,8 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp64\www\api-du-sport\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/api-du-sport/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/api-du-sport/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

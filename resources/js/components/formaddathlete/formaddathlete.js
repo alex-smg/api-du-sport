@@ -6,21 +6,30 @@
                 name: null,
                 description : null,
                 equipe_id:null,
-                image:null,
+                image:'',
                 edit: false,
                 allequipes:[]
             }
         },
         created(){
+
           this.fetchEquipes()
-            this.getImage()
+
         },
         methods:{
+            getImage(){
+                axios.get('api/add/athlete/image').then(response => {
+                    this.image = response.data
+                    console.log(this.image)
+                })
+            },
             addAthlete(){
-                    axios.post('api/add/athlete', {
+                this.getImage()
+                axios.post('api/add/athlete', {
                         name: this.name,
                         description: this.description,
-                        equipe_id: this.equipe_id
+                        equipe_id: this.equipe_id,
+                        image: this.image
                     })
                         .then(function (response) {
                             console.log(response);
@@ -36,12 +45,6 @@
                     this.allequipes = response.data.data
                 })
             },
-            getImage(){
-                axios.get('api/add/athlete/addimage').then(response => {
-                    console.log(response.data)
-                    this.image = response.data.data
-                    console.log(this.image)
-                })
-            }
+
         }
     }

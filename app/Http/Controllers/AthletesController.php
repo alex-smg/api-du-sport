@@ -26,6 +26,7 @@ class AthletesController extends Controller
         $athlete->name = $request->input('name');
         $athlete->description = $request->input('description');
         $athlete->equipe_id = $request->input('equipe_id');
+        $athlete->image = $request->input('image');
         if($athlete->save()) {
             return new AthleteResource($athlete);
         }
