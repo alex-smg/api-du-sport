@@ -10,13 +10,6 @@ headerdiv {
   width: 100%;
 }
 
-.logo {
-  width: 80%;
-  display: block;
-  margin: auto;
-  padding-top: 5vh;
-}
-
 nav ul {
   width: 50%;
   display: block;
@@ -81,7 +74,7 @@ fade-enter-active,
 }
 
 #allathletes h2 {
-  margin-bottom: 5vh;
+  text-align: center;
 }
 
 #allathletes .list-data {
