@@ -1,4 +1,3 @@
-
 <!-- resources/views/welcome.blade.php -->
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
