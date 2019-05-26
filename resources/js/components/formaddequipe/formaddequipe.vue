@@ -1,5 +1,3 @@
-<template lang="html" src="./formaddequipe.html" ></template>
+<template src="./formaddequipe.htm" ></template>
 
 <script lang="text/javascript" src="./formaddequipe.js"></script>
-
-<style lang="scss" src="./formaddequipe.scss" ></style>

@@ -2,22 +2,19 @@
 export default {
     data(){
         return{
-            allequipes: [],
-            url: 'api/all-equipes',
+            allcompetitions: [],
+            url: 'api/all-competitions',
             pagination: [],
-            selectEquipe:[],
-            allnationalites:[],
+            selectCompetition:[],
             name: '',
             description: '',
-            nationalite_id: '',
             edit:false,
             edit_id : '',
 
         }
     },
     created(){
-        this.fetchEquipes();
-        this.fetchNationalites();
+        this.fetchCompetitions();
 
     },
     methods:{
@@ -28,37 +25,29 @@ export default {
             console.log(this.edit_id)
             this.dataForm(this.edit_id);
         },
-        switchfalse(){
+        switchfalseEdit(){
             this.edit=false
         },
         dataForm(id){
             let array
-            this.allequipes.forEach(function(el){
+            this.allcompetitions.forEach(function(el){
                 if (el.id === id){
                     array = el
                 }
             })
-            this.selectEquipe = array
-            this.name = this.selectEquipe.name
-            this.description = this.selectEquipe.description
-            this.nationalite_id = this.selectEquipe.nationalite_id
-            console.log(this.selectEquipe)
+            this.selectCompetition = array
+            this.name = this.selectCompetition.name
+            this.description = this.selectCompetition.description
+            console.log(this.selectCompetition)
         },
-        fetchEquipes(){
+        fetchCompetitions(){
             let $this = this
             axios.get(this.url).then(response => {
                 console.log(response.data)
-                this.allequipes = response.data.data
+                this.allcompetitions = response.data.data
                 $this.makePagination(response.data)
             })
 
-        },
-        fetchNationalites(){
-            let $this = this
-            axios.get('api/all-nationalites').then(response => {
-                console.log(response.data)
-                this.allnationalites = response.data.data
-            })
         },
         makePagination(data){
             let pagination = {
@@ -71,33 +60,32 @@ export default {
             this.pagination = pagination
 
         },
-        fetchPaginationEquipe(url){
+        fetchPaginationCompetitions(url){
             this.url = url
-            this.fetchEquipes()
+            this.fetchCompetitions()
         },
-        deleteEquipe(id) {
+        deleteCompetition(id) {
             if (confirm('Are You Sure?')) {
-                axios.delete(`api/equipe/delete/${id}`)
+                axios.delete(`api/competition/delete/${id}`)
                     .then(data => {
-                        alert('athlete Removed');
-                        this.fetchEquipes();
+                        alert('Competition Removed');
+                        this.fetchCompetitions();
                     })
                     .catch(err => console.log(err));
             }
         },
-        UpdateEquipe(){
-            axios.post(`api/update/equipe/${this.edit_id}`, {
+        UpdateCompetition(){
+            axios.post(`api/update/competition/${this.edit_id}`, {
                 name: this.name,
                 description: this.description,
-                nationalite_id: this.nationalite_id,
                 _method: 'patch'
             })
                 .then(function (response) {
                     console.log(response);
-                    alert('athlete update');
+                    alert('Competition update');
                 })
                 .then(data => {
-                    this.fetchEquipes();
+                    this.fetchCompetitions();
                 })
                 .catch(function (error) {
                     console.log(error);

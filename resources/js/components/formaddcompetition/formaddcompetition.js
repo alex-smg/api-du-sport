@@ -1,19 +1,12 @@
 export default {
-    name: 'FormAddAthlete',
+    name: 'FormAddCompetition',
     data() {
         return {
             name: null,
             description: null,
-            equipe_id: null,
             image: '',
-            edit: false,
-            allequipes: []
+            edit: false
         }
-    },
-    created() {
-
-        this.fetchEquipes()
-
     },
     methods: {
         getImage() {
@@ -22,9 +15,9 @@ export default {
                 console.log(this.image)
             })
         },
-        addAthlete() {
+        addCompetition() {
             this.getImage()
-            axios.post('api/add/athlete', {
+            axios.post('api/add/competition', {
                 name: this.name,
                 description: this.description,
                 equipe_id: this.equipe_id,
@@ -36,14 +29,7 @@ export default {
                 .catch(function (error) {
                     console.log(error);
                 });
-        },
-        fetchEquipes() {
-            let $this = this
-            axios.get('api/all-equipes').then(response => {
-                console.log(response.data)
-                this.allequipes = response.data.data
-            })
-        },
+        }
 
     }
 }

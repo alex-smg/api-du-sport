@@ -19,26 +19,39 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('allathletes', 'AthletesController@index');
 
-Route::get('all_nationalite', 'NationalitesController@index');
+Route::get('all-nationalites', 'NationalitesController@index');
 
-Route::get('all_equipes', 'EquipesController@index');
+Route::get('all-equipes', 'EquipesController@index');
+
+Route::get('all-competitions', 'CompetitionsController@index');
 
 Route::get('athlete/{id}', 'AthletesController@findAthlete');
 
+Route::get('equipe/{id}', 'EquipesController@findEquipe');
+
+Route::get('competition/{id}', 'CompetitionsController@findEquipe');
+
 Route::get('add/athlete/image', 'AthletesController@callApi');
 
+Route::get('/quotesoftheday', 'ChuckNorrisController@index');
+
+Route::get('athletes-of-equipe/{id}', 'EquipesController@EquipeAthletes');
+
 Route::post('add/athlete', 'AthletesController@store');
+
+Route::post('add/equipe', 'EquipesController@store');
+
+Route::post('add/competition', 'CompetitionsController@store');
 
 Route::patch('update/athlete/{id}', 'AthletesController@store');
 
 Route::patch('update/equipe/{id}', 'EquipesController@store');
 
-Route::delete('athletes/{id}', 'AthletesController@destroy');
+Route::patch('update/competition/{id}', 'CompetitionsController@store');
 
-Route::get('equipe/{id}', 'EquipesController@findEquipe');
+Route::delete('equipe/delete/{id}', 'EquipesController@destroy');
 
-Route::post('add/equipe', 'EquipesController@store');
+Route::delete('athlete/delete/{id}', 'AthletesController@destroy');
 
-Route::delete('equipe/{id}', 'EquipesController@destroy');
+Route::delete('competition/delete/{id}', 'CompetitionsController@destroy');
 
-Route::get('/quotesoftheday', 'ChuckNorrisController@index');
