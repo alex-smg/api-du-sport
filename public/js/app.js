@@ -1765,6 +1765,7 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _navbar_navbar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./navbar/navbar.vue */ "./resources/js/components/navbar/navbar.vue");
 /* harmony import */ var _footerbar_footerbar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./footerbar/footerbar.vue */ "./resources/js/components/footerbar/footerbar.vue");
+/* harmony import */ var _background_background_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./background/background.vue */ "./resources/js/components/background/background.vue");
 //
 //
 //
@@ -1778,13 +1779,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'main-app',
   components: {
     Navbar: _navbar_navbar_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Footerbar: _footerbar_footerbar_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Footerbar: _footerbar_footerbar_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Background: _background_background_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 });
 
@@ -2177,6 +2181,159 @@ __webpack_require__.r(__webpack_exports__);
         _this.arrayathlete = response.data;
       });
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./resources/js/components/background/background.js?vue&type=script&lang=text%2Fjavascript&":
+/*!********************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./resources/js/components/background/background.js?vue&type=script&lang=text%2Fjavascript& ***!
+  \********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "background",
+  data: function data() {
+    return {
+      mouseX: null,
+      mouseY: null,
+      camera: null,
+      scene: null,
+      renderer: null,
+      mesh: null,
+      cameraObject: null,
+      mouse: null,
+      point: null,
+      pointSecond: null,
+      raycaster: null,
+      material: null,
+      raycasterSecond: null,
+      planeGeometry: null,
+      hiddenPlane: null,
+      hiddenPlaneSecond: null,
+      sphereCochonet: null
+    };
+  },
+  methods: {
+    init: function init() {
+      var container = document.getElementById('background3D');
+      this.mouse = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(0, 0);
+      this.point = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(0, 0, 0);
+      this.pointSecond = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(0, 0, 0);
+      this.raycaster = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())();
+      this.raycasterSecond = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())();
+      this.camera = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(70, container.clientWidth / container.clientHeight, 0.1, 100); // this.camera = new THREE.OrthographicCamera( container.width / - 2, container.width / 2, container.height / 2, container.height / - 2, 1, 1000 );
+
+      this.scene = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(); // THREE.FlyControls(this.camera, container);
+
+      this.cameraObject = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(); // this.cameraObject.scale.set(0.1,0.1,0.1);
+      // this.cameraObject.position.y = -2;
+      // this.cameraObject.rotation.y = Math.PI;
+
+      this.scene.add(this.cameraObject);
+      this.cameraObject.position.z = -4; // this.loader.load();
+      // add Hidden plane
+
+      this.planeGeometry = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(1000, 1000, 10, 10);
+      this.material = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
+        color: 0xFF0000,
+        visible: false
+      });
+      this.hiddenPlane = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(this.planeGeometry, this.material); //position beetween camera and eyes
+
+      this.hiddenPlane.position.set(0, 0, -2);
+      this.scene.add(this.hiddenPlane);
+      this.hiddenPlaneSecond = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(this.planeGeometry, this.material);
+      this.hiddenPlaneSecond.position.set(0, 0, -10);
+      this.scene.add(this.hiddenPlaneSecond); // Petanque ball
+
+      var geometryBall = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(5, 32, 32);
+      var textureBall = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())().load("model_baseColor.jpeg");
+      var materialBall = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
+        map: textureBall // color: 0xffff00
+
+      });
+      var sphere = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(geometryBall, materialBall);
+      sphere.scale.set(0.2, 0.2, 0.2);
+      this.cameraObject.add(sphere); // Add cochonet
+
+      var geometryBallCochonet = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(2, 32, 32); // let textureBallCochonet = new THREE.TextureLoader().load( "model_baseColor.jpeg" );
+
+      var materialBallCochonet = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
+        // map: textureBallCochonet
+        color: 0xFF4B2B,
+        specular: 0x050505,
+        shininess: 100 // color: 0xffff00
+
+      });
+      this.sphereCochonet = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(geometryBallCochonet, materialBallCochonet);
+      this.sphereCochonet.position.set(-2, 0, -10);
+      this.sphereCochonet.scale.set(0.2, 0.2, 0.2);
+      this.scene.add(this.sphereCochonet); // Add hemisphere light
+
+      var hemiLight = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(0xC4C4C4, 0xb78b8b, 0.8);
+      hemiLight.color.setHSL(0.6, 1, 0.6);
+      hemiLight.groundColor.setHSL(0.095, 1, 0.75);
+      hemiLight.position.set(0, 50, 0);
+      this.scene.add(hemiLight); // add renderer
+
+      this.renderer = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'three'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
+        antialias: true,
+        alpha: true
+      });
+      this.renderer.setPixelRatio(container.devicePixelRatio);
+      this.renderer.setSize(container.clientWidth, container.clientHeight); // this.renderer.gammaOutput = true;
+      // this.renderer.gammaFactor = 2.2;
+
+      container.appendChild(this.renderer.domElement);
+      window.addEventListener('resize', this.onWindowResize, false);
+      window.addEventListener('mousemove', this.onMouseMove, false);
+    },
+    onMouseMove: function onMouseMove(event) {
+      // Update the mouse variable
+      event.preventDefault();
+      this.mouse.x = event.clientX / window.innerWidth * 2 - 1;
+      this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      this.raycaster.setFromCamera(this.mouse, this.camera);
+      this.raycasterSecond.setFromCamera(this.mouse, this.camera);
+      var intersects = this.raycaster.intersectObject(this.hiddenPlane);
+      var intersectsSecond = this.raycasterSecond.intersectObject(this.hiddenPlaneSecond);
+
+      if (intersects.length > 0) {
+        this.point = intersects[0].point;
+      }
+
+      if (intersectsSecond.length > 0) {
+        this.pointSecond = intersectsSecond[0].point;
+      }
+    },
+    animate: function animate() {
+      requestAnimationFrame(this.animate); // this.cameraObject.rotation.y += 0.02;
+
+      this.cameraObject.lookAt(this.point);
+      this.renderer.render(this.scene, this.camera);
+      this.cameraObject.rotation.x = (this.mouseX - this.cameraObject.position.x) * .005;
+      this.cameraObject.rotation.y = Math.PI - (-this.mouseY - this.cameraObject.position.y) * .005;
+      this.camera.lookAt(this.cameraObject.position);
+      this.sphereCochonet.position.x = this.pointSecond.x + 0.5;
+      this.sphereCochonet.position.y = this.pointSecond.y - 0.5;
+      this.sphereCochonet.rotation.y += 0.05; // console.log(this.pointSecond)
+    },
+    onWindowResize: function onWindowResize() {
+      this.camera.aspect = window.innerWidth / window.innerHeight;
+      this.camera.updateProjectionMatrix();
+      this.renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+  },
+  mounted: function mounted() {
+    this.init();
+    this.animate();
   }
 });
 
@@ -38405,6 +38562,8 @@ var render = function() {
         1
       ),
       _vm._v(" "),
+      _c("background"),
+      _vm._v(" "),
       _c("footerbar")
     ],
     1
@@ -39178,6 +39337,39 @@ var render = function() {
   ])
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./resources/js/components/background/background.htm?vue&type=template&id=07485018&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./resources/js/components/background/background.htm?vue&type=template&id=07485018& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "background" } }, [
+      _c("div", { attrs: { id: "background3D" } })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -55115,6 +55307,75 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/athlete/athlete.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/background/background.htm?vue&type=template&id=07485018&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/background/background.htm?vue&type=template&id=07485018& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_background_htm_vue_type_template_id_07485018___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./background.htm?vue&type=template&id=07485018& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./resources/js/components/background/background.htm?vue&type=template&id=07485018&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_background_htm_vue_type_template_id_07485018___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_background_htm_vue_type_template_id_07485018___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/background/background.js?vue&type=script&lang=text%2Fjavascript&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/background/background.js?vue&type=script&lang=text%2Fjavascript& ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_background_js_vue_type_script_lang_text_2Fjavascript___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!./background.js?vue&type=script&lang=text%2Fjavascript& */ "./node_modules/babel-loader/lib/index.js?!./resources/js/components/background/background.js?vue&type=script&lang=text%2Fjavascript&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_background_js_vue_type_script_lang_text_2Fjavascript___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/background/background.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/background/background.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _background_htm_vue_type_template_id_07485018___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./background.htm?vue&type=template&id=07485018& */ "./resources/js/components/background/background.htm?vue&type=template&id=07485018&");
+/* harmony import */ var _background_js_vue_type_script_lang_text_2Fjavascript___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./background.js?vue&type=script&lang=text%2Fjavascript& */ "./resources/js/components/background/background.js?vue&type=script&lang=text%2Fjavascript&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _background_js_vue_type_script_lang_text_2Fjavascript___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _background_htm_vue_type_template_id_07485018___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _background_htm_vue_type_template_id_07485018___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/background/background.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),

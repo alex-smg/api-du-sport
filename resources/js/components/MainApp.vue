@@ -6,6 +6,7 @@
                 <router-view/>
             </transition>
         </div>
+        <background/>
         <footerbar/>
     </div>
 
@@ -14,11 +15,13 @@
 <script>
     import Navbar from './navbar/navbar.vue';
     import Footerbar from "./footerbar/footerbar.vue";
+    import Background from "./background/background.vue";
     export default {
         name: 'main-app',
         components:{
             Navbar,
-            Footerbar
+            Footerbar,
+            Background
         }
     }
 </script>
