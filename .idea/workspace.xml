@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1707fea3-92ad-4245-b6e9-fee4b57fce3a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/Unit/AthleteUnitTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/model_baseColor.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/background/background.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/background/background.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/background/background.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/background.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/MainApp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/MainApp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/allequipe.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/allequipe.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/footerbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/footerbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/navbar.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -80,7 +92,7 @@
         <entry file="file://$PROJECT_DIR$/tests/TestCase.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="230">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -103,7 +115,7 @@
         <entry file="file://$PROJECT_DIR$/tests/Unit/ExampleTest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="368">
-              <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="32" />
+              <caret line="16" column="32" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="32" />
               <folding>
                 <element signature="e#30#49#0#PHP" expanded="true" />
               </folding>
@@ -467,12 +479,12 @@
       <workItem from="1557821412263" duration="9641000" />
       <workItem from="1557990841533" duration="21731000" />
       <workItem from="1558621668813" duration="10289000" />
-      <workItem from="1558893187860" duration="7626000" />
+      <workItem from="1558893187860" duration="7967000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75472000" />
+    <option name="totallyTimeSpent" value="75813000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -615,6 +627,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+          <folding>
+            <element signature="e#48#63#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -775,7 +790,7 @@
     <entry file="file://$PROJECT_DIR$/tests/TestCase.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
@@ -830,7 +845,7 @@
     <entry file="file://$PROJECT_DIR$/tests/Unit/ExampleTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
-          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="32" />
+          <caret line="16" column="32" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="32" />
           <folding>
             <element signature="e#30#49#0#PHP" expanded="true" />
           </folding>
