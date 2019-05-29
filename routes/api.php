@@ -42,3 +42,5 @@ Route::post('add/equipe', 'EquipesController@store');
 Route::delete('equipe/{id}', 'EquipesController@destroy');
 
 Route::get('/quotesoftheday', 'ChuckNorrisController@index');
+
+Route::get('/search', 'AthletesController@search');

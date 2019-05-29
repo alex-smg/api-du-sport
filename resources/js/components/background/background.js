@@ -63,7 +63,7 @@ export default {
 
             // Petanque ball
             let geometryBall = new THREE.SphereGeometry( 5, 32, 32 );
-            let textureBall = new THREE.TextureLoader().load( "model_baseColor.jpeg" );
+            let textureBall = new THREE.TextureLoader().load( "rusted.jpg" );
             // let textureBall = new THREE.TextureLoader().load( "rusted.jpg" );
             let materialBall = new THREE.MeshPhongMaterial( {
                 map: textureBall

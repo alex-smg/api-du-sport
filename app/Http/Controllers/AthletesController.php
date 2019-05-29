@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Athlete;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use GuzzleHttp\Client;
 use App\Http\Resources\Athlete as AthleteResource;
 
@@ -44,6 +45,13 @@ class AthletesController extends Controller
         if($athlete->delete()) {
             return new AthleteResource($athlete);
         }
+    }
+
+    public function search(Request $request)
+    {
+        $posts = Athlete::where('name', 'LIKE','%'.$request->keywords.'%')->get();
+    
+        return response()->json($posts);
     }
 
 }

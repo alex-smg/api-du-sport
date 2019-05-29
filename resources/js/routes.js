@@ -3,6 +3,7 @@ import AllAthletes from './components/allathletes/allathletes.vue';
 import FormAddAthlete from "./components/formaddathlete/formaddathlete.vue";
 import Athlete from "./components/athlete/athlete.vue";
 import AllEquipes from "./components/allequipes/allequipes.vue";
+import Search from "./components/search/search.vue";
 import About from "./components/about/about.vue";
 
 export const routes = [
@@ -35,6 +36,11 @@ export const routes = [
         path: '/athlete/:id',
         name: "/athlete/:id",
         component: Athlete
+    },
+    {
+        path: '/search',
+        name: "/search",
+        component: Search
     },
     {
         path: "/about",
