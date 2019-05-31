@@ -29,7 +29,7 @@ class testAthleteTest extends TestCase
      */
     public function findAthleteTest()
     {
-        $response = $this->get('api/athlete/1');
+        $response = $this->get('api/athlete/15');
 
         $response->assertStatus(200);
     }
@@ -61,14 +61,15 @@ class testAthleteTest extends TestCase
     public function UpdateAthleteTest()
     {
         $data = [
+            'id' => 500,
             'name' => "test",
             'description' => "This is a test",
             'equipe_id' => 5,
             'image' => "https://images.pexels.com/photos/1000084/pexels-photo-1000084.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
         ];
 
-        $response = $this->json('patch', 'api/update/athlete/500',$data);
-        $response->assertStatus(201);
+        $response = $this->json('put', 'api/update/athlete/500',$data);
+        $response->assertStatus(200);
     }
 
     /**

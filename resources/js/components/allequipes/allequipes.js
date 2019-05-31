@@ -86,11 +86,11 @@ export default {
             }
         },
         UpdateEquipe(){
-            axios.post(`api/update/equipe/${this.edit_id}`, {
+            axios.put(`api/update/equipe/${this.edit_id}`, {
+                id: this.edit_id,
                 name: this.name,
                 description: this.description,
                 nationalite_id: this.nationalite_id,
-                _method: 'patch'
             })
                 .then(function (response) {
                     console.log(response);

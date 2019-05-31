@@ -43,11 +43,11 @@ Route::post('add/equipe', 'EquipesController@store');
 
 Route::post('add/competition', 'CompetitionsController@store');
 
-Route::patch('update/athlete/{id}', 'AthletesController@store');
+Route::put('update/athlete/{id}', 'AthletesController@store');
 
-Route::patch('update/equipe/{id}', 'EquipesController@store');
+Route::put('update/equipe/{id}', 'EquipesController@store');
 
-Route::patch('update/competition/{id}', 'CompetitionsController@store');
+Route::put('update/competition/{id}', 'CompetitionsController@store');
 
 Route::delete('equipe/delete/{id}', 'EquipesController@destroy');
 

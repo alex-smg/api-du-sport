@@ -75,10 +75,10 @@ export default {
             }
         },
         UpdateCompetition(){
-            axios.post(`api/update/competition/${this.edit_id}`, {
+            axios.put(`api/update/competition/${this.edit_id}`, {
+                id: this.edit_id,
                 name: this.name,
                 description: this.description,
-                _method: 'patch'
             })
                 .then(function (response) {
                     console.log(response);

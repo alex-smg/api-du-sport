@@ -1911,11 +1911,11 @@ __webpack_require__.r(__webpack_exports__);
     UpdateAthlete: function UpdateAthlete() {
       var _this4 = this;
 
-      axios.post("api/update/athlete/".concat(this.edit_id), {
+      axios.put("api/update/athlete/".concat(this.edit_id), {
+        id: this.edit_id,
         name: this.name,
         description: this.description,
-        equipe_id: this.equipe_id,
-        _method: 'patch'
+        equipe_id: this.equipe_id
       }).then(function (response) {
         console.log(response);
         alert('athlete update');
@@ -2016,10 +2016,10 @@ __webpack_require__.r(__webpack_exports__);
     UpdateCompetition: function UpdateCompetition() {
       var _this3 = this;
 
-      axios.post("api/update/competition/".concat(this.edit_id), {
+      axios.put("api/update/competition/".concat(this.edit_id), {
+        id: this.edit_id,
         name: this.name,
-        description: this.description,
-        _method: 'patch'
+        description: this.description
       }).then(function (response) {
         console.log(response);
         alert('Competition update');
@@ -2133,11 +2133,11 @@ __webpack_require__.r(__webpack_exports__);
     UpdateEquipe: function UpdateEquipe() {
       var _this4 = this;
 
-      axios.post("api/update/equipe/".concat(this.edit_id), {
+      axios.put("api/update/equipe/".concat(this.edit_id), {
+        id: this.edit_id,
         name: this.name,
         description: this.description,
-        nationalite_id: this.nationalite_id,
-        _method: 'patch'
+        nationalite_id: this.nationalite_id
       }).then(function (response) {
         console.log(response);
         alert('athlete update');

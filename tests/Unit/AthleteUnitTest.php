@@ -2,7 +2,7 @@
 
     namespace Tests\Unit;
 
-    use App\Http\Controllers\AthletesController;
+    use App\Athlete;
     use Tests\TestCase;
     use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -13,10 +13,14 @@
          *
          * @return void
          */
-        public function testFindMethodTest()
+        public function testAthleteCreation()
         {
-            $athlete = new AthletesController;
-            $athlete->findAthlete(15);
-            $this->assertTrue(true);
+            $athlete = factory(Athlete::class)->create();
+            $this->assertDatabaseHas('athletes', [
+                'id' => $athlete->id,
+                'name' => $athlete->title,
+                'description' => $athlete->description
+            ]);
         }
     }
+

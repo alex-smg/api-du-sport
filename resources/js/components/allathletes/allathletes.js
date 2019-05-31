@@ -86,11 +86,11 @@
                 }
             },
             UpdateAthlete(){
-                axios.post(`api/update/athlete/${this.edit_id}`, {
+                axios.put(`api/update/athlete/${this.edit_id}`, {
+                    id: this.edit_id,
                     name: this.name,
                     description: this.description,
-                    equipe_id: this.equipe_id,
-                    _method: 'patch'
+                    equipe_id: this.equipe_id
             })
                 .then(function (response) {
                     console.log(response);
