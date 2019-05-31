@@ -7,6 +7,7 @@ import Athlete from "./components/athlete/athlete.vue";
 import Competition from "./components/competition/competition.vue";
 import Equipe from "./components/equipe/equipe.vue";
 import AllEquipes from "./components/allequipes/allequipes.vue";
+import Search from "./components/search/search.vue";
 import AllCompetitions from "./components/allcompetitions/allcompetitions.vue";
 import Chatapp from "./components/chat-app/chat-app.vue";
 import About from "./components/about/about.vue";
@@ -71,6 +72,11 @@ export const routes = [
         path: "/message",
         name: "message",
         component: Chatapp
+    },
+    {
+        path: '/search',
+        name: "/search",
+        component: Search
     },
     {
         path: "/about",

@@ -55,3 +55,5 @@ Route::delete('athlete/delete/{id}', 'AthletesController@destroy');
 
 Route::delete('competition/delete/{id}', 'CompetitionsController@destroy');
 
+
+Route::get('/search', 'AthletesController@search');
