@@ -42,6 +42,7 @@ nav ul li {
 .container {
   margin-top: 60px;
   width: 100%;
+  z-index: 2;
 }
 
 .fade-enter,
@@ -56,38 +57,58 @@ fade-enter-active,
   transition-timing-function: ease;
 }
 
-#allathletes .cont-list {
+#messagecomposer textarea {
+  width: 96%;
+  margin: 10px;
+  resize: none;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+  padding: 6px;
+}
+
+.chat-app {
+  display: flex;
+}
+
+#allathletes .cont-list,
+#allcompetitions .cont-list {
   display: block;
   margin: auto;
   width: 60%;
 }
 
-#allathletes a {
+#allathletes a,
+#allcompetitions a {
   text-decoration: none;
   color: #3d4852;
   transition: 0.5s;
 }
 
-#allathletes a:hover {
+#allathletes a:hover,
+#allcompetitions a:hover {
   text-decoration: none;
   color: #FF4B2B;
 }
 
-#allathletes h2 {
+#allathletes h2,
+#allcompetitions h2 {
   text-align: center;
 }
 
-#allathletes .list-data {
+#allathletes .list-data,
+#allcompetitions .list-data {
   width: 80%;
 }
 
-#allathletes .list-data li {
+#allathletes .list-data li,
+#allcompetitions .list-data li {
   display: flex;
   width: 100%;
   padding: 1vh 0 1vh 0;
 }
 
-#allathletes .list-data li button {
+#allathletes .list-data li button,
+#allcompetitions .list-data li button {
   background-color: transparent;
   border: 1px solid red;
   padding: 1%;
@@ -98,12 +119,14 @@ fade-enter-active,
   border-radius: 0.25rem;
 }
 
-#allathletes .list-data li button:hover {
+#allathletes .list-data li button:hover,
+#allcompetitions .list-data li button:hover {
   background-color: red;
   color: #FFFFFF;
 }
 
-#allathletes .pagination-btn {
+#allathletes .pagination-btn,
+#allcompetitions .pagination-btn {
   background-color: #FF4B2B;
   padding: 1% 2% 1% 2%;
   font-size: 0.8vw;
@@ -114,32 +137,38 @@ fade-enter-active,
   border-radius: 0.25rem;
 }
 
-#allathletes .pagination {
+#allathletes .pagination,
+#allcompetitions .pagination {
   width: 80%;
   display: flex;
   justify-content: space-between;
   margin-top: 3vh;
 }
 
-#allathletes .btn-edit {
+#allathletes .btn-edit,
+#allcompetitions .btn-edit {
   border: 1px solid dodgerblue;
 }
 
-#allathletes .cont-list-name {
+#allathletes .cont-list-name,
+#allcompetitions .cont-list-name {
   width: 70%;
 }
 
-#allathletes .cont-list-btn {
+#allathletes .cont-list-btn,
+#allcompetitions .cont-list-btn {
   width: 30%;
   display: flex;
   justify-content: space-between;
 }
 
-#allathletes .cont-list-btn button {
+#allathletes .cont-list-btn button,
+#allcompetitions .cont-list-btn button {
   width: 40%;
 }
 
-#allathletes #add-data {
+#allathletes #add-data,
+#allcompetitions #add-data {
   display: block;
   width: 40%;
   margin: auto auto 5vh auto;
@@ -153,23 +182,31 @@ fade-enter-active,
   height: max-content;
 }
 
-#allathletes .cont-input {
+#allathletes .cont-input,
+#allcompetitions .cont-input {
   margin: 4vh 0 4vh 0;
 }
 
-#allathletes .cont-input label {
+#allathletes .cont-input label,
+#allcompetitions .cont-input label {
   margin: 1vh 0 1vh 0;
 }
 
 #allathletes #add-data label,
 #allathletes #add-data input,
-#allathletes #add-data button {
+#allathletes #add-data button,
+#allcompetitions #add-data label,
+#allcompetitions #add-data input,
+#allcompetitions #add-data button {
   display: block;
 }
 
 #allathletes #add-data input,
 #allathletes #add-data textarea,
-#allathletes #add-data select {
+#allathletes #add-data select,
+#allcompetitions #add-data input,
+#allcompetitions #add-data textarea,
+#allcompetitions #add-data select {
   border: 1px solid lightgrey;
   border-radius: 0.25rem;
   padding: 1% 0 1% 1%;
@@ -177,11 +214,13 @@ fade-enter-active,
   resize: none;
 }
 
-#allathletes #add-data textarea {
+#allathletes #add-data textarea,
+#allcompetitions #add-data textarea {
   height: 15vh;
 }
 
-#allathletes #add-data button {
+#allathletes #add-data button,
+#allcompetitions #add-data button {
   border: 1px solid #FF4B2B;
   padding: 1vh 1vh 1vh 1vh;
   background-color: transparent;
@@ -193,39 +232,50 @@ fade-enter-active,
   cursor: pointer;
 }
 
-#allathletes #add-data button:hover {
+#allathletes #add-data button:hover,
+#allcompetitions #add-data button:hover {
   background-color: #FF4B2B;
   color: #FFFFFF;
 }
 
-#allathletes .close {
+#allathletes .close,
+#allcompetitions .close {
   position: absolute;
   right: 2vw;
 }
 
-#formaddathlete #add-data {
+#formaddathlete #add-data,
+#formaddcompetition #add-data {
   display: block;
   width: 40%;
   margin: auto;
 }
 
-#formaddathlete .cont-input {
+#formaddathlete .cont-input,
+#formaddcompetition .cont-input {
   margin: 4vh 0 4vh 0;
 }
 
-#formaddathlete .cont-input label {
+#formaddathlete .cont-input label,
+#formaddcompetition .cont-input label {
   margin: 1vh 0 1vh 0;
 }
 
 #formaddathlete #add-data label,
 #formaddathlete #add-data input,
-#formaddathlete #add-data button {
+#formaddathlete #add-data button,
+#formaddcompetition #add-data label,
+#formaddcompetition #add-data input,
+#formaddcompetition #add-data button {
   display: block;
 }
 
 #formaddathlete #add-data input,
 #formaddathlete #add-data textarea,
-#formaddathlete #add-data select {
+#formaddathlete #add-data select,
+#formaddcompetition #add-data input,
+#formaddcompetition #add-data textarea,
+#formaddcompetition #add-data select {
   border: 1px solid lightgrey;
   border-radius: 0.25rem;
   padding: 1% 3% 1% 3%;
@@ -233,11 +283,13 @@ fade-enter-active,
   resize: none;
 }
 
-#formaddathlete #add-data textarea {
+#formaddathlete #add-data textarea,
+#formaddcompetition #add-data textarea {
   height: 15vh;
 }
 
-#formaddathlete #add-data button {
+#formaddathlete #add-data button,
+#formaddcompetition #add-data button {
   border: 1px solid #FF4B2B;
   padding: 1vh 1vh 1vh 1vh;
   background-color: transparent;
@@ -249,7 +301,8 @@ fade-enter-active,
   cursor: pointer;
 }
 
-#formaddathlete #add-data button:hover {
+#formaddathlete #add-data button:hover,
+#formaddcompetition #add-data button:hover {
   background-color: #FF4B2B;
   color: #FFFFFF;
 }
@@ -258,12 +311,22 @@ fade-enter-active,
   text-align: center;
 }
 
+#navbar {
+  z-index: 3;
+}
+
 #navbar .link-navbar {
   height: 0;
   opacity: 0;
   transition: 0.5s;
   text-decoration: none;
   color: #4F4D4D;
+}
+
+#navbar .logo {
+  width: 80%;
+  display: block;
+  margin: 2vh auto 0 auto;
 }
 
 #navbar .link-navbar:hover {
@@ -301,6 +364,28 @@ fade-enter-active,
 
 #navbar nav ul li:hover {
   height: 30vh;
+}
+
+#content-athlete {
+  display: flex;
+  height: 100vh;
+}
+
+#athlete {
+  display: flex;
+  margin: auto;
+}
+
+.athlete-content-img {
+  width: 20vw;
+}
+
+.athlete-content-img img {
+  width: 100%;
+}
+
+#allequipe {
+  z-index: 2;
 }
 
 #allequipe .cont-list {
@@ -363,6 +448,155 @@ fade-enter-active,
   width: 100%;
   color: white;
   text-align: center;
+  z-index: 3;
+}
+
+#background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#background #background3D {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#background #background3D canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.feed {
+  background: #f0f0f0;
+  height: 100%;
+  max-height: 470px;
+  overflow: scroll;
+}
+
+.feed ul {
+  list-style-type: none;
+  padding: 5px;
+}
+
+.feed ul li.message {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.feed ul li.message .text {
+  max-width: 200px;
+  border-radius: 5px;
+  padding: 12px;
+  display: inline-block;
+}
+
+.feed ul li.message.received {
+  text-align: right;
+}
+
+.feed ul li.message.received .text {
+  background: #b2b2b2;
+}
+
+.feed ul li.message.sent {
+  text-align: left;
+}
+
+.feed ul li.message.sent .text {
+  background: #81c4f9;
+}
+
+.contacts-list {
+  flex: 2;
+  max-height: 600px;
+  overflow: scroll;
+  border-left: 1px solid #a6a6a6;
+}
+
+.contacts-list ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.contacts-list ul li {
+  display: flex;
+  padding: 2px;
+  border-bottom: 1px solid #aaaaaa;
+  height: 80px;
+  position: relative;
+  cursor: pointer;
+}
+
+.contacts-list ul li.selected {
+  background: #dfdfdf;
+}
+
+.contacts-list ul li span.unread {
+  background: #82e0a8;
+  color: #fff;
+  position: absolute;
+  right: 11px;
+  top: 20px;
+  display: flex;
+  font-weight: 700;
+  min-width: 20px;
+  justify-content: center;
+  align-items: center;
+  line-height: 20px;
+  font-size: 12px;
+  padding: 0 4px;
+  border-radius: 3px;
+}
+
+.contacts-list ul li .avatar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.contacts-list ul li .avatar img {
+  width: 35px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.contacts-list ul li .contact {
+  flex: 3;
+  font-size: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contacts-list ul li .contact p {
+  margin: 0;
+}
+
+.contacts-list ul li .contact p.name {
+  font-weight: bold;
+}
+
+.conversation {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.conversation h1 {
+  font-size: 20px;
+  padding: 10px;
+  margin: 0;
+  border-bottom: 1px dashed lightgray;
 }
 
 /*

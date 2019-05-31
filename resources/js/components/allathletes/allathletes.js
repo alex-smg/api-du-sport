@@ -39,6 +39,9 @@
                     }
                 })
                 this.selectEquipe = array
+                this.name = this.selectEquipe.name
+                this.description = this.selectEquipe.description
+                this.equipe_id = this.selectEquipe.equipe_id
                 console.log(this.selectEquipe)
             },
             fetchAthletes(){
@@ -52,7 +55,7 @@
             },
             fetchEquipes(){
                 let $this = this
-                axios.get('api/all_equipes').then(response => {
+                axios.get('api/all-equipes').then(response => {
                     console.log(response.data)
                     this.allequipes = response.data.data
                 })
@@ -74,7 +77,7 @@
             },
             deleteAthlete(id) {
                 if (confirm('Are You Sure?')) {
-                    axios.delete(`api/athletes/${id}`)
+                    axios.delete(`api/athlete/delete/${id}`)
                         .then(data => {
                             alert('athlete Removed');
                             this.fetchAthletes();

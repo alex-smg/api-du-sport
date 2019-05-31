@@ -14,4 +14,8 @@ class Equipe extends Model
     {
         return $this->belongsToMany('App\Competition');
     }
+    public function nationalites()
+    {
+        return $this->hasOne('App\Nationalite');
+    }
 }

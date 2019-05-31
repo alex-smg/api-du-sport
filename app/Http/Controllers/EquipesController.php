@@ -15,15 +15,18 @@
             return EquipeResource::collection($allequipes);
         }
         public function findEquipe($id){
-            $equipe = Equipe::findOrFail($id);
+            $equipe = Equipe::with('athletes')->findOrFail($id);
             return new EquipeResource($equipe);
+        }
+        public function EquipeAthletes($id){
+            $equipe = Equipe::find($id)->athletes;
+            return $equipe;
         }
         public function store(Request $request)
         {
             $equipe = $request->isMethod('put') ? Equipe::findOrFail($request->id) : new Equipe;
             $equipe->id = $request->input('id');
             $equipe->name = $request->input('name');
-            $equipe->image = $request->input('image');
             $equipe->description = $request->input('description');
             $equipe->nationalite_id = $request->input('nationalite_id');
             if($equipe->save()) {

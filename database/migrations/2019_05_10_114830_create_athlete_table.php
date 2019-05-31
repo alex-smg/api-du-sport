@@ -36,7 +36,7 @@ class CreateAthleteTable extends Migration
         Schema::create('competitions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('image')->nullable();
+            $table->longText('image')->nullable();
             $table->longText('description');
             $table->timestamps();
         });

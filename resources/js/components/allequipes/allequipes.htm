@@ -1,10 +1,11 @@
 <div id="allathletes">
     <div class="cont-list">
         <form v-if="edit" id="add-data" @submit.prevent="UpdateEquipe">
+            <button class="close" @click="switchfalse">X</button>
             <h2>Modifier une équipe</h2>
             <div class="cont-input">
                 <label>Nom</label>
-                <input type="text" name="name" v-model="name" id="input-name"/>
+                <input type="text" name="name" v-model="name" v- id="input-name"/>
             </div>
             <div class="cont-input">
                 <label>Nationalite</label>

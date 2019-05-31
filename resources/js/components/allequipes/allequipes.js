@@ -3,7 +3,7 @@ export default {
     data(){
         return{
             allequipes: [],
-            url: 'api/all_equipes',
+            url: 'api/all-equipes',
             pagination: [],
             selectEquipe:[],
             allnationalites:[],
@@ -12,17 +12,24 @@ export default {
             nationalite_id: '',
             edit:false,
             edit_id : '',
+
         }
     },
     created(){
         this.fetchEquipes();
+        this.fetchNationalites();
+
     },
     methods:{
+
         switchEdit(id){
             this.edit=true
             this.edit_id = id
             console.log(this.edit_id)
             this.dataForm(this.edit_id);
+        },
+        switchfalse(){
+            this.edit=false
         },
         dataForm(id){
             let array
@@ -32,7 +39,9 @@ export default {
                 }
             })
             this.selectEquipe = array
-            this.fetchNAtionalites()
+            this.name = this.selectEquipe.name
+            this.description = this.selectEquipe.description
+            this.nationalite_id = this.selectEquipe.nationalite_id
             console.log(this.selectEquipe)
         },
         fetchEquipes(){
@@ -44,11 +53,11 @@ export default {
             })
 
         },
-        fetchNAtionalites(){
-            axios.get('api/all_nationalite').then(response => {
+        fetchNationalites(){
+            let $this = this
+            axios.get('api/all-nationalites').then(response => {
                 console.log(response.data)
                 this.allnationalites = response.data.data
-                console.log(this.allnationalites)
             })
         },
         makePagination(data){
@@ -68,9 +77,9 @@ export default {
         },
         deleteEquipe(id) {
             if (confirm('Are You Sure?')) {
-                axios.delete(`api/equipe/${id}`)
+                axios.delete(`api/equipe/delete/${id}`)
                     .then(data => {
-                        alert('equipe Removed');
+                        alert('athlete Removed');
                         this.fetchEquipes();
                     })
                     .catch(err => console.log(err));
@@ -85,7 +94,7 @@ export default {
             })
                 .then(function (response) {
                     console.log(response);
-                    alert('equipe update');
+                    alert('athlete update');
                 })
                 .then(data => {
                     this.fetchEquipes();
@@ -96,7 +105,4 @@ export default {
 
         }
     }
-
-
 }
-
