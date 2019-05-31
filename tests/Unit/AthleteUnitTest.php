@@ -19,7 +19,8 @@
             $this->assertDatabaseHas('athletes', [
                 'id' => $athlete->id,
                 'name' => $athlete->title,
-                'description' => $athlete->description
+                'description' => $athlete->description,
+                'equipe_id'=>$athlete->equipe_id
             ]);
         }
     }

@@ -448,7 +448,7 @@ fade-enter-active,
   width: 100%;
   color: white;
   text-align: center;
-  z-index: 3;
+  z-index: 4;
 }
 
 #background {
@@ -597,6 +597,10 @@ fade-enter-active,
   padding: 10px;
   margin: 0;
   border-bottom: 1px dashed lightgray;
+}
+
+#search {
+  text-align: center;
 }
 
 /*
