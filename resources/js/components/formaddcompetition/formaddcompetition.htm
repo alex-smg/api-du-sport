@@ -6,6 +6,10 @@
             <input type="text" name="name" v-model="name"/>
         </div>
         <div class="cont-input">
+            <label>Ajouter une image</label>
+            <input type="file" @change="imageChanged"/>
+        </div>
+        <div class="cont-input">
             <label>Description</label>
             <textarea name="description" v-model="description"></textarea>
         </div>

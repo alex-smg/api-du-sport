@@ -6,7 +6,7 @@
                 <router-view/>
             </transition>
         </div>
-        <background/>
+       <!-- <background/>-->
         <footerbar/>
     </div>
 

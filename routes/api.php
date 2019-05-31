@@ -29,7 +29,7 @@ Route::get('athlete/{id}', 'AthletesController@findAthlete');
 
 Route::get('equipe/{id}', 'EquipesController@findEquipe');
 
-Route::get('competition/{id}', 'CompetitionsController@findEquipe');
+Route::get('competition/{id}', 'CompetitionsController@findCompetiton');
 
 Route::get('add/athlete/image', 'AthletesController@callApi');
 

@@ -4,7 +4,17 @@
                 <router-link to="/"><img  class="logo" src="img/logo.svg"></router-link>
             </div>
             <nav>
+
                 <ul>
+
+                    <li><p class="hover-nav">Profil</p>
+                        <div class="cont-link-navbar">
+                            <router-link class="link-navbar" to="/message">Messagerie</router-link>
+                        </div>
+                        <div class="cont-link-navbar">
+                            <router-link class="link-navbar" to="/user-data">Mes données</router-link>
+                        </div>
+                    </li>
                     <li><p class="hover-nav">Athlètes</p>
                         <div class="cont-link-navbar">
                             <router-link class="link-navbar" to="/all-athletes">Liste des athlètes</router-link>

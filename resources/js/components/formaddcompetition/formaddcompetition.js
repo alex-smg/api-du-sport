@@ -5,18 +5,26 @@ export default {
             name: null,
             description: null,
             image: '',
-            edit: false
+            edit: false,
         }
     },
     methods: {
-        getImage() {
+        imageChanged(e){
+            console.log(e.target.files[0].name)
+            var fileReader = new FileReader()
+            fileReader.readAsDataURL(e.target.files[0])
+            fileReader.onload = (e) =>{
+                this.image = e.target.result
+            }
+            console.log(this.image)
+        },
+       /* getImage() {
             axios.get('api/add/athlete/image').then(response => {
                 this.image = response.data
                 console.log(this.image)
             })
-        },
+        },*/
         addCompetition() {
-            this.getImage()
             axios.post('api/add/competition', {
                 name: this.name,
                 description: this.description,
