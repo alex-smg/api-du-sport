@@ -28,7 +28,7 @@ export default {
                 });
         },
         fetchNAtionalites(){
-            axios.get('api/all-nationalite').then(response => {
+            axios.get('api/all-nationalites').then(response => {
                 console.log(response.data)
                 this.allnationalites = response.data.data
                 console.log(this.allnationalites)

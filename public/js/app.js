@@ -2784,7 +2784,7 @@ __webpack_require__.r(__webpack_exports__);
     fetchNAtionalites: function fetchNAtionalites() {
       var _this = this;
 
-      axios.get('api/all-nationalite').then(function (response) {
+      axios.get('api/all-nationalites').then(function (response) {
         console.log(response.data);
         _this.allnationalites = response.data.data;
         console.log(_this.allnationalites);
