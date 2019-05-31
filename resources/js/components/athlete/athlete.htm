@@ -1,5 +1,13 @@
-<div id="athlete">
-        <h2>{{ arrayathlete.name }}</h2>
-        <p>{{ arrayathlete.description }}</p>
-        <p>{{ arrayathlete.equipe.name }}</p>
+<div id="content-athlete">
+        <div id="athlete">
+                <div class="athlete-content-img">
+                        <img :src="arrayathlete.image">
+                </div>
+               <div>
+                       <h2>{{ arrayathlete.name }}</h2>
+                       <p>{{ arrayathlete.description }}</p>
+                       <p>{{ arrayathlete.equipe.name }}</p>
+               </div>
+
+        </div>
 </div>

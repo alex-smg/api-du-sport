@@ -1,6 +1,7 @@
 // @import "@/sass/app.scss";
 
 #navbar {
+    z-index: 3;
     .link-navbar{
         height: 0;
         opacity: 0;
@@ -9,10 +10,14 @@
         color: #4F4D4D
 
     }
+    .logo{
+        width: 80%;
+        display: block;
+        margin: 2vh auto 0 auto;
+    }
     .link-navbar:hover{
         color: #000;
         opacity: 1;
-        height: auto;
 
     }
     .cont-link-navbar{
@@ -36,8 +41,9 @@
     nav ul li{
         height: 0;
         transition: 0.5s;
+        margin-bottom: 5vh;
     }
     nav ul li:hover {
-        height: auto;
+        height: 30vh;
     }
 }

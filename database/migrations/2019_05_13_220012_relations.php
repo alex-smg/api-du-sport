@@ -30,6 +30,7 @@ class Relations extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('athletes');
+        Schema::drop('equipes');
     }
 }

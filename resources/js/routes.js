@@ -1,8 +1,15 @@
 import Home from "./components/home/home.vue";
 import AllAthletes from './components/allathletes/allathletes.vue';
 import FormAddAthlete from "./components/formaddathlete/formaddathlete.vue";
+import FormAddEquipe from "./components/formaddequipe/formaddequipe.vue";
+import FormAddCompetition from "./components/formaddcompetition/formaddcompetition.vue";
 import Athlete from "./components/athlete/athlete.vue";
+import Competition from "./components/competition/competition.vue";
+import Equipe from "./components/equipe/equipe.vue";
 import AllEquipes from "./components/allequipes/allequipes.vue";
+import Search from "./components/search/search.vue";
+import AllCompetitions from "./components/allcompetitions/allcompetitions.vue";
+import Chatapp from "./components/chat-app/chat-app.vue";
 import About from "./components/about/about.vue";
 
 export const routes = [
@@ -27,9 +34,24 @@ export const routes = [
         component: FormAddAthlete
     },
     {
+        path: '/add-equipe',
+        name: "add-equipe",
+        component: FormAddEquipe
+    },
+    {
+        path: '/add-competition',
+        name: "add-competition",
+        component: FormAddCompetition
+    },
+    {
         path: '/all-equipes',
         name: "all-equipes",
         component: AllEquipes
+    },
+    {
+        path: '/all-competitions',
+        name: "all-competitions",
+        component: AllCompetitions
     },
     {
         path: '/athlete/:id',
@@ -37,29 +59,30 @@ export const routes = [
         component: Athlete
     },
     {
+        path: '/competition/:id',
+        name: "/competition/:id",
+        component: Competition
+    },
+    {
+        path: '/equipe/:id',
+        name: "/equipe/:id",
+        component: Equipe
+    },
+    {
+        path: "/message",
+        name: "message",
+        component: Chatapp
+    },
+    {
+        path: '/search',
+        name: "/search",
+        component: Search
+    },
+    {
         path: "/about",
         name: "about",
         component: About
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        // If not dynamic, could go here
-        // component: () =>
-        // import( "./components/about/about.vue")
     }
 ]
 
-/////  ALEX
-// import FormAddAthlete from './components/FormAddAthlete.vue';
-// import AllAthletes from './components/AllAthletes.vue';
-// import AllEquipes from './components/AllEquipes.vue';
-// import Home from './components/Home.vue';
-// import Athlete from './components/Athlete.vue';
 
-// export const routes = [
-//     { path: '/', component: Home},
-//     // { path: '/add-athlete', component: FormAddAthlete },
-//     // { path: '/all-athletes', component: AllAthletes },
-//     // { path: '/all-equipes', component: AllEquipes },
-//     { path: '/athlete/:id', component: Athlete },
-//]

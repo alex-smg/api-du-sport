@@ -14,6 +14,8 @@
 }
 .container{
   margin-top: 60px;
+  width: 100%;
+  z-index: 2;
 }
 .fade-enter,
 .fade-leave-active {
@@ -24,4 +26,15 @@ fade-enter-active,
   transition-duration: 0.5s;
   transition-property: opacity;
   transition-timing-function: ease;
+}
+#messagecomposer textarea {
+  width: 96%;
+  margin: 10px;
+  resize: none;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+  padding: 6px;
+}
+.chat-app {
+  display: flex;
 }

@@ -1,0 +1,5 @@
+<div class="chat-app">
+    <Conversation :contact="selectedContact" :messages="messages" @new="saveNewMessage"/>
+    <ContactList :contacts="contacts" @selected="startConversationWith"/>
+</div>
+

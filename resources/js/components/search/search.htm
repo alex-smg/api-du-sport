@@ -1,0 +1,12 @@
+<div id="search">
+    <div>
+        <input type="text" v-model="keywords" placeholder="Type an athlete name">
+        <ul class="list-data" v-if="results.length > 0">
+            <li v-for="result in results" :key="result.id">
+                <p class="cont-list-name">
+                    <router-link :to="`/athlete/${result.id}`">{{ result.name}}</router-link>
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>

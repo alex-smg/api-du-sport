@@ -1,26 +1,36 @@
 <div id="allathletes">
         <div class="cont-list">
+            <form v-if="edit" id="add-data" @submit.prevent="UpdateAthlete">
+                <button class="close" @click="switchfalseEdit">X</button>
+                <h2>Modifier un athlete</h2>
+                <div class="cont-input">
+                    <label>Nom</label>
+                    <input type="text" name="name" v-model="name" value="selectEquipe.name"/>
+                </div>
+                <div class="cont-input">
+                    <label>Equipe</label>
+                    <select  name="equipe_id" v-model="equipe_id">
+                        <option v-for="equipe in allequipes" :key="equipe.id" :value="equipe.id">{{ equipe.name }}</option>
+                    </select>
+                </div>
+                <div class="cont-input">
+                    <label>Description</label>
+                    <textarea name="description" v-model="description"></textarea>
+                </div>
+
+                <button class="pagination-btn" type="submit">Enregistrer</button>
+            </form>
             <h2>Tous les athletes</h2>
             <ul class="list-data" v-for="athletes in allathletes" :key="athletes.id">
-                <li><p><router-link :to="`/athlete/${athletes.id}`">{{ athletes.name}}</router-link> </p><button class="btn-edit">Edit</button><button @click="deleteAthlete(athletes.id)">Delete</button></li>
-                <form @submit.prevent="UpdateAthlete(athletes.id)">
-                    <div class="cont-input">
-                        <label>Nom</label>
-                        <input type="text" name="name" :placeholder="athletes.name"/>
+                <li>
+                    <p class="cont-list-name">
+                        <router-link :to="`/athlete/${athletes.id}`">{{ athletes.name}}</router-link>
+                    </p>
+                    <div class="cont-list-btn">
+                        <button class="btn-edit" @click="switchEdit(athletes.id)">Edit</button>
+                        <button @click="deleteAthlete(athletes.id)">Delete</button>
                     </div>
-                    <div class="cont-input">
-                        <label>Equipe</label>
-                        <select   name="equipe_id">
-                            <option v-for="equipe in allequipes" :key="equipe.id" :value="equipe.id">{{ equipe.name }}</option>
-                        </select>
-                    </div>
-                    <div class="cont-input">
-                        <label>Description</label>
-                        <textarea name="description" :placeholder="athletes.descrption"></textarea>
-                    </div>
-
-                    <button class="pagination-btn" type="submit">Enregistrer</button>
-                </form>
+                </li>
 
             </ul>
             <div class="pagination">
