@@ -1,4 +1,41 @@
 #search {
     text-align: center;
 
+    input{
+        border: 1px solid lightgrey;
+        border-radius: 0.25rem;
+        padding: 1% 1% 1% 1%;
+        width: 50%;
+        resize: none;
+        margin-top: 3vh;
+    }
+
+    ul{
+        margin: 4vh auto 0 auto;
+        display: flex;
+        width: 70%;
+        flex-wrap: wrap;
+    }
+    ul li{
+        margin: 2vh auto 2vh auto;
+        box-shadow: 0 13px 27px -5px rgba(50,50,93,.15), 0 8px 16px -8px rgba(0,0,0,.08), 0 -6px 16px -6px rgba(0,0,0,.05);
+        width: 30%;
+        display: block;
+        padding: 2vh 0 2vh 0;
+        border-radius: 0.5rem;
+        transition: 0.5s;
+    }
+    ul li a{
+        transition: 0.5s;
+        text-decoration: none;
+        color: #FF4B2B;
+    }
+
+    ul li:hover a {
+        color: #FFFFFF;
+    }
+    ul li:hover {
+        background-color: #FF4B2B;
+    }
+
 }

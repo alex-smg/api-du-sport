@@ -17,10 +17,11 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(Athlete::class, function (Faker $faker) {
+
     return [
         'name' => $faker->name,
         'description' => $faker->realText(180),
-        'equipe_id' => $faker->randomElement(['5','15'])
+        'equipe_id' => $faker->numberBetween($min = 1, $max = 10)
 
     ];
 });

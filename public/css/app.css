@@ -13,7 +13,7 @@ headerdiv {
 nav ul {
   width: 50%;
   display: block;
-  margin: 10vh auto 0 auto;
+  margin: 1vh auto 0 auto;
 }
 
 nav ul li {
@@ -28,6 +28,7 @@ nav ul li {
   list-style: none;
   font-family: "Overpass", sans-serif;
   outline: none;
+  text-transform: none;
 }
 
 #main {
@@ -40,7 +41,7 @@ nav ul li {
 }
 
 .container {
-  margin-top: 60px;
+  margin-top: 3vh;
   width: 100%;
   z-index: 2;
 }
@@ -70,6 +71,48 @@ fade-enter-active,
   display: flex;
 }
 
+h2,
+h3,
+h4,
+a {
+  color: #4F4D4D;
+}
+
+.btn-delete {
+  background-color: transparent;
+  border: 1px solid red;
+  padding: 1%;
+  font-size: 1vw;
+  color: red;
+  transition: 0.5s;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  height: 5vh;
+  margin: auto;
+}
+
+.btn-delete:hover {
+  background-color: #FF4B2B;
+  color: #FFFFFF;
+}
+
+.btn-edit {
+  background-color: transparent;
+  border: 1px solid dodgerblue;
+  font-size: 1vw;
+  color: dodgerblue;
+  transition: 0.5s;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  height: 5vh;
+  margin: auto;
+}
+
+.btn-edit:hover {
+  background-color: dodgerblue;
+  color: #FFFFFF;
+}
+
 #allathletes .cont-list,
 #allcompetitions .cont-list {
   display: block;
@@ -93,36 +136,22 @@ fade-enter-active,
 #allathletes h2,
 #allcompetitions h2 {
   text-align: center;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 5vh;
 }
 
 #allathletes .list-data,
 #allcompetitions .list-data {
-  width: 80%;
+  display: block;
+  margin: auto;
 }
 
 #allathletes .list-data li,
 #allcompetitions .list-data li {
   display: flex;
-  width: 100%;
-  padding: 1vh 0 1vh 0;
-}
-
-#allathletes .list-data li button,
-#allcompetitions .list-data li button {
-  background-color: transparent;
-  border: 1px solid red;
-  padding: 1%;
-  font-size: 1vw;
-  color: red;
-  transition: 0.5s;
-  cursor: pointer;
-  border-radius: 0.25rem;
-}
-
-#allathletes .list-data li button:hover,
-#allcompetitions .list-data li button:hover {
-  background-color: red;
-  color: #FFFFFF;
+  width: 45vw;
+  margin: 0 auto 2vh auto;
 }
 
 #allathletes .pagination-btn,
@@ -139,20 +168,21 @@ fade-enter-active,
 
 #allathletes .pagination,
 #allcompetitions .pagination {
-  width: 80%;
+  width: 30%;
   display: flex;
   justify-content: space-between;
-  margin-top: 3vh;
-}
-
-#allathletes .btn-edit,
-#allcompetitions .btn-edit {
-  border: 1px solid dodgerblue;
+  margin: 3vh auto 0 auto;
 }
 
 #allathletes .cont-list-name,
 #allcompetitions .cont-list-name {
   width: 70%;
+  display: flex;
+}
+
+#allathletes .cont-list-name a,
+#allcompetitions .cont-list-name a {
+  margin: auto 0 auto 4vw;
 }
 
 #allathletes .cont-list-btn,
@@ -232,16 +262,32 @@ fade-enter-active,
   cursor: pointer;
 }
 
-#allathletes #add-data button:hover,
-#allcompetitions #add-data button:hover {
-  background-color: #FF4B2B;
-  color: #FFFFFF;
-}
-
 #allathletes .close,
 #allcompetitions .close {
   position: absolute;
   right: 2vw;
+}
+
+#allathletes .li-athlete,
+#allcompetitions .li-athlete {
+  padding: 2vh 2vw 2vh 2vw;
+  margin-bottom: 2vh;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.15), 0 8px 16px -8px rgba(0, 0, 0, 0.08), 0 -6px 16px -6px rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+}
+
+#allathletes .content-img-li-athlete,
+#allcompetitions .content-img-li-athlete {
+  width: 4.5vw;
+  height: 4vw;
+  overflow: hidden;
+  border-radius: 2vw/2vw;
+}
+
+#allathletes .content-img-li-athlete img,
+#allcompetitions .content-img-li-athlete img {
+  width: 200%;
+  position: relative;
 }
 
 #formaddathlete #add-data,
@@ -301,12 +347,6 @@ fade-enter-active,
   cursor: pointer;
 }
 
-#formaddathlete #add-data button:hover,
-#formaddcompetition #add-data button:hover {
-  background-color: #FF4B2B;
-  color: #FFFFFF;
-}
-
 #home h1 {
   text-align: center;
 }
@@ -321,6 +361,8 @@ fade-enter-active,
   transition: 0.5s;
   text-decoration: none;
   color: #4F4D4D;
+  font-size: 0.8vw;
+  width: 100%;
 }
 
 #navbar .logo {
@@ -350,6 +392,7 @@ fade-enter-active,
   font-weight: 700;
   transition: 0.5s;
   cursor: pointer;
+  color: #4F4D4D;
 }
 
 #navbar nav ul li:hover p {
@@ -363,7 +406,13 @@ fade-enter-active,
 }
 
 #navbar nav ul li:hover {
-  height: 30vh;
+  height: 10vh;
+}
+
+#navbar h2 {
+  width: 100%;
+  text-align: center;
+  margin-top: 5vh;
 }
 
 #content-athlete {
@@ -398,36 +447,8 @@ fade-enter-active,
   margin-bottom: 5vh;
 }
 
-#allequipe .list-data {
-  width: 80%;
-}
-
-#allequipe .list-data li {
-  display: flex;
-  width: 100%;
-  margin: auto;
-  padding: 1vh 0 1vh 0;
-}
-
 #allequipe .list-data p {
   width: 50%;
-}
-
-#allequipe .list-data li button {
-  background-color: transparent;
-  border: 1px solid red;
-  padding: 1%;
-  font-size: 1vw;
-  color: red;
-  transition: 0.5s;
-  cursor: pointer;
-  border-radius: 0.25rem;
-  width: 12%;
-}
-
-#allequipe .list-data li button:hover {
-  background-color: red;
-  color: #FFFFFF;
 }
 
 #allequipe .pagination-btn {
@@ -449,6 +470,7 @@ fade-enter-active,
   color: white;
   text-align: center;
   z-index: 4;
+  font-size: 0.9vw;
 }
 
 #background {
@@ -601,6 +623,46 @@ fade-enter-active,
 
 #search {
   text-align: center;
+}
+
+#search input {
+  border: 1px solid lightgrey;
+  border-radius: 0.25rem;
+  padding: 1% 1% 1% 1%;
+  width: 50%;
+  resize: none;
+  margin-top: 3vh;
+}
+
+#search ul {
+  margin: 4vh auto 0 auto;
+  display: flex;
+  width: 70%;
+  flex-wrap: wrap;
+}
+
+#search ul li {
+  margin: 2vh auto 2vh auto;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.15), 0 8px 16px -8px rgba(0, 0, 0, 0.08), 0 -6px 16px -6px rgba(0, 0, 0, 0.05);
+  width: 30%;
+  display: block;
+  padding: 2vh 0 2vh 0;
+  border-radius: 0.5rem;
+  transition: 0.5s;
+}
+
+#search ul li a {
+  transition: 0.5s;
+  text-decoration: none;
+  color: #FF4B2B;
+}
+
+#search ul li:hover a {
+  color: #FFFFFF;
+}
+
+#search ul li:hover {
+  background-color: #FF4B2B;
 }
 
 /*

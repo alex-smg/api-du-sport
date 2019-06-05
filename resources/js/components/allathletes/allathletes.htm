@@ -21,14 +21,18 @@
                 <button class="pagination-btn" type="submit">Enregistrer</button>
             </form>
             <h2>Tous les athletes</h2>
-            <ul class="list-data" v-for="athletes in allathletes" :key="athletes.id">
-                <li>
+            <ul class="list-data">
+                <li  v-for="athletes in allathletes" :key="athletes.id" class="li-athlete">
+                    <div class="content-img-li-athlete">
+                        <img v-if="athletes.image" :src="athletes.image">
+                    </div>
+
                     <p class="cont-list-name">
                         <router-link :to="`/athlete/${athletes.id}`">{{ athletes.name}}</router-link>
                     </p>
                     <div class="cont-list-btn">
                         <button class="btn-edit" @click="switchEdit(athletes.id)">Edit</button>
-                        <button @click="deleteAthlete(athletes.id)">Delete</button>
+                        <button class="btn-delete" @click="deleteAthlete(athletes.id)">Delete</button>
                     </div>
                 </li>
 

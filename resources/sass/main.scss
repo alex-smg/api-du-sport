@@ -4,6 +4,7 @@
   list-style: none;
   font-family: 'Overpass', sans-serif;
   outline: none;
+  text-transform: none;
 }
 #main{
   width: 100vw;
@@ -13,7 +14,7 @@
   display: flex;
 }
 .container{
-  margin-top: 60px;
+  margin-top: 3vh;
   width: 100%;
   z-index: 2;
 }
@@ -37,4 +38,38 @@ fade-enter-active,
 }
 .chat-app {
   display: flex;
+}
+h2, h3, h4, a{
+  color :#4F4D4D
+}
+.btn-delete{
+  background-color: transparent;
+  border: 1px solid red;
+  padding: 1%;
+  font-size: 1vw;
+  color: red;
+  transition: 0.5s;
+  cursor:pointer;
+  border-radius: 0.25rem;
+  height: 5vh;
+  margin: auto;
+}
+.btn-delete:hover{
+  background-color: #FF4B2B;
+  color: #FFFFFF;
+}
+.btn-edit{
+  background-color: transparent;
+  border: 1px solid dodgerblue;
+  font-size: 1vw;
+  color: dodgerblue;
+  transition: 0.5s;
+  cursor:pointer;
+  border-radius: 0.25rem;
+  height: 5vh;
+  margin: auto;
+}
+.btn-edit:hover{
+  background-color: dodgerblue;
+  color: #FFFFFF;
 }

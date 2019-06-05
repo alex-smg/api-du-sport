@@ -17,30 +17,19 @@
     }
     h2{
         text-align: center;
-    }
-    .list-data{
         width: 80%;
+        margin: auto;
+        margin-bottom: 5vh;
     }
+     .list-data {
+         display: block;
+         margin: auto;
+     }
     .list-data li{
         display: flex;
-        width: 100%;
-        padding: 1vh 0 1vh 0;
+        width: 45vw;
+        margin: 0 auto 2vh auto;
     }
-    .list-data li button{
-        background-color: transparent;
-        border: 1px solid red;
-        padding: 1%;
-        font-size: 1vw;
-        color: red;
-        transition: 0.5s;
-        cursor:pointer;
-        border-radius: 0.25rem;
-    }
-    .list-data li button:hover{
-        background-color: red;
-        color: #FFFFFF;
-    }
-
     .pagination-btn{
         background-color: #FF4B2B;
         padding: 1% 2% 1% 2%;
@@ -52,17 +41,20 @@
         border-radius: 0.25rem;
     }
     .pagination{
-        width: 80%;
+        width: 30%;
         display: flex;
         justify-content: space-between;
-        margin-top: 3vh;
+        margin: 3vh auto 0 auto;
     }
-    .btn-edit{
-        border: 1px solid dodgerblue;
-    }
+
     .cont-list-name{
         width: 70%;
+        display: flex;
     }
+    .cont-list-name a{
+        margin: auto 0 auto 4vw;
+    }
+
     .cont-list-btn{
         width: 30%;
         display: flex;
@@ -113,16 +105,27 @@
             transition: 0.5s;
             cursor: pointer
         }
-        #add-data button:hover{
-            background-color: #FF4B2B;
-            color: #FFFFFF;
 
-        }
         .close{
             position: absolute;
             right: 2vw;
         }
-
+    .li-athlete{
+        padding: 2vh 2vw 2vh 2vw;
+        margin-bottom: 2vh;
+        box-shadow: 0 13px 27px -5px rgba(50,50,93,.15), 0 8px 16px -8px rgba(0,0,0,.08), 0 -6px 16px -6px rgba(0,0,0,.05);
+        border-radius: 0.5rem;
+    }
+    .content-img-li-athlete{
+        width: 4.5vw;
+        height: 4vw;
+        overflow: hidden;
+        border-radius: 2vw/2vw;
+    }
+    .content-img-li-athlete img{
+        width: 200%;
+        position: relative;
+    }
     }
 
 

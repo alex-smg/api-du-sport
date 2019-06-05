@@ -11,24 +11,14 @@ export default {
         };
     },
     mounted() {
-        axios.get('/auth')
-            .then((response)=>{
-                this.user = response.data;
-            })
-        console.log(this.user)
-        console.log(window.Echo);
-        console.log(window.Pusher);
         Echo.private(`messages.${this.user.id}`)
             .listen('NewMessage', (e) => {
                 this.hanleIncoming(e.message);
-                console.log(e.message)
             });
         axios.get('/contacts')
             .then((response) => {
                 this.contacts = response.data;
-                console.log(this.contacts)
             });
-
     },
     methods: {
         startConversationWith(contact) {
@@ -37,7 +27,6 @@ export default {
                     this.messages = response.data;
                     this.selectedContact = contact;
                 })
-            console.log(this.selectedContact)
         },
         saveNewMessage(message) {
             this.messages.push(message);
@@ -50,7 +39,6 @@ export default {
             alert(message.text)
 
         },
-
     },
     components: {Conversation, ContactList}
 }
