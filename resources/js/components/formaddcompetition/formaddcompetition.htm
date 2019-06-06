@@ -1,12 +1,12 @@
 <div id="formaddcompetition">
     <form id="add-data" method="POST" action="add/athlete" @submit.prevent="addCompetition()">
-        <h2>Ajouter une competition</h2>
+        <h2>Add competition</h2>
         <div class="cont-input">
-            <label>Nom</label>
+            <label>Name</label>
             <input type="text" name="name" v-model="name"/>
         </div>
         <div class="cont-input">
-            <label>Ajouter une image</label>
+            <label>Add image</label>
             <input type="file" @change="imageChanged"/>
         </div>
         <div class="cont-input">
@@ -14,6 +14,6 @@
             <textarea name="description" v-model="description"></textarea>
         </div>
 
-        <button class="pagination-btn" type="submit">Enregistrer</button>
+        <button class="pagination-btn" type="submit">Save</button>
     </form>
 </div>

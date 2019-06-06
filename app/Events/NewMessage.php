@@ -1,6 +1,7 @@
 <?php
     namespace App\Events;
     use App\Message;
+    use App\User;
     use Illuminate\Broadcasting\Channel;
     use Illuminate\Queue\SerializesModels;
     use Illuminate\Broadcasting\PrivateChannel;
@@ -30,9 +31,5 @@
         public function broadcastOn()
         {
             return new PrivateChannel('messages.' . $this->message->to);
-        }
-        public function broadcastWith()
-        {
-            return ["message" => $this->message];
         }
     }

@@ -14,8 +14,8 @@ class CompetitionsController extends Controller
         return CompetitionResource::collection($allcompetitions);
     }
     public function findCompetiton($id){
-        $competition = Competition::findOrFail($id);
-        return new CompetitionResource($competition);
+        $competition = Competition::with( 'equipe_competition')->findOrFail($id);
+        return $competition;
     }
     public function store(Request $request)
     {

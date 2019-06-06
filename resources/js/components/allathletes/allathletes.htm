@@ -2,13 +2,13 @@
         <div class="cont-list">
             <form v-if="edit" id="add-data" @submit.prevent="UpdateAthlete">
                 <button class="close" @click="switchfalseEdit">X</button>
-                <h2>Modifier un athlete</h2>
+                <h2>Modify athlete</h2>
                 <div class="cont-input">
-                    <label>Nom</label>
+                    <label>Name</label>
                     <input type="text" name="name" v-model="name" value="selectEquipe.name"/>
                 </div>
                 <div class="cont-input">
-                    <label>Equipe</label>
+                    <label>Team</label>
                     <select  name="equipe_id" v-model="equipe_id">
                         <option v-for="equipe in allequipes" :key="equipe.id" :value="equipe.id">{{ equipe.name }}</option>
                     </select>
@@ -18,9 +18,9 @@
                     <textarea name="description" v-model="description"></textarea>
                 </div>
 
-                <button class="pagination-btn" type="submit">Enregistrer</button>
+                <button class="pagination-btn" type="submit">Save</button>
             </form>
-            <h2>Tous les athletes</h2>
+            <h2>All athletes</h2>
             <ul class="list-data">
                 <li  v-for="athletes in allathletes" :key="athletes.id" class="li-athlete">
                     <div class="content-img-li-athlete">
@@ -38,9 +38,9 @@
 
             </ul>
             <div class="pagination">
-                <button class="pagination-btn" v-on:click="fetchPaginationAthletes(pagination.prev_page_url)">Précédent</button>
+                <button class="pagination-btn" v-on:click="fetchPaginationAthletes(pagination.prev_page_url)">Previous</button>
                 <span>Page {{pagination.current_page}} of {{pagination.last_page}}</span>
-                <button class="pagination-btn" v-on:click="fetchPaginationAthletes(pagination.next_page_url)">Suivant</button>
+                <button class="pagination-btn" v-on:click="fetchPaginationAthletes(pagination.next_page_url)">Next</button>
             </div>
         </div>
 </div>

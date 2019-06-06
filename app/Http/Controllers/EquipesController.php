@@ -15,8 +15,8 @@
             return EquipeResource::collection($allequipes);
         }
         public function findEquipe($id){
-            $equipe = Equipe::with('athletes')->findOrFail($id);
-            return new EquipeResource($equipe);
+            $equipe = Equipe::with( 'athletes')->findOrFail($id);
+            return $equipe;
         }
         public function EquipeAthletes($id){
             $equipe = Equipe::find($id)->athletes;

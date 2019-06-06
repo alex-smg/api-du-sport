@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Competition extends Model
 {
-    public function equipes()
+    public function equipe_competition()
     {
-        return $this->belongsToMany('App\Equipe');
+        return $this->hasMany('App\EquipeCompetition');
     }
 }

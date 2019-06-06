@@ -2528,12 +2528,12 @@ __webpack_require__.r(__webpack_exports__);
   name: "equipe",
   data: function data() {
     return {
-      arrayequipe: []
+      arrayequipe: [],
+      athlete: []
     };
   },
   created: function created() {
     this.fetchEquipes();
-    console.log(this.arrayequipe);
   },
   methods: {
     fetchEquipes: function fetchEquipes() {
@@ -2543,7 +2543,8 @@ __webpack_require__.r(__webpack_exports__);
       var id = this.$route.params.id;
       axios.get("/api/equipe/".concat(id)).then(function (response) {
         console.log(response.data);
-        _this.arrayequipe = response.data.data;
+        _this.arrayequipe = response.data;
+        _this.athlete = response.data.athletes;
       });
     }
   }
@@ -2665,6 +2666,7 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+      alert('the athlete has been added');
     },
     fetchEquipes: function fetchEquipes() {
       var _this2 = this;
@@ -2731,6 +2733,7 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+      alert('the competition has been added');
     }
   }
 });
@@ -2770,6 +2773,7 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+      alert('the team has been added');
     },
     fetchNAtionalites: function fetchNAtionalites() {
       var _this = this;
@@ -98195,10 +98199,10 @@ var render = function() {
                 [_vm._v("X")]
               ),
               _vm._v(" "),
-              _c("h2", [_vm._v("Modifier un athlete")]),
+              _c("h2", [_vm._v("Modify athlete")]),
               _vm._v(" "),
               _c("div", { staticClass: "cont-input" }, [
-                _c("label", [_vm._v("Nom")]),
+                _c("label", [_vm._v("Name")]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -98227,7 +98231,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "cont-input" }, [
-                _c("label", [_vm._v("Equipe")]),
+                _c("label", [_vm._v("Team")]),
                 _vm._v(" "),
                 _c(
                   "select",
@@ -98296,13 +98300,13 @@ var render = function() {
               _c(
                 "button",
                 { staticClass: "pagination-btn", attrs: { type: "submit" } },
-                [_vm._v("Enregistrer")]
+                [_vm._v("Save")]
               )
             ]
           )
         : _vm._e(),
       _vm._v(" "),
-      _c("h2", [_vm._v("Tous les athletes")]),
+      _c("h2", [_vm._v("All athletes")]),
       _vm._v(" "),
       _c(
         "ul",
@@ -98371,7 +98375,7 @@ var render = function() {
               }
             }
           },
-          [_vm._v("Précédent")]
+          [_vm._v("Previous")]
         ),
         _vm._v(" "),
         _c("span", [
@@ -98393,7 +98397,7 @@ var render = function() {
               }
             }
           },
-          [_vm._v("Suivant")]
+          [_vm._v("Next")]
         )
       ])
     ])
@@ -98445,10 +98449,10 @@ var render = function() {
                   [_vm._v("X")]
                 ),
                 _vm._v(" "),
-                _c("h2", [_vm._v("Modifier un Competition")]),
+                _c("h2", [_vm._v("Modify Competition")]),
                 _vm._v(" "),
                 _c("div", { staticClass: "cont-input" }, [
-                  _c("label", [_vm._v("Nom")]),
+                  _c("label", [_vm._v("Name")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -98500,13 +98504,13 @@ var render = function() {
                 _c(
                   "button",
                   { staticClass: "pagination-btn", attrs: { type: "submit" } },
-                  [_vm._v("Enregistrer")]
+                  [_vm._v("Save")]
                 )
               ]
             )
           : _vm._e(),
         _vm._v(" "),
-        _c("h2", [_vm._v("Toutes les competitions")]),
+        _c("h2", [_vm._v("All competitions")]),
         _vm._v(" "),
         _vm._l(_vm.allcompetitions, function(competitions) {
           return _c("ul", { key: competitions.id, staticClass: "list-data" }, [
@@ -98568,7 +98572,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Précédent")]
+            [_vm._v("Previous")]
           ),
           _vm._v(" "),
           _c("span", [
@@ -98592,7 +98596,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Suivant")]
+            [_vm._v("Next")]
           )
         ])
       ],
@@ -98646,10 +98650,10 @@ var render = function() {
                   [_vm._v("X")]
                 ),
                 _vm._v(" "),
-                _c("h2", [_vm._v("Modifier une équipe")]),
+                _c("h2", [_vm._v("Modify team")]),
                 _vm._v(" "),
                 _c("div", { staticClass: "cont-input" }, [
-                  _c("label", [_vm._v("Nom")]),
+                  _c("label", [_vm._v("Name")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -98675,7 +98679,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "cont-input" }, [
-                  _c("label", [_vm._v("Nationalite")]),
+                  _c("label", [_vm._v("Nationality")]),
                   _vm._v(" "),
                   _c(
                     "select",
@@ -98747,13 +98751,13 @@ var render = function() {
                 _c(
                   "button",
                   { staticClass: "pagination-btn", attrs: { type: "submit" } },
-                  [_vm._v("Enregistrer")]
+                  [_vm._v("Save")]
                 )
               ]
             )
           : _vm._e(),
         _vm._v(" "),
-        _c("h2", [_vm._v("Tous les equipes")]),
+        _c("h2", [_vm._v("All equipes")]),
         _vm._v(" "),
         _vm._l(_vm.allequipes, function(equipes) {
           return _c("ul", { key: equipes.id, staticClass: "list-data" }, [
@@ -98813,7 +98817,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Précédent")]
+            [_vm._v("Previous")]
           ),
           _vm._v(" "),
           _c("span", [
@@ -98835,7 +98839,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Suivant")]
+            [_vm._v("Next")]
           )
         ])
       ],
@@ -98876,7 +98880,10 @@ var render = function() {
         _vm._v(" "),
         _c("p", [_vm._v(_vm._s(_vm.arrayathlete.description))]),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.arrayathlete.equipe.name))])
+        _c("p", [
+          _c("b", [_vm._v("Equipe : ")]),
+          _vm._v(_vm._s(_vm.arrayathlete.equipe.name))
+        ])
       ])
     ])
   ])
@@ -99115,7 +99122,17 @@ var render = function() {
         _c("h2", [_vm._v(_vm._s(_vm.arrayequipe.name))]),
         _vm._v(" "),
         _c("p", [_vm._v(_vm._s(_vm.arrayequipe.description))])
-      ])
+      ]),
+      _vm._v(" "),
+      _c("h3", [_vm._v("Liste des membres")]),
+      _vm._v(" "),
+      _c(
+        "ul",
+        _vm._l(_vm.athlete, function(athletes) {
+          return _c("li", [_vm._v(_vm._s(athletes.name))])
+        }),
+        0
+      )
     ])
   ])
 }
@@ -99191,10 +99208,10 @@ var render = function() {
         }
       },
       [
-        _c("h2", [_vm._v("Ajouter un athlète")]),
+        _c("h2", [_vm._v("Add athlete")]),
         _vm._v(" "),
         _c("div", { staticClass: "cont-input" }, [
-          _c("label", [_vm._v("Nom")]),
+          _c("label", [_vm._v("Name")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -99219,7 +99236,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "cont-input" }, [
-          _c("label", [_vm._v("Equipe")]),
+          _c("label", [_vm._v("Team")]),
           _vm._v(" "),
           _c(
             "select",
@@ -99329,10 +99346,10 @@ var render = function() {
         }
       },
       [
-        _c("h2", [_vm._v("Ajouter une competition")]),
+        _c("h2", [_vm._v("Add competition")]),
         _vm._v(" "),
         _c("div", { staticClass: "cont-input" }, [
-          _c("label", [_vm._v("Nom")]),
+          _c("label", [_vm._v("Name")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -99357,7 +99374,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "cont-input" }, [
-          _c("label", [_vm._v("Ajouter une image")]),
+          _c("label", [_vm._v("Add image")]),
           _vm._v(" "),
           _c("input", {
             attrs: { type: "file" },
@@ -99393,7 +99410,7 @@ var render = function() {
         _c(
           "button",
           { staticClass: "pagination-btn", attrs: { type: "submit" } },
-          [_vm._v("Enregistrer")]
+          [_vm._v("Save")]
         )
       ]
     )
@@ -99434,10 +99451,10 @@ var render = function() {
         }
       },
       [
-        _c("h2", [_vm._v("Ajouter une équipe")]),
+        _c("h2", [_vm._v("Add team")]),
         _vm._v(" "),
         _c("div", { staticClass: "cont-input" }, [
-          _c("label", [_vm._v("Nom")]),
+          _c("label", [_vm._v("Name")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -99462,7 +99479,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "cont-input" }, [
-          _c("label", [_vm._v("Nationalite")]),
+          _c("label", [_vm._v("nationality")]),
           _vm._v(" "),
           _c(
             "select",
@@ -99531,7 +99548,7 @@ var render = function() {
         _c(
           "button",
           { staticClass: "pagination-btn", attrs: { type: "submit" } },
-          [_vm._v("Enregistrer")]
+          [_vm._v("Save")]
         )
       ]
     )
@@ -99885,7 +99902,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "search" } }, [
     _c("div", [
-      _c("h2", [_vm._v("Search a athlete")]),
+      _c("h2", [_vm._v("Search an athlete")]),
       _vm._v(" "),
       _c("input", {
         directives: [
@@ -115893,8 +115910,8 @@ if (token) {
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
-  key: "1e73486cb8f86859fe11",
-  cluster: "eu",
+  key: '1e73486cb8f86859fe11',
+  cluster: 'eu',
   encrypted: true
 });
 

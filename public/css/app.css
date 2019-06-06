@@ -347,8 +347,26 @@ a {
   cursor: pointer;
 }
 
+#formaddathlete #add-data button:hover,
+#formaddcompetition #add-data button:hover {
+  border: 1px solid #FF4B2B;
+  padding: 1vh 1vh 1vh 1vh;
+  background-color: #FF4B2B;
+  border-radius: 0.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  font-size: 1vw;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
 #home h1 {
   text-align: center;
+}
+
+#home img {
+  display: block;
+  margin: 7vh auto 0 auto;
 }
 
 #navbar {
@@ -421,12 +439,17 @@ a {
 }
 
 #athlete {
-  display: flex;
   margin: auto;
+  width: 70%;
+}
+
+#athlete div p {
+  margin: 2vh 0 2vh 0;
 }
 
 .athlete-content-img {
-  width: 20vw;
+  width: 40vw;
+  margin-bottom: 5vh;
 }
 
 .athlete-content-img img {
@@ -460,6 +483,11 @@ a {
   transition: 0.5s;
   cursor: pointer;
   border-radius: 0.25rem;
+}
+
+#allequipe .pagination-btn:hover {
+  background-color: #FFFFFF;
+  color: #FF4B2B;
 }
 
 #footerbar {
@@ -619,6 +647,20 @@ a {
   padding: 10px;
   margin: 0;
   border-bottom: 1px dashed lightgray;
+}
+
+#content-equipe {
+  display: flex;
+  height: 100%;
+}
+
+#equipe {
+  width: 70%;
+  margin: auto;
+}
+
+#equipe h3 {
+  margin-top: 5vh;
 }
 
 #search {
