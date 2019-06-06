@@ -37,6 +37,7 @@ export default {
                 .catch(function (error) {
                     console.log(error);
                 });
+            alert('the competition has been added');
         }
 
     }

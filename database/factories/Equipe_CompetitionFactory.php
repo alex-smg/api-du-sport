@@ -18,8 +18,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Equipe_competition::class, function (Faker $faker) {
     return [
-        'equipe_id' => $faker->randomElement(['1','2','3','4', '5','10']),
-        'competition_id' => $faker->randomElement(['1','2','3','4', '5','10'])
+        'equipe_id' => $faker->numberBetween($min = 1, $max = 10),
+        'competition_id' => $faker->numberBetween($min = 1, $max = 10)
 
     ];
 });

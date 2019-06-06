@@ -24,8 +24,5 @@ export default {
             })
         }
     },
-    components:{
-        MessagesFeed,
-        MessageComposer
-    }
+    components: {MessagesFeed, MessageComposer}
 }

@@ -17,7 +17,7 @@
     */
 
     $factory->define(Equipe::class, function (Faker $faker) {
-        return [
+       return [
             'name' => $faker->name,
             'description' => $faker->realText(180),
             'nationalite_id' => $faker->randomElement(['1', '10']),

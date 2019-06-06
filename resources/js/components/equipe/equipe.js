@@ -2,12 +2,13 @@ export default {
     name: "equipe",
     data(){
         return{
-            arrayequipe:[]
+            arrayequipe:[],
+            athlete:[]
         }
     },
     created(){
         this.fetchEquipes();
-        console.log(this.arrayequipe)
+
     },
     methods:{
         fetchEquipes(){
@@ -15,7 +16,8 @@ export default {
             let id = this.$route.params.id
             axios.get(`/api/equipe/${id}`).then(response => {
                 console.log(response.data)
-                this.arrayequipe = response.data.data
+                this.arrayequipe = response.data
+                this.athlete = response.data.athletes
             })
 
         },

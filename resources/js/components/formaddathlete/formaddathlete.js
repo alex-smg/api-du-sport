@@ -36,6 +36,7 @@ export default {
                 .catch(function (error) {
                     console.log(error);
                 });
+            alert('the athlete has been added');
         },
         fetchEquipes() {
             let $this = this

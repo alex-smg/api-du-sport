@@ -1,12 +1,12 @@
 <div id="formaddathlete">
         <form id="add-data" method="POST" action="add/athlete" @submit.prevent="addAthlete()">
-            <h2>Ajouter un athlète</h2>
+            <h2>Add athlete</h2>
             <div class="cont-input">
-                <label>Nom</label>
+                <label>Name</label>
                 <input type="text" name="name" v-model="name"/>
             </div>
             <div class="cont-input">
-                <label>Equipe</label>
+                <label>Team</label>
                 <select   name="equipe_id" v-model="equipe_id">
                     <option v-for="equipe in allequipes" :key="equipe.id" :value="equipe.id">{{ equipe.name }}</option>
                 </select>

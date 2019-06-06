@@ -10,9 +10,9 @@ class Equipe extends Model
     {
         return $this->hasMany('App\Athlete');
     }
-    public function competitions()
+    public function equipe_competition()
     {
-        return $this->belongsToMany('App\Competition');
+        return $this->hasMany('App\EquipeCompetition');
     }
     public function nationalites()
     {

@@ -2,13 +2,13 @@
     <div class="cont-list">
         <form v-if="edit" id="add-data" @submit.prevent="UpdateEquipe">
             <button class="close" @click="switchfalse">X</button>
-            <h2>Modifier une équipe</h2>
+            <h2>Modify team</h2>
             <div class="cont-input">
-                <label>Nom</label>
+                <label>Name</label>
                 <input type="text" name="name" v-model="name" v- id="input-name"/>
             </div>
             <div class="cont-input">
-                <label>Nationalite</label>
+                <label>Nationality</label>
                 <select  name="equipe_id" v-model="nationalite_id">
                     <option v-for="nationalites in allnationalites" :key="nationalites.id" :value="nationalites.id">{{ nationalites.name }}</option>
                 </select>
@@ -18,9 +18,9 @@
                 <textarea name="description" v-model="description" id="input-description"></textarea>
             </div>
 
-            <button class="pagination-btn" type="submit">Enregistrer</button>
+            <button class="pagination-btn" type="submit">Save</button>
         </form>
-        <h2>Tous les equipes</h2>
+        <h2>All equipes</h2>
         <ul class="list-data" v-for="equipes in allequipes" :key="equipes.id">
             <li>
                 <p class="cont-list-name">
@@ -28,15 +28,15 @@
                 </p>
                 <div class="cont-list-btn">
                     <button class="btn-edit" @click="switchEdit(equipes.id)">Edit</button>
-                    <button @click="deleteEquipe(equipes.id)">Delete</button>
+                    <button class="btn-delete" @click="deleteEquipe(equipes.id)">Delete</button>
                 </div>
             </li>
 
         </ul>
         <div class="pagination">
-            <button class="pagination-btn" v-on:click="fetchPaginationEquipe(pagination.prev_page_url)">Précédent</button>
+            <button class="pagination-btn" v-on:click="fetchPaginationEquipe(pagination.prev_page_url)">Previous</button>
             <span>Page {{pagination.current_page}} of {{pagination.last_page}}</span>
-            <button class="pagination-btn" v-on:click="fetchPaginationEquipe(pagination.next_page_url)">Suivant</button>
+            <button class="pagination-btn" v-on:click="fetchPaginationEquipe(pagination.next_page_url)">Next</button>
         </div>
     </div>
 </div>

@@ -4,12 +4,18 @@
   height: 100vh;
 }
 #athlete{
-  display: flex;
   margin: auto;
+  width: 70%;
+
+}
+#athlete div p{
+  margin: 2vh 0 2vh 0;
 }
 .athlete-content-img{
-  width: 20vw;
+  width: 40vw;
+  margin-bottom: 5vh ;
 }
 .athlete-content-img img{
   width: 100%;
+
 }

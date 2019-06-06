@@ -26,6 +26,7 @@ export default {
                 .catch(function (error) {
                     console.log(error);
                 });
+            alert('the team has been added');
         },
         fetchNAtionalites(){
             axios.get('api/all-nationalites').then(response => {

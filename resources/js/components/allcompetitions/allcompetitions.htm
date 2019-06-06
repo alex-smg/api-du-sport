@@ -2,9 +2,9 @@
     <div class="cont-list">
         <form v-if="edit" id="add-data" @submit.prevent="UpdateCompetition">
             <button class="close" @click="switchfalseEdit">X</button>
-            <h2>Modifier un Competition</h2>
+            <h2>Modify Competition</h2>
             <div class="cont-input">
-                <label>Nom</label>
+                <label>Name</label>
                 <input type="text" name="name" v-model="name"/>
             </div>
             <div class="cont-input">
@@ -12,9 +12,9 @@
                 <textarea name="description" v-model="description"></textarea>
             </div>
 
-            <button class="pagination-btn" type="submit">Enregistrer</button>
+            <button class="pagination-btn" type="submit">Save</button>
         </form>
-        <h2>Toutes les competitions</h2>
+        <h2>All competitions</h2>
         <ul class="list-data" v-for="competitions in allcompetitions" :key="competitions.id">
             <li>
                 <p class="cont-list-name">
@@ -22,15 +22,15 @@
                 </p>
                 <div class="cont-list-btn">
                     <button class="btn-edit" @click="switchEdit(competitions.id)">Edit</button>
-                    <button @click="deleteCompetition(competitions.id)">Delete</button>
+                    <button class="btn-delete" @click="deleteCompetition(competitions.id)">Delete</button>
                 </div>
             </li>
 
         </ul>
         <div class="pagination">
-            <button class="pagination-btn" v-on:click="fetchPaginationCompetitions(pagination.prev_page_url)">Précédent</button>
+            <button class="pagination-btn" v-on:click="fetchPaginationCompetitions(pagination.prev_page_url)">Previous</button>
             <span>Page {{pagination.current_page}} of {{pagination.last_page}}</span>
-            <button class="pagination-btn" v-on:click="fetchPaginationCompetitions(pagination.next_page_url)">Suivant</button>
+            <button class="pagination-btn" v-on:click="fetchPaginationCompetitions(pagination.next_page_url)">Next</button>
         </div>
     </div>
 </div>

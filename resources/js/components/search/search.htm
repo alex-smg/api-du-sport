@@ -1,6 +1,8 @@
 <div id="search">
     <div>
+        <h2>Search an athlete</h2>
         <input type="text" v-model="keywords" placeholder="Type an athlete name">
+
         <ul class="list-data" v-if="results.length > 0">
             <li v-for="result in results" :key="result.id">
                 <p class="cont-list-name">

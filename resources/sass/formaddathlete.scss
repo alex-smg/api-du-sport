@@ -38,9 +38,15 @@
         cursor: pointer
     }
     #add-data button:hover{
+        border: 1px solid #FF4B2B;
+        padding: 1vh 1vh 1vh 1vh;
         background-color: #FF4B2B;
+        border-radius: 0.25rem;
+        font-weight: 700;
         color: #FFFFFF;
-
+        font-size: 1vw;
+        transition: 0.5s;
+        cursor: pointer
     }
 
 }
